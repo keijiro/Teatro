@@ -25,141 +25,102 @@ namespace Teatro
         [SerializeField, Range(0, 1)] float _rightLegStretch = 0;
         [SerializeField, Range(0, 1)] float _rightLegRaise = 0.5f;
 
+        Animator _animator;
+        NoiseGenerator _noise;
+
         Vector3 _bodyPosition;
+        Quaternion _spineRotation;
+        Vector3 _leftHandPosition;
+        Vector3 _leftFootPosition;
+        Vector3 _rightHandPosition;
+        Vector3 _rightFootPosition;
 
-        class Jitter
+        Quaternion CalculateSpineRotation()
         {
-            float _position;
-
-            public float NormalizedValue {
-                get {
-                    return Perlin.Fbm(_position, 2) * (1 / 0.75f);
-                }
-            }
-
-            public Jitter()
-            {
-                _position = Random.Range(-100.0f, 100.0f);
-            }
-
-            public void Step()
-            {
-                _position += Time.deltaTime * 0.2f;
-            }
+            float a1 = (_spineBend  * 2 - 1) * 45;
+            float a2 = (_spineTwist * 2 - 1) * 45;
+            return
+                Quaternion.AngleAxis(a1, Vector3.right) *
+                Quaternion.AngleAxis(a2, Vector3.up) *
+                _noise.Rotation(1, 20.0f);
         }
 
-        class Jitter3D
+        Vector3 CalculateHandPosition(bool isRight)
         {
-            Jitter _jitter1, _jitter2, _jitter3;
-
-            public float NormalizedValue1 { get { return _jitter1.NormalizedValue; } }
-            public float NormalizedValue2 { get { return _jitter2.NormalizedValue; } }
-            public float NormalizedValue3 { get { return _jitter3.NormalizedValue; } }
-
-            public Vector3 NormalizedVector {
-                get {
-                    return new Vector3(
-                        NormalizedValue1,
-                        NormalizedValue2,
-                        NormalizedValue3
-                    );
-                }
-            }
-
-            public Jitter3D()
-            {
-                _jitter1 = new Jitter();
-                _jitter2 = new Jitter();
-                _jitter3 = new Jitter();
-            }
-
-            public void Step()
-            {
-                _jitter1.Step();
-                _jitter2.Step();
-                _jitter3.Step();
-            }
+            var ry = (isRight ? _rightArmOpen : -_leftArmOpen) * 80;
+            var rx = (isRight ? _rightArmRaise : _leftArmRaise) * -90 + 50;
+            var s = Mathf.Lerp(0.25f, 0.5f, isRight ? _rightArmStretch : _leftArmStretch);
+            var n = _noise.Vector(isRight ? 2 : 3) * 0.1f;
+            return
+                Quaternion.AngleAxis(ry, Vector3.up) *
+                Quaternion.AngleAxis(rx, Vector3.right) *
+                Vector3.forward * s + n;
         }
 
-        Jitter3D _bodyJitter;
-        Jitter3D _leftHandJitter;
-        Jitter3D _rightHandJitter;
-        Jitter3D _leftFootJitter;
-        Jitter3D _rightFootJitter;
+        Vector3 CalculateFootPosition(bool isRight)
+        {
+            var rx = (isRight ? _rightLegRaise : _leftLegRaise) * -110 + 45;
+            var s = Mathf.Lerp(-0.3f, -0.75f, isRight ? _rightLegStretch : _leftLegStretch);
+            var n = _noise.Vector(isRight ? 4 : 5) * 0.1f;
+            return Quaternion.AngleAxis(rx, Vector3.right) * Vector3.up * s + n;
+        }
 
         void Start()
         {
-            _bodyJitter = new Jitter3D();
-            _leftHandJitter = new Jitter3D();
-            _rightHandJitter = new Jitter3D();
-            _leftFootJitter = new Jitter3D();
-            _rightFootJitter = new Jitter3D();
+            _animator = GetComponent<Animator>();
 
-            var animator = GetComponent<Animator>();
-            _bodyPosition = animator.GetBoneTransform(HumanBodyBones.Hips).position;
+            _bodyPosition = _animator.GetBoneTransform(HumanBodyBones.Hips).position;
+            _noise = new NoiseGenerator(0.2f);
+
+            _spineRotation = CalculateSpineRotation();
+            _leftHandPosition = CalculateHandPosition(false);
+            _leftFootPosition = CalculateFootPosition(false);
+            _rightHandPosition = CalculateHandPosition(true);
+            _rightFootPosition = CalculateFootPosition(true);
         }
 
         void Update()
         {
-            _bodyJitter.Step();
-            _leftHandJitter.Step();
-            _rightHandJitter.Step();
-            _leftFootJitter.Step();
-            _rightFootJitter.Step();
+            _noise.Step();
+
+            _spineRotation = ExpEase.Out(_spineRotation, CalculateSpineRotation(), 2.0f);
+            _leftHandPosition = ExpEase.Out(_leftHandPosition, CalculateHandPosition(false), 2.0f);
+            _leftFootPosition = ExpEase.Out(_leftFootPosition, CalculateFootPosition(false), 2.0f);
+            _rightHandPosition = ExpEase.Out(_rightHandPosition, CalculateHandPosition(true), 2.0f);
+            _rightFootPosition = ExpEase.Out(_rightFootPosition, CalculateFootPosition(true), 2.0f);
         }
 
         void OnAnimatorMove()
         {
-            var animator = GetComponent<Animator>();
-            animator.bodyPosition = _bodyPosition + _bodyJitter.NormalizedVector * 0.2f;
+            _animator.bodyPosition = _bodyPosition + _noise.Vector(6) * 0.15f;
+            _animator.bodyRotation = _noise.Rotation(7, 10.0f);
         }
 
         void OnAnimatorIK(int layerIndex)
         {
-            var animator = GetComponent<Animator>();
+            _animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+            _animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+            _animator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1);
+            _animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, 1);
 
-            var spine =
-                Quaternion.AngleAxis((_spineBend  * 2 - 1) * 45, Vector3.right) *
-                Quaternion.AngleAxis((_spineTwist * 2 - 1) * 45, Vector3.up);
-            animator.SetBoneLocalRotation(HumanBodyBones.Spine, spine);
-            animator.SetBoneLocalRotation(HumanBodyBones.Chest, spine);
+            _animator.SetBoneLocalRotation(HumanBodyBones.Spine, _spineRotation);
+            _animator.SetBoneLocalRotation(HumanBodyBones.Chest, _spineRotation);
 
-            animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
-            animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
-            animator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1);
-            animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, 1);
+            var hip = _animator.GetBoneTransform(HumanBodyBones.Hips);
+            var larm = _animator.GetBoneTransform(HumanBodyBones.LeftShoulder);
+            var rarm = _animator.GetBoneTransform(HumanBodyBones.RightShoulder);
+            var lleg = _animator.GetBoneTransform(HumanBodyBones.LeftUpperLeg).position;
+            var rleg = _animator.GetBoneTransform(HumanBodyBones.RightUpperLeg).position;
 
-            var larm = animator.GetBoneTransform(HumanBodyBones.LeftShoulder);
-            var rarm = animator.GetBoneTransform(HumanBodyBones.RightShoulder);
+            var lhp = larm.TransformPoint(_leftHandPosition);
+            var rhp = rarm.TransformPoint(_rightHandPosition);
+            var lfp = hip.TransformPoint(hip.InverseTransformPoint(lleg) + _leftFootPosition);
+            var rfp = hip.TransformPoint(hip.InverseTransformPoint(rleg) + _rightFootPosition);
 
-            var lhp = larm.TransformPoint(
-                Quaternion.AngleAxis(-_leftArmOpen * 80, Vector3.up) *
-                Quaternion.AngleAxis(-_leftArmRaise * 90 + 50, Vector3.right) *
-                Vector3.forward * Mathf.Lerp(0.25f, 0.5f, _leftArmStretch));
-            
-            var rhp = rarm.TransformPoint(
-                Quaternion.AngleAxis(+_rightArmOpen * 80, Vector3.up) *
-                Quaternion.AngleAxis(-_rightArmRaise * 90 + 50, Vector3.right) *
-                Vector3.forward * Mathf.Lerp(0.25f, 0.5f, _rightArmStretch));
-
-            var hip = animator.GetBoneTransform(HumanBodyBones.Hips);
-            var lul = animator.GetBoneTransform(HumanBodyBones.LeftUpperLeg).position;
-            var rul = animator.GetBoneTransform(HumanBodyBones.RightUpperLeg).position;
-
-            var lfp = hip.TransformPoint(
-                hip.InverseTransformPoint(lul) +
-                Quaternion.AngleAxis(-_leftLegRaise * 110 + 45, Vector3.right) *
-                -Vector3.up * Mathf.Lerp(0.3f, 0.75f, _leftLegStretch));
-
-            var rfp = hip.TransformPoint(
-                hip.InverseTransformPoint(rul) +
-                Quaternion.AngleAxis(-_rightLegRaise * 110 + 45, Vector3.right) *
-                -Vector3.up * Mathf.Lerp(0.3f, 0.75f, _rightLegStretch));
-
-            animator.SetIKPosition(AvatarIKGoal.LeftHand, lhp + _leftHandJitter.NormalizedVector * 0.05f);
-            animator.SetIKPosition(AvatarIKGoal.RightHand, rhp + _rightHandJitter.NormalizedVector * 0.05f);
-            animator.SetIKPosition(AvatarIKGoal.LeftFoot, lfp + _leftFootJitter.NormalizedVector * 0.05f);
-            animator.SetIKPosition(AvatarIKGoal.RightFoot, rfp + _rightFootJitter.NormalizedVector * 0.05f);
+            _animator.SetIKPosition(AvatarIKGoal.LeftHand, lhp);
+            _animator.SetIKPosition(AvatarIKGoal.RightHand, rhp);
+            _animator.SetIKPosition(AvatarIKGoal.LeftFoot, lfp);
+            _animator.SetIKPosition(AvatarIKGoal.RightFoot, rfp);
         }
     }
 }
