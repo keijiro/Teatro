@@ -26,7 +26,7 @@ Material:
         first:
           name: _Cubemap
         second:
-          m_Texture: {fileID: 8900000, guid: 498ab132a9539c247a7ec6182af4dec5, type: 3}
+          m_Texture: {fileID: 8900000, guid: 5d27cebc516a44c9dbcaa8740f26f68e, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -37,7 +37,7 @@ Material:
       data:
         first:
           name: _Saturation
-        second: .300000012
+        second: .5
       data:
         first:
           name: _Rotation
