@@ -33,7 +33,7 @@ Material:
       data:
         first:
           name: _Exposure
-        second: 1.39999998
+        second: 1.70000005
       data:
         first:
           name: _Saturation
@@ -50,16 +50,16 @@ Material:
       data:
         first:
           name: _Euler
-        second: {r: 0, g: -320, b: 0, a: 0}
+        second: {r: 0, g: 60, b: 0, a: 0}
       data:
         first:
           name: _Rotation1
-        second: {r: .766044378, g: 0, b: .642787755, a: 0}
+        second: {r: .5, g: 0, b: .866025388, a: 0}
       data:
         first:
           name: _Rotation2
-        second: {r: 0, g: 1, b: 0, a: 0}
+        second: {r: 0, g: 1, b: -0, a: 0}
       data:
         first:
           name: _Rotation3
-        second: {r: -.642787755, g: -0, b: .766044378, a: 0}
+        second: {r: -.866025388, g: 0, b: .5, a: 0}
