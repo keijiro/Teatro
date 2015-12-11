@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2640f9c7eb8d5944a8d44d824f98128d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _noiseSpeed: 0
   _spineBend: .5
   _spineTwist: .5
   _leftArmStretch: 0
@@ -328,6 +329,19 @@ MonoBehaviour:
   _leftLegRaise: .5
   _rightLegStretch: 0
   _rightLegRaise: .5
+--- !u!114 &1375615767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1375615763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48607bb00c0ac9f479c123717e265b71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _closeToOpen: .5
+  _noiseStrength: 0
 --- !u!1001 &1424738481
 Prefab:
   m_ObjectHideFlags: 0

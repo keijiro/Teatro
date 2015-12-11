@@ -12,6 +12,11 @@ namespace Teatro
 
         int _fractal = 2;
 
+        public float Frequency {
+            get { return _frequency; }
+            set { _frequency = value; }
+        }
+
         public NoiseGenerator(float frequency)
         {
             _hash1 = new XXHash(Random.Range(0, 0x7fffffff));
@@ -31,6 +36,12 @@ namespace Teatro
         public void Step()
         {
             _time += _frequency * Time.deltaTime;
+        }
+
+        public float Value01(int seed2)
+        {
+            var i1 = _hash1.Range(-100.0f, 100.0f, seed2);
+            return Perlin.Fbm(_time + i1, _fractal) * (1 / 1.5f) + 0.5f;
         }
 
         public float Value(int seed2)

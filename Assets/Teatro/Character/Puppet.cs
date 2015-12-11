@@ -4,6 +4,9 @@ namespace Teatro
 {
     public class Puppet : MonoBehaviour
     {
+        [SerializeField, Range(0, 1)] float _noiseSpeed = 0;
+
+        [Space]
         [SerializeField, Range(0, 1)] float _spineBend = 0.5f;
         [SerializeField, Range(0, 1)] float _spineTwist = 0.5f;
 
@@ -24,6 +27,66 @@ namespace Teatro
         [Space]
         [SerializeField, Range(0, 1)] float _rightLegStretch = 0;
         [SerializeField, Range(0, 1)] float _rightLegRaise = 0.5f;
+
+        public float spineBend {
+            get { return _spineBend; }
+            set { _spineBend = value; }
+        }
+
+        public float spineTwist {
+            get { return _spineTwist; }
+            set { _spineTwist = value; }
+        }
+
+        public float leftArmStretch {
+            get { return _leftArmStretch; }
+            set { _leftArmStretch = value; }
+        }
+
+        public float leftArmRaise {
+            get { return _leftArmRaise; }
+            set { _leftArmRaise = value; }
+        }
+
+        public float leftArmOpen {
+            get { return _leftArmOpen; }
+            set { _leftArmOpen = value; }
+        }
+
+        public float rightArmStretch {
+            get { return _rightArmStretch; }
+            set { _rightArmStretch = value; }
+        }
+
+        public float rightArmRaise {
+            get { return _rightArmRaise; }
+            set { _rightArmRaise = value; }
+        }
+
+        public float rightArmOpen {
+            get { return _rightArmOpen; }
+            set { _rightArmOpen = value; }
+        }
+
+        public float leftLegStretch {
+            get { return _leftLegStretch; }
+            set { _leftLegStretch = value; }
+        }
+
+        public float leftLegRaise {
+            get { return _leftLegRaise; }
+            set { _leftLegRaise = value; }
+        }
+
+        public float rightLegStretch {
+            get { return _rightLegStretch; }
+            set { _rightLegStretch = value; }
+        }
+
+        public float rightLegRaise {
+            get { return _rightLegRaise; }
+            set { _rightLegRaise = value; }
+        }
 
         Animator _animator;
         NoiseGenerator _noise;
@@ -81,13 +144,15 @@ namespace Teatro
 
         void Update()
         {
+            _noise.Frequency = Mathf.Lerp(0.2f, 10.0f, _noiseSpeed);
             _noise.Step();
 
-            _spineRotation = ExpEase.Out(_spineRotation, CalculateSpineRotation(), 2.0f);
-            _leftHandPosition = ExpEase.Out(_leftHandPosition, CalculateHandPosition(false), 2.0f);
-            _leftFootPosition = ExpEase.Out(_leftFootPosition, CalculateFootPosition(false), 2.0f);
-            _rightHandPosition = ExpEase.Out(_rightHandPosition, CalculateHandPosition(true), 2.0f);
-            _rightFootPosition = ExpEase.Out(_rightFootPosition, CalculateFootPosition(true), 2.0f);
+            var speed = Mathf.Lerp(2.0f, 20.0f, _noiseSpeed);
+            _spineRotation = ExpEase.Out(_spineRotation, CalculateSpineRotation(), speed);
+            _leftHandPosition = ExpEase.Out(_leftHandPosition, CalculateHandPosition(false), speed);
+            _leftFootPosition = ExpEase.Out(_leftFootPosition, CalculateFootPosition(false), speed);
+            _rightHandPosition = ExpEase.Out(_rightHandPosition, CalculateHandPosition(true), speed);
+            _rightFootPosition = ExpEase.Out(_rightFootPosition, CalculateFootPosition(true), speed);
         }
 
         void OnAnimatorMove()
