@@ -33,7 +33,7 @@ Material:
       data:
         first:
           name: _Exposure
-        second: 1.70000005
+        second: 2.5
       data:
         first:
           name: _Saturation
