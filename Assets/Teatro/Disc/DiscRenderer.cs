@@ -46,6 +46,12 @@ public class DiscRenderer : MonoBehaviour
         va[_pointCount * 6 + 6] = va[_pointCount * 4 + _pointCount - 1];
         va[_pointCount * 6 + 7] = va[_pointCount * 5 + _pointCount - 1];
 
+        var ta = new Vector2[va.Length];
+        for (var i = 0; i < ta.Length; i++)
+        {
+            ta[i] = new Vector2(va[i].x, va[i].z);
+        }
+
         var ia = new int[(_pointCount - 1) * 6 * 3 + 12];
         var ii = 0;
 
@@ -94,6 +100,7 @@ public class DiscRenderer : MonoBehaviour
 
         var mesh = new Mesh();
         mesh.vertices = va;
+        mesh.uv = ta;
         mesh.SetIndices(ia, MeshTopology.Triangles, 0);
         mesh.hideFlags = HideFlags.DontSave;
         mesh.RecalculateNormals();
@@ -107,7 +114,7 @@ public class DiscRenderer : MonoBehaviour
         _meshes = new Mesh[_ringSegments];
         for (var ri = 0; ri < _ringSegments; ri++)
         {
-            _meshes[ri] = BuildMesh(1.0f * ri / _ringSegments, 1.0f * (ri + 1) / _ringSegments);
+            _meshes[ri] = BuildMesh(0.05f + 0.95f * ri / _ringSegments, 0.05f + 0.95f * (ri + 1) / _ringSegments);
         }
     }
 

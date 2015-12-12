@@ -33,11 +33,11 @@ Material:
       data:
         first:
           name: _Exposure
-        second: 2.5
+        second: 2
       data:
         first:
           name: _Saturation
-        second: .5
+        second: .200000003
       data:
         first:
           name: _Rotation

@@ -20,7 +20,7 @@ Material:
           name: _MainTex
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: 2, y: 2}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -55,7 +55,7 @@ Material:
           name: _EmissionMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: 2, y: 2}
           m_Offset: {x: 0, y: 0}
       data:
         first:
@@ -93,10 +93,6 @@ Material:
         second: .5
       data:
         first:
-          name: _BumpScale
-        second: 1
-      data:
-        first:
           name: _Parallax
         second: .0199999996
       data:
@@ -106,7 +102,11 @@ Material:
       data:
         first:
           name: _Glossiness
-        second: .150000006
+        second: .425999999
+      data:
+        first:
+          name: _BumpScale
+        second: 1
       data:
         first:
           name: _OcclusionStrength
@@ -126,7 +126,7 @@ Material:
       data:
         first:
           name: _Metallic
-        second: 0
+        second: .552999973
     m_Colors:
       data:
         first:
@@ -135,4 +135,4 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .152735725, g: .152950123, b: .183823526, a: 1}
+        second: {r: .242647052, g: .242647052, b: .242647052, a: 1}
