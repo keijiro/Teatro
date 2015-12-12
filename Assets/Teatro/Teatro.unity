@@ -1269,7 +1269,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2008358583}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: -2.29999995}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 873665404}
@@ -1279,3 +1279,72 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400186, guid: 70f78be1e034af54790b7297093153f7, type: 3}
   m_PrefabInternal: {fileID: 1424738481}
+--- !u!1 &2138539467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2138539469}
+  - 114: {fileID: 2138539468}
+  m_Layer: 0
+  m_Name: Swarm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2138539468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2138539467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51c30eda798174ab2be4fb13ae65946d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lineCount: 512
+  _historyLength: 256
+  _throttle: 1
+  _flow: {x: 0, y: 0, z: 0}
+  _attractor: {fileID: 0}
+  _attractorPosition: {x: 0, y: 1, z: 0}
+  _attractorRadius: .200000003
+  _forcePerDistance: 2.5
+  _forceRandomness: .300000012
+  _drag: 1.60000002
+  _noiseAmplitude: 1.5
+  _noiseFrequency: .150000006
+  _noiseSpread: .100000001
+  _noiseMotion: .5
+  _swirlAmplitude: .100000001
+  _swirlFrequency: .150000006
+  _lineWidth: .0199999996
+  _lineWidthRandomness: .75
+  _colorMode: 0
+  _color1: {r: 1, g: .102941155, b: .102941155, a: 1}
+  _color2: {r: .713235259, g: .713235259, b: .713235259, a: 1}
+  _metallic: .5
+  _smoothness: .600000024
+  _castShadows: 0
+  _receiveShadows: 0
+  _fixTimeStep: 0
+  _stepsPerSecond: 60
+  _randomSeed: 0
+  _kernelShader: {fileID: 4800000, guid: ab176efa7135a4f038c7b318a0b3c9ef, type: 3}
+  _lineShader: {fileID: 4800000, guid: ebdc691e18a6342eeac2c370efde4a89, type: 3}
+--- !u!4 &2138539469
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2138539467}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
