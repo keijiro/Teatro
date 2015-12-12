@@ -1,156 +1,235 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
-[ExecuteInEditMode]
-public class DiscRenderer : MonoBehaviour
+namespace Teatro
 {
-    [SerializeField] int _arcSegments = 8;
-    [SerializeField] int _ringSegments = 10;
-    [SerializeField] int _pointCount = 10;
-
-    [SerializeField] Material _material;
-
-    Mesh[] _meshes;
-    bool _needsRebuild = true;
-
-    public void RequestRebuild()
+    [ExecuteInEditMode]
+    public class DiscRenderer : MonoBehaviour
     {
-        _needsRebuild = true;
-    }
+        [SerializeField]
+        int _arcCount = 12;
 
-    Mesh BuildMesh(float l0, float l1)
-    {
-        var va = new Vector3[_pointCount * 6 + 8];
-        var ta = new Vector2[va.Length];
+        [SerializeField]
+        int _ringCount = 24;
 
-        var r0 = 0.0f;
-        var r1 = Mathf.PI * 2 / _arcSegments;
+        [SerializeField]
+        int _pointsOnArc = 6;
 
-        for (var i = 0; i < _pointCount; i++)
+        [SerializeField]
+        Color _baseColor = Color.black;
+
+        [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
+        Color _lineColor = Color.white;
+
+        [SerializeField, Range(0, 1)]
+        float _metallic = 0.5f;
+
+        [SerializeField, Range(0, 1)]
+        float _smoothness = 0.5f;
+
+        [SerializeField, HideInInspector] Shader _shader;
+
+        Mesh _mesh;
+        Material _material;
+        bool _needsReset = true;
+
+        public void RequestReset()
         {
-            var r = Mathf.Lerp(r0, r1, (float)i / (_pointCount - 1));
-            var v = new Vector3(Mathf.Cos(r), 0, Mathf.Sin(r));
-
-            va[i + _pointCount * 0] = v * l0 - Vector3.up * 0.05f;
-            va[i + _pointCount * 1] = v * l0;
-            va[i + _pointCount * 2] = v * l0;
-            va[i + _pointCount * 3] = v * l1;
-            va[i + _pointCount * 4] = v * l1;
-            va[i + _pointCount * 5] = v * l1 - Vector3.up * 0.05f;
-
-            float u = (float)i / (_pointCount - 1);
-            ta[i + _pointCount * 0] = new Vector2(u, 1);
-            ta[i + _pointCount * 1] = new Vector2(u, 0);
-            ta[i + _pointCount * 2] = new Vector2(u, 0);
-            ta[i + _pointCount * 3] = new Vector2(u, 1);
-            ta[i + _pointCount * 4] = new Vector2(u, 1);
-            ta[i + _pointCount * 5] = new Vector2(u, 0);
+            _needsReset = true;
         }
 
-        va[_pointCount * 6 + 0] = va[_pointCount * 0];
-        va[_pointCount * 6 + 1] = va[_pointCount * 1];
-        va[_pointCount * 6 + 2] = va[_pointCount * 4];
-        va[_pointCount * 6 + 3] = va[_pointCount * 5];
-
-        va[_pointCount * 6 + 4] = va[_pointCount * 0 + _pointCount - 1];
-        va[_pointCount * 6 + 5] = va[_pointCount * 1 + _pointCount - 1];
-        va[_pointCount * 6 + 6] = va[_pointCount * 4 + _pointCount - 1];
-        va[_pointCount * 6 + 7] = va[_pointCount * 5 + _pointCount - 1];
-
-        ta[_pointCount * 6 + 0] = ta[_pointCount * 0];
-        ta[_pointCount * 6 + 1] = ta[_pointCount * 1];
-        ta[_pointCount * 6 + 2] = ta[_pointCount * 4];
-        ta[_pointCount * 6 + 3] = ta[_pointCount * 5];
-
-        ta[_pointCount * 6 + 4] = ta[_pointCount * 0 + _pointCount - 1];
-        ta[_pointCount * 6 + 5] = ta[_pointCount * 1 + _pointCount - 1];
-        ta[_pointCount * 6 + 6] = ta[_pointCount * 4 + _pointCount - 1];
-        ta[_pointCount * 6 + 7] = ta[_pointCount * 5 + _pointCount - 1];
-
-        var ia = new int[(_pointCount - 1) * 6 * 3 + 12];
-        var ii = 0;
-
-        for (var i = 0; i < _pointCount - 1; i++)
+        void AppendSegment(
+            float l0, float l1,
+            float r0, float r1,
+            float depth,
+            List<Vector3> vtxList,
+            List<Vector2> uv0List,
+            List<Vector2> uv1List,
+            List<int> idxList
+        )
         {
-            ia[ii++] = _pointCount * 0 + i;
-            ia[ii++] = _pointCount * 0 + i + 1;
-            ia[ii++] = _pointCount * 1 + i;
+            var vi0 = vtxList.Count;
+            var down = Vector3.up * depth;
+            var uv1 = new Vector2(l0, r0);
 
-            ia[ii++] = _pointCount * 1 + i;
-            ia[ii++] = _pointCount * 0 + i + 1;
-            ia[ii++] = _pointCount * 1 + i + 1;
-
-            ia[ii++] = _pointCount * 2 + i;
-            ia[ii++] = _pointCount * 2 + i + 1;
-            ia[ii++] = _pointCount * 3 + i;
-
-            ia[ii++] = _pointCount * 3 + i;
-            ia[ii++] = _pointCount * 2 + i + 1;
-            ia[ii++] = _pointCount * 3 + i + 1;
-
-            ia[ii++] = _pointCount * 4 + i;
-            ia[ii++] = _pointCount * 4 + i + 1;
-            ia[ii++] = _pointCount * 5 + i;
-
-            ia[ii++] = _pointCount * 5 + i;
-            ia[ii++] = _pointCount * 4 + i + 1;
-            ia[ii++] = _pointCount * 5 + i + 1;
-        }
-
-        ia[ii++] = _pointCount * 6 + 0;
-        ia[ii++] = _pointCount * 6 + 1;
-        ia[ii++] = _pointCount * 6 + 2;
-
-        ia[ii++] = _pointCount * 6 + 2;
-        ia[ii++] = _pointCount * 6 + 3;
-        ia[ii++] = _pointCount * 6 + 0;
-
-        ia[ii++] = _pointCount * 6 + 4;
-        ia[ii++] = _pointCount * 6 + 6;
-        ia[ii++] = _pointCount * 6 + 5;
-
-        ia[ii++] = _pointCount * 6 + 6;
-        ia[ii++] = _pointCount * 6 + 4;
-        ia[ii++] = _pointCount * 6 + 7;
-
-        var mesh = new Mesh();
-        mesh.vertices = va;
-        mesh.uv = ta;
-        mesh.SetIndices(ia, MeshTopology.Triangles, 0);
-        mesh.hideFlags = HideFlags.DontSave;
-        mesh.RecalculateNormals();
-        return mesh;
-    }
-
-    void SetUpResources()
-    {
-        if (_meshes != null) foreach (var m in _meshes) DestroyImmediate(m);
-
-        _meshes = new Mesh[_ringSegments];
-        for (var ri = 0; ri < _ringSegments; ri++)
-        {
-            _meshes[ri] = BuildMesh(0.05f + 0.95f * ri / _ringSegments, 0.05f + 0.95f * (ri + 1) / _ringSegments);
-        }
-    }
-
-    void Update()
-    {
-        if (_needsRebuild)
-        {
-            SetUpResources();
-            _needsRebuild = false;
-        }
-
-        var matrix = transform.localToWorldMatrix;
-        var x = Time.time * 0.357f;
-        for (var ri = 0; ri < _ringSegments; ri++)
-        {
-            var spin = Quaternion.AngleAxis(Perlin.Noise(231.4f * ri + Time.time * 0.1f) * 60, Vector3.up);
-            for (var ai = 0; ai < _arcSegments; ai++)
+            for (var i = 0; i < _pointsOnArc; i++)
             {
-                var y = Perlin.Fbm(x, 2);
-                Graphics.DrawMesh(_meshes[ri], Matrix4x4.TRS(Vector3.up * y * 0.25f, spin * Quaternion.AngleAxis(360.0f / _arcSegments * ai, Vector3.up), Vector3.one) * matrix, _material, 0); 
-                x += 0.091f;
+                var u = (float)i / (_pointsOnArc - 1);
+                var r = Mathf.Lerp(r0, r1, u);
+                var p = new Vector3(Mathf.Cos(r), 0, Mathf.Sin(r));
+
+                var p0 = p * l0;
+                var p1 = p * l1;
+
+                vtxList.Add(p0 - down);
+                vtxList.Add(p0);
+                vtxList.Add(p0);
+                vtxList.Add(p1);
+                vtxList.Add(p1);
+                vtxList.Add(p1 - down);
+
+                var u0 = new Vector2(u, 0);
+                var u1 = new Vector2(u, 1);
+
+                uv0List.Add(u1);
+                uv0List.Add(u0);
+                uv0List.Add(u0);
+                uv0List.Add(u1);
+                uv0List.Add(u1);
+                uv0List.Add(u0);
+
+                uv1List.Add(uv1);
+                uv1List.Add(uv1);
+                uv1List.Add(uv1);
+                uv1List.Add(uv1);
+                uv1List.Add(uv1);
+                uv1List.Add(uv1);
             }
+
+            var vi2 = vtxList.Count;
+
+            vtxList.Add(vtxList[vi0]);
+            vtxList.Add(vtxList[vi0 + 1]);
+            vtxList.Add(vtxList[vi0 + 3]);
+            vtxList.Add(vtxList[vi0 + 5]);
+
+            uv0List.Add(new Vector2(0, 0));
+            uv0List.Add(new Vector2(0, 1));
+            uv0List.Add(new Vector2(1, 1));
+            uv0List.Add(new Vector2(1, 0));
+
+            uv1List.Add(uv1);
+            uv1List.Add(uv1);
+            uv1List.Add(uv1);
+            uv1List.Add(uv1);
+
+            vtxList.Add(vtxList[vi2 - 6]);
+            vtxList.Add(vtxList[vi2 - 6 + 1]);
+            vtxList.Add(vtxList[vi2 - 6 + 3]);
+            vtxList.Add(vtxList[vi2 - 6 + 5]);
+
+            uv0List.Add(new Vector2(0, 0));
+            uv0List.Add(new Vector2(0, 1));
+            uv0List.Add(new Vector2(1, 1));
+            uv0List.Add(new Vector2(1, 0));
+
+            uv1List.Add(uv1);
+            uv1List.Add(uv1);
+            uv1List.Add(uv1);
+            uv1List.Add(uv1);
+
+            var vi = vi0;
+
+            for (var i = 0; i < _pointsOnArc - 1; i++)
+            {
+                idxList.Add(vi + 0);
+                idxList.Add(vi + 6);
+                idxList.Add(vi + 1);
+
+                idxList.Add(vi + 6);
+                idxList.Add(vi + 7);
+                idxList.Add(vi + 1);
+
+                idxList.Add(vi + 0 + 2);
+                idxList.Add(vi + 6 + 2);
+                idxList.Add(vi + 1 + 2);
+
+                idxList.Add(vi + 6 + 2);
+                idxList.Add(vi + 7 + 2);
+                idxList.Add(vi + 1 + 2);
+
+                idxList.Add(vi + 0 + 4);
+                idxList.Add(vi + 6 + 4);
+                idxList.Add(vi + 1 + 4);
+
+                idxList.Add(vi + 6 + 4);
+                idxList.Add(vi + 7 + 4);
+                idxList.Add(vi + 1 + 4);
+
+                vi += 6;
+            }
+
+            idxList.Add(vi2 + 0);
+            idxList.Add(vi2 + 1);
+            idxList.Add(vi2 + 2);
+
+            idxList.Add(vi2 + 0);
+            idxList.Add(vi2 + 2);
+            idxList.Add(vi2 + 3);
+
+            idxList.Add(vi2 + 4);
+            idxList.Add(vi2 + 6);
+            idxList.Add(vi2 + 5);
+
+            idxList.Add(vi2 + 4);
+            idxList.Add(vi2 + 7);
+            idxList.Add(vi2 + 6);
+        }
+
+        Mesh BuildMesh()
+        {
+            // parameter sanitization
+            _arcCount = Mathf.Clamp(_arcCount, 4, 64);
+            _ringCount = Mathf.Clamp(_ringCount, 2, 64);
+            _pointsOnArc = Mathf.Clamp(_pointsOnArc, 3, 32);
+
+            var vtxList = new List<Vector3>();
+            var uv0List = new List<Vector2>();
+            var uv1List = new List<Vector2>();
+            var idxList = new List<int>();
+
+            for (var ri = 0; ri < _ringCount; ri++)
+            {
+                var l0 = (float)(ri + 0) / (_ringCount - 1);
+                var l1 = (float)(ri + 1) / (_ringCount - 1);
+
+                for (var ai = 0; ai < _arcCount; ai++)
+                {
+                    var r0 = Mathf.PI * 2 * (ai + 0) / (_arcCount - 1);
+                    var r1 = Mathf.PI * 2 * (ai + 1) / (_arcCount - 1);
+
+                    AppendSegment(
+                        l0, l1, r0, r1, 0.05f,
+                        vtxList, uv0List, uv1List, idxList);
+                }
+            }
+
+            var mesh = new Mesh();
+            mesh.SetVertices(vtxList);
+            mesh.SetUVs(0, uv0List);
+            mesh.SetUVs(1, uv1List);
+            mesh.SetIndices(idxList.ToArray(), MeshTopology.Triangles, 0);
+            mesh.hideFlags = HideFlags.DontSave;
+            mesh.RecalculateNormals();
+            return mesh;
+        }
+
+        void SetUpResources()
+        {
+            if (_mesh) DestroyImmediate(_mesh);
+            if (_material) DestroyImmediate(_material);
+
+            _mesh = BuildMesh();
+
+            _material = new Material(_shader);
+            _material.hideFlags = HideFlags.DontSave;
+        }
+
+        void Update()
+        {
+            if (_needsReset)
+            {
+                SetUpResources();
+                _needsReset = false;
+            }
+
+            _material.SetColor("_BaseColor", _baseColor);
+            _material.SetColor("_LineColor", _lineColor);
+            _material.SetFloat("_Glossiness", _smoothness);
+            _material.SetFloat("_Metallic", _metallic);
+
+            var matrix = transform.localToWorldMatrix;
+            Graphics.DrawMesh(_mesh, matrix, _material, 0); 
         }
     }
 }
