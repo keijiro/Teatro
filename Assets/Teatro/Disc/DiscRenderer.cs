@@ -20,6 +20,7 @@ public class DiscRenderer : MonoBehaviour
     Mesh BuildMesh(float l0, float l1)
     {
         var va = new Vector3[_pointCount * 6 + 8];
+        var ta = new Vector2[va.Length];
 
         var r0 = 0.0f;
         var r1 = Mathf.PI * 2 / _arcSegments;
@@ -28,12 +29,21 @@ public class DiscRenderer : MonoBehaviour
         {
             var r = Mathf.Lerp(r0, r1, (float)i / (_pointCount - 1));
             var v = new Vector3(Mathf.Cos(r), 0, Mathf.Sin(r));
-            va[i + _pointCount * 0] = v * l0 - Vector3.up;
+
+            va[i + _pointCount * 0] = v * l0 - Vector3.up * 0.05f;
             va[i + _pointCount * 1] = v * l0;
             va[i + _pointCount * 2] = v * l0;
             va[i + _pointCount * 3] = v * l1;
             va[i + _pointCount * 4] = v * l1;
-            va[i + _pointCount * 5] = v * l1 - Vector3.up;
+            va[i + _pointCount * 5] = v * l1 - Vector3.up * 0.05f;
+
+            float u = (float)i / (_pointCount - 1);
+            ta[i + _pointCount * 0] = new Vector2(u, 1);
+            ta[i + _pointCount * 1] = new Vector2(u, 0);
+            ta[i + _pointCount * 2] = new Vector2(u, 0);
+            ta[i + _pointCount * 3] = new Vector2(u, 1);
+            ta[i + _pointCount * 4] = new Vector2(u, 1);
+            ta[i + _pointCount * 5] = new Vector2(u, 0);
         }
 
         va[_pointCount * 6 + 0] = va[_pointCount * 0];
@@ -46,11 +56,15 @@ public class DiscRenderer : MonoBehaviour
         va[_pointCount * 6 + 6] = va[_pointCount * 4 + _pointCount - 1];
         va[_pointCount * 6 + 7] = va[_pointCount * 5 + _pointCount - 1];
 
-        var ta = new Vector2[va.Length];
-        for (var i = 0; i < ta.Length; i++)
-        {
-            ta[i] = new Vector2(va[i].x, va[i].z);
-        }
+        ta[_pointCount * 6 + 0] = ta[_pointCount * 0];
+        ta[_pointCount * 6 + 1] = ta[_pointCount * 1];
+        ta[_pointCount * 6 + 2] = ta[_pointCount * 4];
+        ta[_pointCount * 6 + 3] = ta[_pointCount * 5];
+
+        ta[_pointCount * 6 + 4] = ta[_pointCount * 0 + _pointCount - 1];
+        ta[_pointCount * 6 + 5] = ta[_pointCount * 1 + _pointCount - 1];
+        ta[_pointCount * 6 + 6] = ta[_pointCount * 4 + _pointCount - 1];
+        ta[_pointCount * 6 + 7] = ta[_pointCount * 5 + _pointCount - 1];
 
         var ia = new int[(_pointCount - 1) * 6 * 3 + 12];
         var ii = 0;
@@ -130,10 +144,11 @@ public class DiscRenderer : MonoBehaviour
         var x = Time.time * 0.357f;
         for (var ri = 0; ri < _ringSegments; ri++)
         {
+            var spin = Quaternion.AngleAxis(Perlin.Noise(231.4f * ri + Time.time * 0.1f) * 60, Vector3.up);
             for (var ai = 0; ai < _arcSegments; ai++)
             {
-                var y = Perlin.Noise(x);
-                Graphics.DrawMesh(_meshes[ri], Matrix4x4.TRS(Vector3.up * y * 0.2f, Quaternion.AngleAxis(360.0f / _arcSegments * ai, Vector3.up), Vector3.one) * matrix, _material, 0); 
+                var y = Perlin.Fbm(x, 2);
+                Graphics.DrawMesh(_meshes[ri], Matrix4x4.TRS(Vector3.up * y * 0.25f, spin * Quaternion.AngleAxis(360.0f / _arcSegments * ai, Vector3.up), Vector3.one) * matrix, _material, 0); 
                 x += 0.091f;
             }
         }
