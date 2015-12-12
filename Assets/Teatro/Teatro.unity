@@ -185,8 +185,8 @@ MonoBehaviour:
   _speedRandomness: .5
   _acceleration: {x: 0, y: 0, z: 0}
   _drag: 1.24000001
-  _spin: 30
-  _speedToSpin: 400
+  _spin: 80
+  _speedToSpin: 600
   _spinRandomness: .300000012
   _noiseAmplitude: .800000012
   _noiseFrequency: .699999988
@@ -321,8 +321,10 @@ GameObject:
   - 92: {fileID: 873665402}
   - 124: {fileID: 873665401}
   - 81: {fileID: 873665400}
+  - 114: {fileID: 873665411}
   - 114: {fileID: 873665405}
   - 114: {fileID: 873665406}
+  - 114: {fileID: 873665412}
   - 114: {fileID: 873665410}
   - 114: {fileID: 873665409}
   - 114: {fileID: 873665408}
@@ -412,7 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f6a516d891854931acf7fb785c812ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _intensity: 2.5
+  _intensity: 2
   _sampleRadius: .75
   _rangeCheck: 1
   _fallOffDistance: 100
@@ -565,6 +567,44 @@ MonoBehaviour:
   _axialShift: .0909999982
   _axialQuality: 1
   _shader: {fileID: 4800000, guid: 4e3f6504698a346cb971f9ab5286fca9, type: 3}
+--- !u!114 &873665411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 873665399}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ffff0e474954f3a926daf865cc2eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lineColor: {r: 0, g: 0, b: 0, a: 1}
+  _backgroundColor: {r: .889705896, g: .889705896, b: .889705896, a: 1}
+  _lowThreshold: .189999998
+  _highThreshold: .261999995
+  _depthSensitivity: 0
+  _normalSensitivity: 1
+  _fallOffDepth: 40
+  _shader: {fileID: 4800000, guid: b8cb1cfbd02c146ccbe95b4baf27a54e, type: 3}
+--- !u!114 &873665412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 873665399}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ffff0e474954f3a926daf865cc2eaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _lineColor: {r: 1, g: 1, b: 1, a: 1}
+  _backgroundColor: {r: 0, g: 0, b: 0, a: 1}
+  _lowThreshold: .250999987
+  _highThreshold: .324000001
+  _depthSensitivity: 0
+  _normalSensitivity: 1
+  _fallOffDepth: 40
+  _shader: {fileID: 4800000, guid: b8cb1cfbd02c146ccbe95b4baf27a54e, type: 3}
 --- !u!1 &881077794
 GameObject:
   m_ObjectHideFlags: 0

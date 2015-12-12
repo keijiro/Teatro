@@ -100,7 +100,7 @@ public class DeferredAO : MonoBehaviour
 
     #region MonoBehaviour Functions
 
-    [ImageEffectOpaque]
+    //[ImageEffectOpaque]
     void OnRenderImage(RenderTexture source, RenderTexture destination)
     {
         if (!CheckDeferredShading()) {
