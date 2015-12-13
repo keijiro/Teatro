@@ -11,7 +11,8 @@ namespace Teatro
         SerializedProperty _pointsOnArc;
 
         SerializedProperty _baseColor;
-        SerializedProperty _lineColor;
+        SerializedProperty _emissionColor1;
+        SerializedProperty _emissionColor2;
         SerializedProperty _metallic;
         SerializedProperty _smoothness;
 
@@ -27,7 +28,8 @@ namespace Teatro
             _pointsOnArc = serializedObject.FindProperty("_pointsOnArc");
 
             _baseColor = serializedObject.FindProperty("_baseColor");
-            _lineColor = serializedObject.FindProperty("_lineColor");
+            _emissionColor1 = serializedObject.FindProperty("_emissionColor1");
+            _emissionColor2 = serializedObject.FindProperty("_emissionColor2");
             _metallic = serializedObject.FindProperty("_metallic");
             _smoothness = serializedObject.FindProperty("_smoothness");
 
@@ -53,10 +55,8 @@ namespace Teatro
             EditorGUILayout.Space();
 
             EditorGUILayout.PropertyField(_baseColor);
-            EditorGUILayout.PropertyField(_lineColor);
-
-            EditorGUILayout.Space();
-
+            EditorGUILayout.PropertyField(_emissionColor1);
+            EditorGUILayout.PropertyField(_emissionColor2);
             EditorGUILayout.PropertyField(_metallic);
             EditorGUILayout.PropertyField(_smoothness);
 

@@ -2,9 +2,9 @@
 {
     Properties
     {
-        _BaseColor ("-", Color) = (0,0,0,1)
-        [HDR] _LineColor ("-", Color) = (1,1,1,1)
-
+        _BaseColor ("-", Color) = (0,0,0)
+        [HDR] _Emission1 ("-", Color) = (1, 0, 0)
+        [HDR] _Emission2 ("-", Color) = (0, 0, 1)
         _Glossiness ("-", Range(0, 1)) = 0.5
         _Metallic ("-", Range(0, 1)) = 0.0
 
@@ -55,13 +55,13 @@
         #include "SimplexNoise2D.cginc"
 
         struct Input {
-            float2 uv_MainTex;
-            half4 color : COLOR;
+            float4 xzuv : TEXCOORD0;
+            float3 cparams : TEXCOORD1;
         };
 
-        half4 _BaseColor;
-        half4 _LineColor;
-
+        half3 _BaseColor;
+        half3 _Emission1;
+        half3 _Emission2;
         half _Glossiness;
         half _Metallic;
 
@@ -70,40 +70,47 @@
         sampler2D _NormalTex;
         half _NormalScale;
 
-        void vert(inout appdata_full v)
+        void vert(inout appdata_full v, out Input data)
         {
+            UNITY_INITIALIZE_OUTPUT(Input, data);
+
+            float2 xz = v.vertex.xz;
             float2 uv0 = v.texcoord;
             float2 uv1 = v.texcoord1;
 
-            float a = (nrand(uv1.x, 0) - 0.5f) * _Time.y * 0.4f;
+            float a = (nrand(uv1.x, 0) - 0.5f) * _Time.y * 0.8f;
             float4 r = float4(0, sin(a), 0, cos(a));
 
-            float dy = snoise(uv1 * 11 + _Time.x * 3) * 0.02;
-            float l = pow(max(snoise(uv1 * 11 + _Time.x * 4), 0), 10);
-
-            v.texcoord = v.vertex.xzxz * _TexScale;
+            float dy = max(0, snoise(uv1 * 14 + _Time.x * 4) * 0.03);
+            float s = nrand(uv1, 3) > 0.8;
+            float l = pow(max(snoise(uv1 * 11 + _Time.x * 4), 0), 10) * 2;
 
             v.vertex.xyz = rotate_vector(v.vertex.xyz, r);
             v.vertex.y += dy;
             v.normal = rotate_vector(v.normal, r);
             v.tangent.xyz = rotate_vector(v.tangent.xyz, r);
-            v.color = float4(uv0.xy, l, v.normal.y);
+
+            data.xzuv = float4(xz * _TexScale, uv0);
+            data.cparams = float3(v.normal.y, s, l);
         }
 
         void surf(Input IN, inout SurfaceOutputStandard o)
         {
-            half4 c = lerp(0.5, tex2D(_MainTex, IN.uv_MainTex), IN.color.w);
-            half4 n = tex2D(_NormalTex, IN.uv_MainTex);
+            half4 tex_c = tex2D(_MainTex, IN.xzuv.xy);
+            half4 tex_n = tex2D(_NormalTex, IN.xzuv.xy);
 
-            float2 uv = abs(IN.color.xy - 0.5) * 2;
-            float ln = pow(max(uv.x, uv.y), 120);
+            half use_tex = IN.cparams.x;
+            half3 ecolor = lerp(_Emission1, _Emission2, IN.cparams.y);
+            half eadd = IN.cparams.z;
 
+            float2 edge_uv = abs(IN.xzuv.zw - 0.5) * 2;
+            float edge = pow(max(edge_uv.x, edge_uv.y), 90);
+
+            o.Albedo = _BaseColor * lerp(0, tex_c.rgb, use_tex);
+            o.Normal = UnpackScaleNormal(tex_n, _NormalScale * use_tex);
+            o.Emission = ecolor * (edge + eadd);
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
-
-            o.Albedo = c.rgb * _BaseColor.rgb;
-            o.Normal = UnpackScaleNormal(n, _NormalScale * IN.color.w);
-            o.Emission = _LineColor.rgb * (ln + IN.color.z);
         }
 
         ENDCG

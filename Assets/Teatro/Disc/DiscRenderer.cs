@@ -11,8 +11,11 @@ namespace Teatro
         [SerializeField] int _pointsOnArc = 6;
 
         [SerializeField] Color _baseColor = Color.black;
+
         [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
-        Color _lineColor = Color.white;
+        Color _emissionColor1 = Color.red;
+        [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
+        Color _emissionColor2 = Color.green;
 
         [SerializeField, Range(0, 1)] float _metallic = 0.5f;
         [SerializeField, Range(0, 1)] float _smoothness = 0.5f;
@@ -227,7 +230,8 @@ namespace Teatro
             }
 
             _material.SetColor("_BaseColor", _baseColor);
-            _material.SetColor("_LineColor", _lineColor);
+            _material.SetColor("_Emission1", _emissionColor1);
+            _material.SetColor("_Emission2", _emissionColor2);
             _material.SetFloat("_Glossiness", _smoothness);
             _material.SetFloat("_Metallic", _metallic);
             _material.SetTexture("_MainTex", _albedoTexture);
