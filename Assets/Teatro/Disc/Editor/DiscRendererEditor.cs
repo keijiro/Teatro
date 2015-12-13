@@ -15,6 +15,11 @@ namespace Teatro
         SerializedProperty _metallic;
         SerializedProperty _smoothness;
 
+        SerializedProperty _albedoTexture;
+        SerializedProperty _textureScale;
+        SerializedProperty _normalTexture;
+        SerializedProperty _normalScale;
+
         void OnEnable()
         {
             _arcCount = serializedObject.FindProperty("_arcCount");
@@ -25,6 +30,11 @@ namespace Teatro
             _lineColor = serializedObject.FindProperty("_lineColor");
             _metallic = serializedObject.FindProperty("_metallic");
             _smoothness = serializedObject.FindProperty("_smoothness");
+
+            _albedoTexture = serializedObject.FindProperty("_albedoTexture");
+            _textureScale = serializedObject.FindProperty("_textureScale");
+            _normalTexture = serializedObject.FindProperty("_normalTexture");
+            _normalScale = serializedObject.FindProperty("_normalScale");
         }
 
         public override void OnInspectorGUI()
@@ -44,8 +54,18 @@ namespace Teatro
 
             EditorGUILayout.PropertyField(_baseColor);
             EditorGUILayout.PropertyField(_lineColor);
+
+            EditorGUILayout.Space();
+
             EditorGUILayout.PropertyField(_metallic);
             EditorGUILayout.PropertyField(_smoothness);
+
+            EditorGUILayout.Space();
+
+            EditorGUILayout.PropertyField(_albedoTexture);
+            EditorGUILayout.PropertyField(_textureScale);
+            EditorGUILayout.PropertyField(_normalTexture);
+            EditorGUILayout.PropertyField(_normalScale);
 
             serializedObject.ApplyModifiedProperties();
         }

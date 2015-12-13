@@ -6,26 +6,21 @@ namespace Teatro
     [ExecuteInEditMode]
     public class DiscRenderer : MonoBehaviour
     {
-        [SerializeField]
-        int _arcCount = 12;
+        [SerializeField] int _arcCount = 12;
+        [SerializeField] int _ringCount = 24;
+        [SerializeField] int _pointsOnArc = 6;
 
-        [SerializeField]
-        int _ringCount = 24;
-
-        [SerializeField]
-        int _pointsOnArc = 6;
-
-        [SerializeField]
-        Color _baseColor = Color.black;
-
+        [SerializeField] Color _baseColor = Color.black;
         [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
         Color _lineColor = Color.white;
 
-        [SerializeField, Range(0, 1)]
-        float _metallic = 0.5f;
+        [SerializeField, Range(0, 1)] float _metallic = 0.5f;
+        [SerializeField, Range(0, 1)] float _smoothness = 0.5f;
 
-        [SerializeField, Range(0, 1)]
-        float _smoothness = 0.5f;
+        [SerializeField] Texture2D _albedoTexture;
+        [SerializeField] float _textureScale = 1;
+        [SerializeField] Texture2D _normalTexture;
+        [SerializeField, Range(0, 1)] float _normalScale = 1;
 
         [SerializeField, HideInInspector] Shader _shader;
 
@@ -180,13 +175,13 @@ namespace Teatro
 
             for (var ri = 0; ri < _ringCount; ri++)
             {
-                var l0 = (float)(ri + 0) / (_ringCount - 1);
-                var l1 = (float)(ri + 1) / (_ringCount - 1);
+                var l0 = (float)(ri + 0) / _ringCount;
+                var l1 = (float)(ri + 1) / _ringCount;
 
                 for (var ai = 0; ai < _arcCount; ai++)
                 {
-                    var r0 = Mathf.PI * 2 * (ai + 0) / (_arcCount - 1);
-                    var r1 = Mathf.PI * 2 * (ai + 1) / (_arcCount - 1);
+                    var r0 = Mathf.PI * 2 * (ai + 0) / _arcCount;
+                    var r1 = Mathf.PI * 2 * (ai + 1) / _arcCount;
 
                     AppendSegment(
                         l0, l1, r0, r1, 0.05f,
@@ -194,10 +189,18 @@ namespace Teatro
                 }
             }
 
+            var tanList = new Vector4[vtxList.Count];
+            for (var i = 0; i < tanList.Length; i++)
+            {
+                var v = vtxList[i].normalized;
+                tanList[i] = new Vector4(v.x, v.y, v.z, 1);
+            }
+
             var mesh = new Mesh();
             mesh.SetVertices(vtxList);
             mesh.SetUVs(0, uv0List);
             mesh.SetUVs(1, uv1List);
+            mesh.tangents = tanList;
             mesh.SetIndices(idxList.ToArray(), MeshTopology.Triangles, 0);
             mesh.hideFlags = HideFlags.DontSave;
             mesh.RecalculateNormals();
@@ -227,6 +230,10 @@ namespace Teatro
             _material.SetColor("_LineColor", _lineColor);
             _material.SetFloat("_Glossiness", _smoothness);
             _material.SetFloat("_Metallic", _metallic);
+            _material.SetTexture("_MainTex", _albedoTexture);
+            _material.SetFloat("_TexScale", _textureScale);
+            _material.SetTexture("_NormalTex", _normalTexture);
+            _material.SetFloat("_NormalScale", _normalScale);
 
             var matrix = transform.localToWorldMatrix;
             Graphics.DrawMesh(_mesh, matrix, _material, 0); 

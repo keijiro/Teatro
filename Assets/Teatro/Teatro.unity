@@ -744,13 +744,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c74e08d2be3014581e8eb1c18f9496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arcCount: 18
-  _ringCount: 24
+  _arcCount: 12
+  _ringCount: 38
   _pointsOnArc: 5
-  _baseColor: {r: 0, g: 0, b: 0, a: 1}
-  _lineColor: {r: 1.41176462, g: 2.01419878, b: 3, a: 1}
-  _metallic: .772000015
-  _smoothness: .860000014
+  _baseColor: {r: .242647052, g: .242647052, b: .242647052, a: 1}
+  _lineColor: {r: 3, g: .906085253, b: .551470578, a: 1}
+  _metallic: .896000028
+  _smoothness: .883000016
+  _albedoTexture: {fileID: 2800000, guid: f6672ca95260c4899876666bd1726356, type: 3}
+  _textureScale: 4.5
+  _normalTexture: {fileID: 2800000, guid: d1a9f852928a64b17af2f24a73c39a89, type: 3}
+  _normalScale: .180000007
   _shader: {fileID: 4800000, guid: e1713609d4b97e84d8ee41ab96ae1aa5, type: 3}
 --- !u!4 &881077796
 Transform:

@@ -2,10 +2,16 @@
 {
     Properties
     {
-        _BaseColor ("Base Color", Color) = (0,0,0,1)
-        [HDR] _LineColor ("Line Color", Color) = (1,1,1,1)
-        _Glossiness ("Smoothness", Range(0, 1)) = 0.5
-        _Metallic ("Metallic", Range(0, 1)) = 0.0
+        _BaseColor ("-", Color) = (0,0,0,1)
+        [HDR] _LineColor ("-", Color) = (1,1,1,1)
+
+        _Glossiness ("-", Range(0, 1)) = 0.5
+        _Metallic ("-", Range(0, 1)) = 0.0
+
+        _MainTex ("-", 2D) = "white"{}
+        _TexScale ("-", Float) = 1
+        _NormalTex ("-", 2D) = "bump"{}
+        _NormalScale ("-", Range(0,2)) = 1
     }
 
     CGINCLUDE
@@ -49,13 +55,20 @@
         #include "SimplexNoise2D.cginc"
 
         struct Input {
+            float2 uv_MainTex;
             half4 color : COLOR;
         };
 
-        half _Glossiness;
-        half _Metallic;
         half4 _BaseColor;
         half4 _LineColor;
+
+        half _Glossiness;
+        half _Metallic;
+
+        sampler2D _MainTex;
+        half _TexScale;
+        sampler2D _NormalTex;
+        half _NormalScale;
 
         void vert(inout appdata_full v)
         {
@@ -68,19 +81,28 @@
             float dy = snoise(uv1 * 11 + _Time.x * 3) * 0.02;
             float l = pow(max(snoise(uv1 * 11 + _Time.x * 4), 0), 10);
 
+            v.texcoord = v.vertex.xzxz * _TexScale;
+
             v.vertex.xyz = rotate_vector(v.vertex.xyz, r);
             v.vertex.y += dy;
-            v.color = float4(uv0.xy, l, 0);
+            v.normal = rotate_vector(v.normal, r);
+            v.tangent.xyz = rotate_vector(v.tangent.xyz, r);
+            v.color = float4(uv0.xy, l, v.normal.y);
         }
 
         void surf(Input IN, inout SurfaceOutputStandard o)
         {
-            float2 uv = abs(IN.color.xy - 0.5) * 2;
-            float ln = pow(max(uv.x, uv.y), 80);
+            half4 c = lerp(0.5, tex2D(_MainTex, IN.uv_MainTex), IN.color.w);
+            half4 n = tex2D(_NormalTex, IN.uv_MainTex);
 
-            o.Albedo = _BaseColor.rgb;
+            float2 uv = abs(IN.color.xy - 0.5) * 2;
+            float ln = pow(max(uv.x, uv.y), 120);
+
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
+
+            o.Albedo = c.rgb * _BaseColor.rgb;
+            o.Normal = UnpackScaleNormal(n, _NormalScale * IN.color.w);
             o.Emission = _LineColor.rgb * (ln + IN.color.z);
         }
 
