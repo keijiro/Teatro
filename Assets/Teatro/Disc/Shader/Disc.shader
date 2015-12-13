@@ -1,4 +1,4 @@
-﻿Shader "Teatro/Disc"
+﻿Shader "Hidden/Teatro/Disc"
 {
     Properties
     {
