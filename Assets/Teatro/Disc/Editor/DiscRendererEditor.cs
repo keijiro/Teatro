@@ -3,6 +3,7 @@ using UnityEditor;
 
 namespace Teatro
 {
+    [CanEditMultipleObjects]
     [CustomEditor(typeof(DiscRenderer))]
     public class DiscRendererEditor : Editor
     {
@@ -11,6 +12,7 @@ namespace Teatro
         SerializedProperty _pointsOnArc;
 
         SerializedProperty _rotationSpeed;
+        SerializedProperty _animationSpeed;
         SerializedProperty _displacement;
         SerializedProperty _blockIntensity;
 
@@ -32,6 +34,7 @@ namespace Teatro
             _pointsOnArc = serializedObject.FindProperty("_pointsOnArc");
 
             _rotationSpeed = serializedObject.FindProperty("_rotationSpeed");
+            _animationSpeed = serializedObject.FindProperty("_animationSpeed");
             _displacement = serializedObject.FindProperty("_displacement");
             _blockIntensity = serializedObject.FindProperty("_blockIntensity");
 
@@ -63,6 +66,7 @@ namespace Teatro
             EditorGUILayout.Space();
 
             EditorGUILayout.PropertyField(_rotationSpeed);
+            EditorGUILayout.PropertyField(_animationSpeed);
             EditorGUILayout.PropertyField(_displacement);
             EditorGUILayout.PropertyField(_blockIntensity);
 

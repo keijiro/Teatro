@@ -13,6 +13,7 @@ namespace Teatro
         [SerializeField] int _pointsOnArc = 6;
 
         [SerializeField] float _rotationSpeed = 0.8f;
+        [SerializeField] float _animationSpeed = 1.0f;
         [SerializeField] float _displacement = 0.5f;
         [SerializeField] float _blockIntensity = 1.0f;
 
@@ -39,7 +40,8 @@ namespace Teatro
         Mesh _mesh;
         Material _material;
         bool _needsReset = true;
-        float _spin;
+        float _rotationTime;
+        float _animationTime;
 
         #endregion
 
@@ -62,20 +64,23 @@ namespace Teatro
                 _needsReset = false;
             }
 
-            _spin += _rotationSpeed * Time.deltaTime;
+            _rotationTime += _rotationSpeed * Time.deltaTime;
+            _animationTime += _animationSpeed * Time.deltaTime;
 
             _material.SetColor("_BaseColor", _baseColor);
             _material.SetColor("_Emission1", _emissionColor1);
             _material.SetColor("_Emission2", _emissionColor2);
             _material.SetFloat("_Glossiness", _smoothness);
             _material.SetFloat("_Metallic", _metallic);
+
             _material.SetTexture("_MainTex", _albedoTexture);
             _material.SetFloat("_TexScale", _textureScale);
             _material.SetTexture("_NormalTex", _normalTexture);
             _material.SetFloat("_NormalScale", _normalScale);
 
-            _material.SetVector("_AnimParams", new Vector3(
-                _spin, 0.05f * _displacement, _blockIntensity
+            _material.SetVector("_Params", new Vector4(
+                _rotationTime, _animationTime,
+                0.05f * _displacement, _blockIntensity
             ));
 
             Graphics.DrawMesh(_mesh, transform.localToWorldMatrix, _material, 0); 
@@ -94,6 +99,9 @@ namespace Teatro
 
             _material = new Material(_shader);
             _material.hideFlags = HideFlags.DontSave;
+
+            _rotationTime = Random.Range(-100.0f, 100.0f);
+            _animationTime = Random.Range(-100.0f, 100.0f);
         }
 
         Mesh BuildMesh()

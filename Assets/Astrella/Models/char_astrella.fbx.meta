@@ -375,6 +375,7 @@ ModelImporter:
     - char_astrella_skeleton/char_astrella_Hips1/char_astrella_Spine/char_astrella_Spine1/char_astrella_Spine2/char_astrella_RightShoulder
     - char_astrella_skeleton/char_astrella_Hips1/char_astrella_LeftUpLeg
     - char_astrella_skeleton/char_astrella_Hips1/char_astrella_RightUpLeg
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_Spine
     clipAnimations: []
     isReadable: 0
   meshes:

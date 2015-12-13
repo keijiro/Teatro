@@ -133,7 +133,7 @@ namespace Teatro
             _animator = GetComponent<Animator>();
 
             _bodyPosition = _animator.GetBoneTransform(HumanBodyBones.Hips).position;
-            _noise = new NoiseGenerator(0.2f);
+            _noise = new NoiseGenerator(0.3f);
 
             _spineRotation = CalculateSpineRotation();
             _leftHandPosition = CalculateHandPosition(false);
@@ -144,10 +144,10 @@ namespace Teatro
 
         void Update()
         {
-            _noise.Frequency = Mathf.Lerp(0.2f, 10.0f, _noiseSpeed);
+            _noise.Frequency = Mathf.Lerp(0.3f, 10.0f, _noiseSpeed);
             _noise.Step();
 
-            var speed = Mathf.Lerp(2.0f, 20.0f, _noiseSpeed);
+            var speed = Mathf.Lerp(6.0f, 20.0f, _noiseSpeed);
             _spineRotation = ExpEase.Out(_spineRotation, CalculateSpineRotation(), speed);
             _leftHandPosition = ExpEase.Out(_leftHandPosition, CalculateHandPosition(false), speed);
             _leftFootPosition = ExpEase.Out(_leftFootPosition, CalculateFootPosition(false), speed);

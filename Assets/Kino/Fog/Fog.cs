@@ -75,7 +75,7 @@ namespace Kino
             GetComponent<Camera>().depthTextureMode |= DepthTextureMode.Depth;
         }
 
-        [ImageEffectOpaque]
+        //[ImageEffectOpaque]
         void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
             if (_material == null)

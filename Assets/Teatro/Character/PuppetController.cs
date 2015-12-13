@@ -38,7 +38,7 @@ namespace Teatro
             _noise.Step();
 
             _puppet.spineBend = CalcValue(0, 0.9f, _hash.Value(0), 0.25f);
-            _puppet.spineTwist = CalcValue(1, 0.5f, _hash.Value(1), _hash.Value(1));
+            _puppet.spineTwist = CalcValue(1, 0.5f, _hash.Value(1), 0.5f);
 
             _puppet.leftArmStretch = CalcValue(2, 0, _hash.Value(2), _hash.Range(0.0f, 1.0f, 2));
             _puppet.leftArmRaise = CalcValue(3, 0.8f, _hash.Value(3), _hash.Range(0.0f, 1.0f, 2));
@@ -48,11 +48,11 @@ namespace Teatro
             _puppet.rightArmRaise = CalcValue(6, 0.8f, _hash.Value(6), _hash.Range(1.0f, 0.0f, 2));
             _puppet.rightArmOpen = CalcValue(7, 0, _hash.Value(7), _hash.Range(0.0f, 1.0f, 2) * _hash.Value(7));
 
-            _puppet.leftLegStretch = CalcValue(8, 0, _hash.Value(8), 1);
-            _puppet.leftLegRaise = CalcValue(9, 0.5f, _hash.Value(9), _hash.Range(0.2f, 0.8f, 9));
+            _puppet.leftLegStretch = CalcValue(8, 0, _hash.Value(8), _hash.Range(0.0f, 0.5f, 8));
+            _puppet.leftLegRaise = CalcValue(9, 0.5f, _hash.Value(9), _hash.Range(0.0f, 0.5f, 9));
 
-            _puppet.rightLegStretch = CalcValue(10, 0, _hash.Value(10), 1);
-            _puppet.rightLegRaise = CalcValue(11, 0.5f, _hash.Value(11), _hash.Range(0.2f, 0.8f, 11));
+            _puppet.rightLegStretch = CalcValue(10, 0, _hash.Value(10), _hash.Range(0.0f, 0.5f, 10));
+            _puppet.rightLegRaise = CalcValue(11, 0.5f, _hash.Value(11), _hash.Range(0.0f, 0.5f, 11));
         }
     }
 }

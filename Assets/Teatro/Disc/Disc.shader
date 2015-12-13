@@ -76,7 +76,7 @@
         sampler2D _NormalTex;
         half _NormalScale;
 
-        float3 _AnimParams; // rotation, displace, emission
+        float4 _Params; // rotation, animation, displace, emission
 
         void vert(inout appdata_full v, out Input data)
         {
@@ -87,20 +87,20 @@
             float2 uv1 = v.texcoord1;
 
             // rotation
-            float r_spin = (nrand(uv1.y, 0) - 0.5f) * _AnimParams.x;
+            float r_spin = (nrand(uv1.y, 0) - 0.5f) * _Params.x;
             float4 q_spin = y_rotation(r_spin);
 
             // displacement with noise
-            float dy = snoise(uv1 * 0.67 + _Time.x * 4);
-            dy += max(sin(uv1.y * 25 - _Time.y * 1.8), 0);
-            dy *= _AnimParams.y;
+            float dy = snoise(uv1 * 0.67 + _Params.y * 0.4);
+            dy += max(sin(uv1.y * 25 - _Params.y * 1.8), 0);
+            dy *= _Params.z;
 
             // color selection
             float csel = nrand(uv1, 1) > 0.8;
 
             // emission intensity
-            float em = pow(max(snoise(uv1 * 4 + _Time.x * 4), 0), 8);
-            em *= _AnimParams.z;
+            float em = pow(max(snoise(uv1 * 4 + _Params.y * 0.4), 0), 8);
+            em *= _Params.w;
 
             // modify vertex
             v.vertex.y += dy;
