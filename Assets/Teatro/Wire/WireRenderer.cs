@@ -10,8 +10,21 @@ namespace Teatro
         [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
         Color _color = Color.white;
 
-        [SerializeField] int _verticesPerCircle = 128;
-        [SerializeField] int _circleCount = 32;
+        [Space]
+        [SerializeField] float _minRadius = 1;
+        [SerializeField] float _maxRadius = 4;
+        [SerializeField] float _windingNumber = 32;
+
+        [Space]
+        [SerializeField] float _waveAmplitude = 0.2f;
+        [SerializeField] float _waveFrequency = 0.4f;
+        [SerializeField] float _waveSpeed = 4;
+
+        [Space]
+        [SerializeField] float _noiseAmplitude = 0.3f;
+        [SerializeField] float _noiseFrequency = 0.6f;
+        [SerializeField] float _noiseSpeed = 0.6f;
+        [SerializeField] float _noiseThreshold = 0;
 
         [HideInInspector, SerializeField] Shader _shader;
 
@@ -29,6 +42,17 @@ namespace Teatro
         void Update()
         {
             if (_mesh == null) ResetResources();
+
+            _material.SetVector("_Radius", new Vector2(_minRadius, _maxRadius));
+
+            _material.SetVector("_RingParams", new Vector4(
+                Mathf.PI * 2 * _windingNumber,
+                _waveAmplitude, _waveFrequency, _waveSpeed
+            ));
+
+            _material.SetVector("_NoiseParams", new Vector4(
+                _noiseAmplitude, _noiseFrequency, _noiseSpeed, _noiseThreshold
+            ));
 
             _material.SetColor("_Color", _color);
 
@@ -53,46 +77,23 @@ namespace Teatro
 
         Mesh BuildMesh()
         {
-            var va = new Vector3[_verticesPerCircle * _circleCount];
-            var ta = new Vector2[_verticesPerCircle * _circleCount];
+            const int vcount = 65000;
 
-            for (var vi = 0; vi < _verticesPerCircle; vi++)
-            {
-                var u = (float)vi / _verticesPerCircle;
-                var r = Mathf.PI * 2 * u;
+            var va = new Vector3[vcount];
+            var ta = new Vector2[vcount];
 
-                va[vi] = new Vector3(Mathf.Cos(r), 0, Mathf.Sin(r));
-                ta[vi] = new Vector2(u, 0);
+            for (var i = 0; i < vcount; i++)
+                ta[i] = new Vector2((float)i / vcount, 0);
 
-                for (var ci = 1; ci < _circleCount ; ci++)
-                {
-                    var vi2 = vi + ci * _verticesPerCircle;
-                    va[vi2] = va[vi];
-                    ta[vi2]  = new Vector2(u, (float)ci / _circleCount);
-                }
-            }
+            var ia = new int[vcount];
 
-            var ia = new int[_verticesPerCircle * _circleCount * 2];
-            var ii = 0;
-
-            for (var ci = 0; ci < _circleCount ; ci++)
-            {
-                var offs = ci * _verticesPerCircle;
-
-                for (var vi = 0; vi < _verticesPerCircle - 1; vi++)
-                {
-                    ia[ii++] = offs + vi;
-                    ia[ii++] = offs + vi + 1;
-                }
-
-                ia[ii++] = offs + _verticesPerCircle - 1;
-                ia[ii++] = offs;
-            }
+            for (var i = 0; i < vcount; i++)
+                ia[i] = i;
 
             var mesh = new Mesh();
             mesh.vertices = va;
             mesh.uv = ta;
-            mesh.SetIndices(ia, MeshTopology.Lines, 0);
+            mesh.SetIndices(ia, MeshTopology.LineStrip, 0);
             mesh.hideFlags = HideFlags.DontSave;
             mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 1000);
             return mesh;
