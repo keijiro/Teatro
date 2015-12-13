@@ -747,9 +747,12 @@ MonoBehaviour:
   _arcCount: 12
   _ringCount: 38
   _pointsOnArc: 5
-  _baseColor: {r: .501960814, g: .501960814, b: .501960814, a: 1}
-  _emissionColor1: {r: 3, g: .132352889, b: .132352889, a: 1}
-  _emissionColor2: {r: .183823407, g: 2.40922713, b: 5, a: 1}
+  _rotationSpeed: 2
+  _displacement: .5
+  _blockIntensity: 1
+  _baseColor: {r: .227941155, g: .227941155, b: .227941155, a: 1}
+  _emissionColor1: {r: 3, g: .310344905, b: 0, a: 1}
+  _emissionColor2: {r: .264705956, g: .736308455, b: 3, a: 1}
   _metallic: .600000024
   _smoothness: .899999976
   _albedoTexture: {fileID: 2800000, guid: f6672ca95260c4899876666bd1726356, type: 3}

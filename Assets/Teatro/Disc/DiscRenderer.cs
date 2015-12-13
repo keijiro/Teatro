@@ -6,12 +6,17 @@ namespace Teatro
     [ExecuteInEditMode]
     public class DiscRenderer : MonoBehaviour
     {
+        #region Exposed Properties
+
         [SerializeField] int _arcCount = 12;
         [SerializeField] int _ringCount = 24;
         [SerializeField] int _pointsOnArc = 6;
 
-        [SerializeField] Color _baseColor = Color.black;
+        [SerializeField] float _rotationSpeed = 0.8f;
+        [SerializeField] float _displacement = 0.5f;
+        [SerializeField] float _blockIntensity = 1.0f;
 
+        [SerializeField] Color _baseColor = Color.black;
         [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
         Color _emissionColor1 = Color.red;
         [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
@@ -27,19 +32,121 @@ namespace Teatro
 
         [SerializeField, HideInInspector] Shader _shader;
 
+        #endregion
+
+        #region Internal Objects and Variables
+
         Mesh _mesh;
         Material _material;
         bool _needsReset = true;
+        float _spin;
+
+        #endregion
+
+        #region Public Methods
 
         public void RequestReset()
         {
             _needsReset = true;
         }
 
-        void AppendSegment(
+        #endregion
+
+        #region MonoBehaviour Functions
+
+        void Update()
+        {
+            if (_needsReset)
+            {
+                ResetResources();
+                _needsReset = false;
+            }
+
+            _spin += _rotationSpeed * Time.deltaTime;
+
+            _material.SetColor("_BaseColor", _baseColor);
+            _material.SetColor("_Emission1", _emissionColor1);
+            _material.SetColor("_Emission2", _emissionColor2);
+            _material.SetFloat("_Glossiness", _smoothness);
+            _material.SetFloat("_Metallic", _metallic);
+            _material.SetTexture("_MainTex", _albedoTexture);
+            _material.SetFloat("_TexScale", _textureScale);
+            _material.SetTexture("_NormalTex", _normalTexture);
+            _material.SetFloat("_NormalScale", _normalScale);
+
+            _material.SetVector("_AnimParams", new Vector3(
+                _spin, 0.05f * _displacement, _blockIntensity
+            ));
+
+            Graphics.DrawMesh(_mesh, transform.localToWorldMatrix, _material, 0); 
+        }
+
+        #endregion
+
+        #region Resource Management
+
+        void ResetResources()
+        {
+            if (_mesh) DestroyImmediate(_mesh);
+            if (_material) DestroyImmediate(_material);
+
+            _mesh = BuildMesh();
+
+            _material = new Material(_shader);
+            _material.hideFlags = HideFlags.DontSave;
+        }
+
+        Mesh BuildMesh()
+        {
+            // sanitizing parameters
+            _arcCount = Mathf.Clamp(_arcCount, 4, 64);
+            _ringCount = Mathf.Clamp(_ringCount, 2, 64);
+            _pointsOnArc = Mathf.Clamp(_pointsOnArc, 3, 32);
+
+            // vertex and index arrays
+            var vtxList = new List<Vector3>();
+            var uv0List = new List<Vector2>();
+            var uv1List = new List<Vector2>();
+            var idxList = new List<int>();
+
+            // append segments to the arrays
+            for (var ri = 0; ri < _ringCount; ri++)
+            {
+                var l0 = (ri + 0.0f) / _ringCount;
+                var l1 = (ri + 1.0f) / _ringCount;
+
+                for (var ai = 0; ai < _arcCount; ai++)
+                {
+                    AppendSegmentToVertexArray(
+                        l0, l1,
+                        Mathf.PI * 2 * (ai + 0) / _arcCount,
+                        Mathf.PI * 2 * (ai + 1) / _arcCount,
+                        vtxList, uv0List, uv1List, idxList);
+                }
+            }
+
+            // make tangent array
+            var tan = new Vector4(1, 0, 0, 1);
+            var tanList = new Vector4[vtxList.Count];
+            for (var i = 0; i < tanList.Length; i++)
+                tanList[i] = tan;
+
+            // create mesh object
+            var mesh = new Mesh();
+            mesh.SetVertices(vtxList);
+            mesh.SetUVs(0, uv0List);
+            mesh.SetUVs(1, uv1List);
+            mesh.tangents = tanList;
+            mesh.SetIndices(idxList.ToArray(), MeshTopology.Triangles, 0);
+            mesh.hideFlags = HideFlags.DontSave;
+            mesh.RecalculateNormals();
+            mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 1000);
+            return mesh;
+        }
+
+        void AppendSegmentToVertexArray(
             float l0, float l1,
             float r0, float r1,
-            float depth,
             List<Vector3> vtxList,
             List<Vector2> uv0List,
             List<Vector2> uv1List,
@@ -47,8 +154,8 @@ namespace Teatro
         )
         {
             var vi0 = vtxList.Count;
-            var down = Vector3.up * depth;
-            var uv1 = new Vector2(l0, r0);
+            var down = Vector3.up * (2.0f / _ringCount);
+            var uv1 = new Vector2(r0, l0);
 
             for (var i = 0; i < _pointsOnArc; i++)
             {
@@ -164,83 +271,6 @@ namespace Teatro
             idxList.Add(vi2 + 6);
         }
 
-        Mesh BuildMesh()
-        {
-            // parameter sanitization
-            _arcCount = Mathf.Clamp(_arcCount, 4, 64);
-            _ringCount = Mathf.Clamp(_ringCount, 2, 64);
-            _pointsOnArc = Mathf.Clamp(_pointsOnArc, 3, 32);
-
-            var vtxList = new List<Vector3>();
-            var uv0List = new List<Vector2>();
-            var uv1List = new List<Vector2>();
-            var idxList = new List<int>();
-
-            for (var ri = 0; ri < _ringCount; ri++)
-            {
-                var l0 = (float)(ri + 0) / _ringCount;
-                var l1 = (float)(ri + 1) / _ringCount;
-
-                for (var ai = 0; ai < _arcCount; ai++)
-                {
-                    var r0 = Mathf.PI * 2 * (ai + 0) / _arcCount;
-                    var r1 = Mathf.PI * 2 * (ai + 1) / _arcCount;
-
-                    AppendSegment(
-                        l0, l1, r0, r1, 0.05f,
-                        vtxList, uv0List, uv1List, idxList);
-                }
-            }
-
-            var tanList = new Vector4[vtxList.Count];
-            for (var i = 0; i < tanList.Length; i++)
-            {
-                var v = vtxList[i].normalized;
-                tanList[i] = new Vector4(v.x, v.y, v.z, 1);
-            }
-
-            var mesh = new Mesh();
-            mesh.SetVertices(vtxList);
-            mesh.SetUVs(0, uv0List);
-            mesh.SetUVs(1, uv1List);
-            mesh.tangents = tanList;
-            mesh.SetIndices(idxList.ToArray(), MeshTopology.Triangles, 0);
-            mesh.hideFlags = HideFlags.DontSave;
-            mesh.RecalculateNormals();
-            return mesh;
-        }
-
-        void SetUpResources()
-        {
-            if (_mesh) DestroyImmediate(_mesh);
-            if (_material) DestroyImmediate(_material);
-
-            _mesh = BuildMesh();
-
-            _material = new Material(_shader);
-            _material.hideFlags = HideFlags.DontSave;
-        }
-
-        void Update()
-        {
-            if (_needsReset)
-            {
-                SetUpResources();
-                _needsReset = false;
-            }
-
-            _material.SetColor("_BaseColor", _baseColor);
-            _material.SetColor("_Emission1", _emissionColor1);
-            _material.SetColor("_Emission2", _emissionColor2);
-            _material.SetFloat("_Glossiness", _smoothness);
-            _material.SetFloat("_Metallic", _metallic);
-            _material.SetTexture("_MainTex", _albedoTexture);
-            _material.SetFloat("_TexScale", _textureScale);
-            _material.SetTexture("_NormalTex", _normalTexture);
-            _material.SetFloat("_NormalScale", _normalScale);
-
-            var matrix = transform.localToWorldMatrix;
-            Graphics.DrawMesh(_mesh, matrix, _material, 0); 
-        }
+        #endregion
     }
 }

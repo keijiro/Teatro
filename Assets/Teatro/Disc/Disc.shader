@@ -41,6 +41,12 @@
         return qmul(r, qmul(float4(v, 0), r_c)).xyz;
     }
 
+    // Rotation around the Y axis.
+    float4 y_rotation(float r)
+    {
+        return float4(0, sin(r * 0.5), 0, cos(r * 0.5));
+    }
+
     ENDCG
 
     SubShader
@@ -70,6 +76,8 @@
         sampler2D _NormalTex;
         half _NormalScale;
 
+        float3 _AnimParams; // rotation, displace, emission
+
         void vert(inout appdata_full v, out Input data)
         {
             UNITY_INITIALIZE_OUTPUT(Input, data);
@@ -78,20 +86,31 @@
             float2 uv0 = v.texcoord;
             float2 uv1 = v.texcoord1;
 
-            float a = (nrand(uv1.x, 0) - 0.5f) * _Time.y * 0.8f;
-            float4 r = float4(0, sin(a), 0, cos(a));
+            // rotation
+            float r_spin = (nrand(uv1.y, 0) - 0.5f) * _AnimParams.x;
+            float4 q_spin = y_rotation(r_spin);
 
-            float dy = max(0, snoise(uv1 * 14 + _Time.x * 4) * 0.03);
-            float s = nrand(uv1, 3) > 0.8;
-            float l = pow(max(snoise(uv1 * 11 + _Time.x * 4), 0), 10) * 2;
+            // displacement with noise
+            float dy = snoise(uv1 * 0.67 + _Time.x * 4);
+            dy += max(sin(uv1.y * 25 - _Time.y * 1.8), 0);
+            dy *= _AnimParams.y;
 
-            v.vertex.xyz = rotate_vector(v.vertex.xyz, r);
+            // color selection
+            float csel = nrand(uv1, 1) > 0.8;
+
+            // emission intensity
+            float em = pow(max(snoise(uv1 * 4 + _Time.x * 4), 0), 8);
+            em *= _AnimParams.z;
+
+            // modify vertex
             v.vertex.y += dy;
-            v.normal = rotate_vector(v.normal, r);
-            v.tangent.xyz = rotate_vector(v.tangent.xyz, r);
+            v.vertex.xyz = rotate_vector(v.vertex.xyz, q_spin);
+            v.normal = rotate_vector(v.normal, q_spin);
+            v.tangent.xyz = rotate_vector(v.tangent.xyz, q_spin);
 
+            // other parameters
             data.xzuv = float4(xz * _TexScale, uv0);
-            data.cparams = float3(v.normal.y, s, l);
+            data.cparams = float3(v.normal.y, csel, em);
         }
 
         void surf(Input IN, inout SurfaceOutputStandard o)
