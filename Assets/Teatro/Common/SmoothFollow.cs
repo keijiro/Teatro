@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Makino
+namespace Teatro
 {
     public class SmoothFollow : MonoBehaviour
     {
