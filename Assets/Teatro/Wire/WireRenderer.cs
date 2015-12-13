@@ -1,69 +1,103 @@
 ﻿using UnityEngine;
-using System.Collections;
 
-[ExecuteInEditMode]
-public class WireRenderer : MonoBehaviour
+namespace Teatro
 {
-    [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
-    Color _color = Color.white;
-
-    [SerializeField]
-    int _vertexCount = 128;
-
-    [HideInInspector]
-    [SerializeField]
-    Shader _shader;
-
-    Mesh _mesh;
-    Material _material;
-    float _offset;
-
-    Mesh BuildMesh()
+    [ExecuteInEditMode]
+    public class WireRenderer : MonoBehaviour
     {
-        var va = new Vector3[_vertexCount];
-        var ta = new Vector2[_vertexCount];
+        #region Exposed Properties
 
-        for (var i = 0; i < _vertexCount; i++)
+        [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
+        Color _color = Color.white;
+
+        [SerializeField] int _verticesPerCircle = 128;
+        [SerializeField] int _circleCount = 32;
+
+        [HideInInspector, SerializeField] Shader _shader;
+
+        #endregion
+
+        #region Internal Objects and Variables
+
+        Mesh _mesh;
+        Material _material;
+
+        #endregion
+
+        #region MonoBehaviour Functions
+
+        void Update()
         {
-            var r = Mathf.PI * 2 * i / (_vertexCount - 1);
-            va[i] = new Vector3(Mathf.Cos(r), 0, Mathf.Sin(r));
-            ta[i] = new Vector2((float)i / (_vertexCount - 1), 0);
+            if (_mesh == null) ResetResources();
+
+            _material.SetColor("_Color", _color);
+
+            var matrix = transform.localToWorldMatrix;
+            Graphics.DrawMesh(_mesh, matrix, _material, 0); 
         }
 
-        var ia = new int[_vertexCount + 1];
+        #endregion
 
-        for (var i = 0; i < _vertexCount; i++) ia[i] = i;
-        ia[_vertexCount] = 0;
+        #region Resource Management
 
-        var mesh = new Mesh();
-        mesh.vertices = va;
-        mesh.uv = ta;
-        mesh.SetIndices(ia, MeshTopology.LineStrip, 0);
-        mesh.hideFlags = HideFlags.DontSave;
-        return mesh;
-    }
+        void ResetResources()
+        {
+            if (_mesh) DestroyImmediate(_mesh);
+            if (_material) DestroyImmediate(_material);
 
-    void SetUpResources()
-    {
-        if (_mesh) DestroyImmediate(_mesh);
-        if (_material) DestroyImmediate(_material);
+            _mesh = BuildMesh();
 
-        _mesh = BuildMesh();
+            _material = new Material(_shader);
+            _material.hideFlags = HideFlags.DontSave;
+        }
 
-        _material = new Material(_shader);
-        _material.hideFlags = HideFlags.DontSave;
+        Mesh BuildMesh()
+        {
+            var va = new Vector3[_verticesPerCircle * _circleCount];
+            var ta = new Vector2[_verticesPerCircle * _circleCount];
 
-        _offset = Random.Range(-100.0f, 100.0f);
-    }
+            for (var vi = 0; vi < _verticesPerCircle; vi++)
+            {
+                var u = (float)vi / _verticesPerCircle;
+                var r = Mathf.PI * 2 * u;
 
-    void Update()
-    {
-        if (_mesh == null) SetUpResources();
+                va[vi] = new Vector3(Mathf.Cos(r), 0, Mathf.Sin(r));
+                ta[vi] = new Vector2(u, 0);
 
-        _material.SetColor("_Color", _color);
-        _material.SetFloat("_Offset", _offset);
+                for (var ci = 1; ci < _circleCount ; ci++)
+                {
+                    var vi2 = vi + ci * _verticesPerCircle;
+                    va[vi2] = va[vi];
+                    ta[vi2]  = new Vector2(u, (float)ci / _circleCount);
+                }
+            }
 
-        var matrix = transform.localToWorldMatrix;
-        Graphics.DrawMesh(_mesh, matrix, _material, 0); 
+            var ia = new int[_verticesPerCircle * _circleCount * 2];
+            var ii = 0;
+
+            for (var ci = 0; ci < _circleCount ; ci++)
+            {
+                var offs = ci * _verticesPerCircle;
+
+                for (var vi = 0; vi < _verticesPerCircle - 1; vi++)
+                {
+                    ia[ii++] = offs + vi;
+                    ia[ii++] = offs + vi + 1;
+                }
+
+                ia[ii++] = offs + _verticesPerCircle - 1;
+                ia[ii++] = offs;
+            }
+
+            var mesh = new Mesh();
+            mesh.vertices = va;
+            mesh.uv = ta;
+            mesh.SetIndices(ia, MeshTopology.Lines, 0);
+            mesh.hideFlags = HideFlags.DontSave;
+            mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 1000);
+            return mesh;
+        }
+
+        #endregion
     }
 }

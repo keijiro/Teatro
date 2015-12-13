@@ -10,35 +10,38 @@
 
         CGPROGRAM
 
-        #pragma surface surf Standard vertex:vert
+        #pragma surface surf Standard vertex:vert nolightmap
         #pragma target 3.0
 
-        #include "ClassicNoise2D.cginc"
+        #include "SimplexNoise2D.cginc"
 
         struct Input {
-            float2 uv_MainTex;
+            float worldPos;
+            half4 color : COLOR;
         };
 
         half4 _Color;
-        float _Offset;
 
         void vert(inout appdata_full v)
         {
-            float2 np = float2(v.vertex.x * 4, _Time.y + _Offset);
-            v.vertex.y +=
-                max(0,
-                cnoise(np * 1) * 0.5 +
-                cnoise(np * 2) * 0.25 +
-                cnoise(np * 4) * 0.125) * 0.2;
+            float radius = 1 + snoise(float2(v.texcoord.y * 33.3, _Time.y * 0.05));
+
+            v.vertex.xz *= radius;
+
+            float2 np = v.vertex.xz * 1.2 - float2(0, _Time.y) * 0.3;
+
+            float n = snoise(np * 1) * 0.5 + snoise(np * 2) * 0.25 + snoise(np * 4) * 0.125 + snoise(np * 8) * 0.0625;
+
+            v.vertex.y += max(n, 0) * 0.2;
+
+            v.color = _Color * (0.5 + v.texcoord.y * 0.5);
         }
 
         void surf(Input IN, inout SurfaceOutputStandard o)
         {
-            o.Albedo = 0;
-            o.Metallic = 0;
-            o.Smoothness = 0;
-            o.Emission = _Color;
+            o.Emission = IN.color;
         }
+
         ENDCG
     }
     FallBack "Diffuse"
