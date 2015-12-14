@@ -1,4 +1,4 @@
-﻿Shader "Custom/Shell"
+﻿Shader "Teatro/Core"
 {
     Properties
     {
@@ -13,7 +13,7 @@
 
     CGINCLUDE
 
-    #include "ClassicNoise3D.cginc"
+    #include "SimplexNoise3D.cginc"
 
     float _WTime;
     float3 _WParams1;
@@ -34,7 +34,7 @@
 
     float3 noise_disp(float3 vp)
     {
-        float n = cnoise(vp * _NParams.x + _NOffset);
+        float n = snoise(vp * _NParams.x + _NOffset);
         return vp * (1.0 + pow(abs(n), _NParams.z) * _NParams.y);
     }
 
@@ -54,7 +54,7 @@
         #pragma target 3.0
 
         struct Input {
-            float3 worldPos;
+            float3 ncoord : TEXCOORD0;
         };
 
         half4 _Color1;
@@ -62,13 +62,18 @@
         half _Metallic1;
         half4 _Emission;
 
-        void vert(inout appdata_full v)
+        void vert(inout appdata_full v, out Input data)
         {
+            UNITY_INITIALIZE_OUTPUT(Input, data);
+
             float3 v1 = noise_disp(v.vertex.xyz);
             float3 v2 = noise_disp(v.normal);
             float3 v3 = noise_disp(v.tangent.xyz);
+
             v.vertex.xyz = v1;
             v.normal = normalize(cross(v2 - v1, v3 - v1));
+
+            data.ncoord = v1;
         }
 
         void surf(Input IN, inout SurfaceOutputStandard o)
@@ -77,7 +82,7 @@
             o.Metallic = _Metallic1;
             o.Smoothness = _Glossiness1;
             o.Emission = _Emission;
-            o.Alpha = wave_alpha(IN.worldPos);
+            o.Alpha = wave_alpha(IN.ncoord);
         }
 
         ENDCG
@@ -92,20 +97,25 @@
         #pragma target 3.0
 
         struct Input {
-            float3 worldPos;
+            float3 ncoord : TEXCOORD0;
         };
 
         half4 _Color2;
         half _Glossiness2;
         half _Metallic2;
 
-        void vert(inout appdata_full v)
+        void vert(inout appdata_full v, out Input data)
         {
+            UNITY_INITIALIZE_OUTPUT(Input, data);
+
             float3 v1 = noise_disp(v.vertex.xyz);
             float3 v2 = noise_disp(v.normal);
             float3 v3 = noise_disp(v.tangent.xyz);
+
             v.vertex.xyz = v1;
             v.normal = -normalize(cross(v2 - v1, v3 - v1));
+
+            data.ncoord = v1;
         }
 
         void surf(Input IN, inout SurfaceOutputStandard o)
@@ -113,7 +123,7 @@
             o.Albedo = _Color2.rgb;
             o.Metallic = _Metallic2;
             o.Smoothness = _Glossiness2;
-            o.Alpha = wave_alpha(IN.worldPos);
+            o.Alpha = wave_alpha(IN.ncoord);
         }
 
         ENDCG
