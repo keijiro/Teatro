@@ -1,11 +1,11 @@
 ﻿Shader "Hidden/Cluster"
 {
-	Properties
+    Properties
     {
-		_Color ("-", Color) = (1,1,1,1)
+        _Color ("-", Color) = (1,1,1,1)
         _MainTex ("-", 2D) = "white"{}
         _NormalTex ("-", 2D) = "bump"{}
-	}
+    }
 
     CGINCLUDE
 
@@ -54,14 +54,14 @@
 
     ENDCG
 
-	SubShader
+    SubShader
     {
-		Tags { "RenderType"="Opaque" }
-		
-		CGPROGRAM
+        Tags { "RenderType"="Opaque" }
 
-		#pragma surface surf Standard vertex:vert nolightmap
-		#pragma target 3.0
+        CGPROGRAM
+
+        #pragma surface surf Standard vertex:vert nolightmap
+        #pragma target 3.0
 
         #include "SimplexNoise2D.cginc"
 
@@ -77,9 +77,9 @@
         float2 _NoiseParams;
         float _Scale;
 
-		half4 _Color;
-		half _Glossiness;
-		half _Metallic;
+        half4 _Color;
+        half _Glossiness;
+        half _Metallic;
 
         sampler2D _MainTex;
         half _TexScale;
@@ -120,18 +120,18 @@
             v.texcoord.xy = v.texcoord.xy * _TexScale + uv_rand;
         }
 
-		void surf(Input IN, inout SurfaceOutputStandard o)
+        void surf(Input IN, inout SurfaceOutputStandard o)
         {
             half4 tex_c = tex2D(_MainTex, IN.uv_MainTex);
             half4 tex_n = tex2D(_NormalTex, IN.uv_MainTex);
 
-			o.Albedo = _Color.rgb * tex_c.rgb;
-			o.Metallic = _Metallic;
-			o.Smoothness = _Glossiness;
+            o.Albedo = _Color.rgb * tex_c.rgb;
+            o.Metallic = _Metallic;
+            o.Smoothness = _Glossiness;
             o.Normal = UnpackScaleNormal(tex_n, _NormalScale);
-		}
+        }
 
-		ENDCG
-	}
-	FallBack "Diffuse"
+        ENDCG
+    }
+    FallBack "Diffuse"
 }
