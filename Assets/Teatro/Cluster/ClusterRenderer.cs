@@ -26,9 +26,19 @@ namespace Teatro
         [Space]
         [SerializeField] float _scale = 0.05f;
         [SerializeField] Mesh _sourceMesh;
+
+        [Space]
         [SerializeField] Color _color = Color.white;
         [SerializeField, Range(0, 1)] float _metallic = 0.5f;
         [SerializeField, Range(0, 1)] float _smoothness = 0.5f;
+
+        [Space]
+        [SerializeField] Texture2D _albedoTexture;
+        [SerializeField] float _textureScale = 1.0f;
+
+        [Space]
+        [SerializeField] Texture2D _normalTexture;
+        [SerializeField, Range(0, 2)] float _normalScale = 1.0f;
 
         [SerializeField, HideInInspector] Shader _shader;
 
@@ -70,9 +80,16 @@ namespace Teatro
             ));
 
             _material.SetFloat("_Scale", _scale);
+
             _material.SetColor("_Color", _color);
+            _material.SetTexture("_MainTex", _albedoTexture);
+            _material.SetFloat("_TexScale", _textureScale);
+
             _material.SetFloat("_Metallic", _metallic);
             _material.SetFloat("_Glossiness", _smoothness);
+
+            _material.SetTexture("_NormalTex", _normalTexture);
+            _material.SetFloat("_NormalScale", _normalScale);
 
             Graphics.DrawMesh(_mesh, transform.localToWorldMatrix, _material, 0); 
         }
@@ -94,46 +111,54 @@ namespace Teatro
 
         void BuildBulkMesh()
         {
-            var va_src = _sourceMesh.vertices;
-            var na_src = _sourceMesh.normals;
+            var vtx_src = _sourceMesh.vertices;
+            var nrm_src = _sourceMesh.normals;
+            var tan_src = _sourceMesh.tangents;
+            var uv0_src = _sourceMesh.uv;
 
             // maximum count of instances for a single mesh (65k vertices)
-            _instanceCount = 65000 / va_src.Length;
+            _instanceCount = 65000 / vtx_src.Length;
 
-            var va_tmp = new Vector3[_instanceCount * va_src.Length];
-            var na_tmp = new Vector3[va_tmp.Length];
-            var ta_tmp = new Vector2[va_tmp.Length];
+            var vtx_tmp = new Vector3[_instanceCount * vtx_src.Length];
+            var nrm_tmp = new Vector3[vtx_tmp.Length];
+            var tan_tmp = new Vector4[vtx_tmp.Length];
+            var uv0_tmp = new Vector2[vtx_tmp.Length];
+            var uv1_tmp = new Vector2[vtx_tmp.Length];
 
-            var i = 0;
-            for (var i_i = 0; i_i < _instanceCount; i_i++)
+            var i_tmp = 0;
+            for (var instance = 0; instance < _instanceCount; instance++)
             {
-                var uv = new Vector2((float)i_i / _instanceCount, 0);
-                for (var i_va = 0; i_va < va_src.Length; i_va++)
+                var uv1 = new Vector2((float)instance / _instanceCount, 0);
+                for (var i_src = 0; i_src < vtx_src.Length; i_src++)
                 {
-                    va_tmp[i] = va_src[i_va];
-                    na_tmp[i] = na_src[i_va];
-                    ta_tmp[i] = uv;
-                    i++;
+                    vtx_tmp[i_tmp] = vtx_src[i_src];
+                    nrm_tmp[i_tmp] = nrm_src[i_src];
+                    tan_tmp[i_tmp] = tan_src[i_src];
+                    uv0_tmp[i_tmp] = uv0_src[i_src];
+                    uv1_tmp[i_tmp] = uv1;
+                    i_tmp ++;
                 }
             }
 
-            var ia_src = _sourceMesh.GetIndices(0);
-            var ia_tmp = new int[ia_src.Length * _instanceCount];
+            var idx_src = _sourceMesh.GetIndices(0);
+            var idx_tmp = new int[idx_src.Length * _instanceCount];
 
-            i = 0;
-            for (var i_i = 0; i_i < _instanceCount; i_i++)
+            i_tmp = 0;
+            for (var instance = 0; instance < _instanceCount; instance++)
             {
-                var i0 = i_i * va_src.Length;
-                for (var i_ia = 0; i_ia < ia_src.Length; i_ia++)
-                    ia_tmp[i++] = ia_src[i_ia] + i0;
+                var i_0 = instance * vtx_src.Length;
+                for (var i_src = 0; i_src < idx_src.Length; i_src++)
+                    idx_tmp[i_tmp++] = idx_src[i_src] + i_0;
             }
 
             _mesh = new Mesh();
             _mesh.hideFlags = HideFlags.DontSave;
-            _mesh.vertices = va_tmp;
-            _mesh.normals = na_tmp;
-            _mesh.uv = ta_tmp;
-            _mesh.SetIndices(ia_tmp, MeshTopology.Triangles, 0);
+            _mesh.vertices = vtx_tmp;
+            _mesh.normals = nrm_tmp;
+            _mesh.tangents = tan_tmp;
+            _mesh.uv = uv0_tmp;
+            _mesh.uv2 = uv1_tmp;
+            _mesh.SetIndices(idx_tmp, MeshTopology.Triangles, 0);
             _mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 1000);
         }
 

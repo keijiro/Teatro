@@ -2,9 +2,9 @@
 {
 	Properties
     {
-		_Color ("Color", Color) = (1,1,1,1)
-		_Glossiness ("Smoothness", Range(0,1)) = 0.5
-		_Metallic ("Metallic", Range(0,1)) = 0.0
+		_Color ("-", Color) = (1,1,1,1)
+        _MainTex ("-", 2D) = "white"{}
+        _NormalTex ("-", 2D) = "bump"{}
 	}
 
     CGINCLUDE
@@ -65,7 +65,9 @@
 
         #include "SimplexNoise2D.cginc"
 
-        struct Input { float dummy; };
+        struct Input {
+            float2 uv_MainTex;
+        };
 
         half _InstanceCount;
         half _Throttle;
@@ -79,9 +81,15 @@
 		half _Glossiness;
 		half _Metallic;
 
+        sampler2D _MainTex;
+        half _TexScale;
+
+        sampler2D _NormalTex;
+        half _NormalScale;
+
         void vert(inout appdata_full v)
         {
-            float uv = v.texcoord.xy;
+            float uv = v.texcoord1.xy;
 
             float v_phi = lerp(-1, 1, nrand(uv, 3)) * _TubeParams.x;
             float phi = nrand(uv, 1) * UNITY_PI * 2 + v_phi * _Time.y;
@@ -105,16 +113,22 @@
 
             float3 pos = lerp(pos0, pos1, _Transition);
             float4 rot = normalize(lerp(rot0, rot1, _Transition));
+            float2 uv_rand = float2(nrand(uv, 8), nrand(uv, 9));
 
             v.vertex.xyz = rotate_vector(v.vertex.xyz * scale, rot) + pos;
             v.normal = rotate_vector(v.normal, rot);
+            v.texcoord.xy = v.texcoord.xy * _TexScale + uv_rand;
         }
 
 		void surf(Input IN, inout SurfaceOutputStandard o)
         {
-			o.Albedo = _Color.rgb;
+            half4 tex_c = tex2D(_MainTex, IN.uv_MainTex);
+            half4 tex_n = tex2D(_NormalTex, IN.uv_MainTex);
+
+			o.Albedo = _Color.rgb * tex_c.rgb;
 			o.Metallic = _Metallic;
 			o.Smoothness = _Glossiness;
+            o.Normal = UnpackScaleNormal(tex_n, _NormalScale);
 		}
 
 		ENDCG

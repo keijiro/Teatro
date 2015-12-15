@@ -370,9 +370,13 @@ MonoBehaviour:
   _noiseMotion: -1
   _scale: .0799999982
   _sourceMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  _color: {r: .610294104, g: .610294104, b: .610294104, a: 1}
-  _metallic: .188999996
-  _smoothness: .541999996
+  _color: {r: .818663538, g: .822287023, b: .83088237, a: 1}
+  _metallic: .200000003
+  _smoothness: .5
+  _albedoTexture: {fileID: 2800000, guid: f6672ca95260c4899876666bd1726356, type: 3}
+  _textureScale: .0799999982
+  _normalTexture: {fileID: 2800000, guid: d1a9f852928a64b17af2f24a73c39a89, type: 3}
+  _normalScale: .800000012
   _shader: {fileID: 4800000, guid: 48a9bdebdd1d7442db6f8eaa8eb41f7e, type: 3}
 --- !u!4 &575467863
 Transform:
