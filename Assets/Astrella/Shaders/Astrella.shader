@@ -1,4 +1,4 @@
-﻿Shader "Custom/Astrealla"
+﻿Shader "Custom/Astrella"
 {
     Properties
     {
