@@ -7,10 +7,10 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: char_astrella_glass_mat
-  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: 6869f790d08a542fdb89b5798cc44ff1, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap: {}
   m_SavedProperties:
     serializedVersion: 2
@@ -34,13 +34,6 @@ Material:
           name: _DetailNormalMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _Cube
-        second:
-          m_Texture: {fileID: 8900000, guid: 9c45003dc05b3f44eb34c04bec8173b0, type: 2}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -85,6 +78,13 @@ Material:
           m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _Cube
+        second:
+          m_Texture: {fileID: 8900000, guid: 9c45003dc05b3f44eb34c04bec8173b0, type: 2}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
     m_Floats:
       data:
         first:
@@ -104,10 +104,6 @@ Material:
         second: .314344943
       data:
         first:
-          name: _BumpScale
-        second: 1
-      data:
-        first:
           name: _Parallax
         second: .0199999996
       data:
@@ -118,6 +114,10 @@ Material:
         first:
           name: _Glossiness
         second: .899999976
+      data:
+        first:
+          name: _BumpScale
+        second: 1
       data:
         first:
           name: _OcclusionStrength
@@ -138,6 +138,22 @@ Material:
         first:
           name: _Metallic
         second: .5
+      data:
+        first:
+          name: _MetallicScale
+        second: .910000026
+      data:
+        first:
+          name: _SmoothnessScale
+        second: .879999995
+      data:
+        first:
+          name: _MetallicBias
+        second: 0
+      data:
+        first:
+          name: _SmoothnessBias
+        second: 0
     m_Colors:
       data:
         first:
@@ -146,7 +162,7 @@ Material:
       data:
         first:
           name: _Color
-        second: {r: .176470578, g: .162510529, b: .125865042, a: 1}
+        second: {r: .198529422, g: .186045915, b: .153276399, a: 1}
       data:
         first:
           name: _SpecColor

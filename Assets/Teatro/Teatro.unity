@@ -462,7 +462,7 @@ ParticleSystem:
   InitialModule:
     enabled: 1
     startLifetime:
-      scalar: .5
+      scalar: .800000012
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -477,7 +477,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .400000006
+          value: .25
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -485,7 +485,7 @@ ParticleSystem:
         m_PostInfinity: 2
       minMaxState: 3
     startSpeed:
-      scalar: .100000001
+      scalar: .400000006
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -612,7 +612,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: .349999994
+      scalar: .300000012
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -627,7 +627,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .428571463
+          value: .333333313
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -767,7 +767,7 @@ ParticleSystem:
   RotationModule:
     enabled: 1
     curve:
-      scalar: .34906584
+      scalar: 1.74532926
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -782,7 +782,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: -1
+          value: .099999994
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1031,18 +1031,8 @@ ParticleSystem:
   ForceModule:
     enabled: 1
     x:
-      scalar: 1
+      scalar: 0
       maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - time: 0
-          value: -1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-      minCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
@@ -1052,20 +1042,20 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-      minMaxState: 3
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+      minMaxState: 0
     y:
-      scalar: 1
+      scalar: 0
       maxCurve:
-        serializedVersion: 2
-        m_Curve:
-        - time: 0
-          value: -1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
-        m_PreInfinity: 2
-        m_PostInfinity: 2
-      minCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
@@ -1075,9 +1065,19 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-      minMaxState: 3
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+      minMaxState: 0
     z:
-      scalar: 5
+      scalar: 3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1092,13 +1092,13 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .800000012
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
-      minMaxState: 3
+      minMaxState: 0
     inWorldSpace: 1
     randomizePerFrame: 0
   ExternalForcesModule:
@@ -2268,7 +2268,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1375615763}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9051beb5d1de84fc9b2a15d601aff4bf, type: 3}
   m_Name: 
@@ -2313,6 +2313,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _closeToOpen: .100000001
   _noiseStrength: .100000001
+--- !u!114 &1375615769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1375615763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a0c819c2b1564f429e1161f8fcca8a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _emission: {r: 1.52205884, g: 1.65456355, b: 3, a: 1}
+  _noiseFrequency: {x: 3, y: 64}
+  _noiseMotion: {x: 4, y: .800000012}
+  _cutoffOffset: .300000012
+  _gradient: .699999988
+  _transition: 0
 --- !u!1001 &1424738481
 Prefab:
   m_ObjectHideFlags: 0
