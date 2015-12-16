@@ -376,6 +376,17 @@ ModelImporter:
     - char_astrella_skeleton/char_astrella_Hips1/char_astrella_LeftUpLeg
     - char_astrella_skeleton/char_astrella_Hips1/char_astrella_RightUpLeg
     - char_astrella_skeleton/char_astrella_Hips1/char_astrella_Spine
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_Spine/char_astrella_Spine1/char_astrella_Spine2/char_astrella_Neck/char_astrella_Head
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_Spine/char_astrella_Spine1/char_astrella_Spine2/char_astrella_LeftShoulder/char_astrella_LeftArm/char_astrella_LeftForeArm
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_Spine/char_astrella_Spine1/char_astrella_Spine2/char_astrella_LeftShoulder/char_astrella_LeftArm/char_astrella_LeftForeArm/char_astrella_LeftHand
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_Spine/char_astrella_Spine1/char_astrella_Spine2/char_astrella_Neck
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_Spine/char_astrella_Spine1/char_astrella_Spine2/char_astrella_RightShoulder/char_astrella_RightArm/char_astrella_RightForeArm
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_Spine/char_astrella_Spine1/char_astrella_Spine2/char_astrella_RightShoulder/char_astrella_RightArm/char_astrella_RightForeArm/char_astrella_RightHand
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_LeftUpLeg/char_astrella_LeftLeg
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_LeftUpLeg/char_astrella_LeftLeg/char_astrella_LeftFoot
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_RightUpLeg/char_astrella_RightLeg
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_RightUpLeg/char_astrella_RightLeg/char_astrella_RightFoot
+    - char_astrella_skeleton/char_astrella_Hips1/char_astrella_Spine/char_astrella_Spine1/char_astrella_Spine2
     clipAnimations: []
     isReadable: 0
   meshes:
