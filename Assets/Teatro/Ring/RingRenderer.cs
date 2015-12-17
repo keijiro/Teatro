@@ -39,6 +39,16 @@ namespace Teatro
 
         [SerializeField, HideInInspector] Shader _shader;
 
+        public float width {
+            get { return _width; }
+            set { _width = value; }
+        }
+
+        public float throttle {
+            get { return _throttle; }
+            set { _throttle = value; }
+        }
+
         #endregion
 
         #region Internal Objects and Variables
