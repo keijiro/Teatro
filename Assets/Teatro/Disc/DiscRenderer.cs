@@ -8,6 +8,8 @@ namespace Teatro
     {
         #region Exposed Properties
 
+        [SerializeField, Range(0, 1)] float _transition = 1.0f;
+
         [SerializeField] int _arcCount = 12;
         [SerializeField] int _ringCount = 24;
         [SerializeField] int _pointsOnArc = 6;
@@ -15,7 +17,7 @@ namespace Teatro
         [SerializeField] float _rotationSpeed = 0.8f;
         [SerializeField] float _animationSpeed = 1.0f;
         [SerializeField] float _displacement = 0.5f;
-        [SerializeField] float _blockIntensity = 1.0f;
+        [SerializeField] float _blockHighlight = 2.0f;
 
         [SerializeField] Color _baseColor = Color.black;
         [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
@@ -30,6 +32,8 @@ namespace Teatro
         [SerializeField] float _textureScale = 1;
         [SerializeField] Texture2D _normalTexture;
         [SerializeField, Range(0, 1)] float _normalScale = 1;
+
+        [SerializeField] int _randomSeed;
 
         [SerializeField, HideInInspector] Shader _shader;
 
@@ -78,10 +82,15 @@ namespace Teatro
             _material.SetTexture("_NormalTex", _normalTexture);
             _material.SetFloat("_NormalScale", _normalScale);
 
-            _material.SetVector("_Params", new Vector4(
-                _rotationTime, _animationTime,
-                0.05f * _displacement, _blockIntensity
+            _material.SetVector("_TParams", new Vector2(
+                _rotationTime, _animationTime
             ));
+
+            _material.SetVector("_AParams", new Vector3(
+                _transition, 0.05f * _displacement, _blockHighlight
+            ));
+
+            _material.SetFloat("_RandomSeed", _randomSeed);
 
             Graphics.DrawMesh(_mesh, transform.localToWorldMatrix, _material, 0); 
         }
@@ -115,6 +124,7 @@ namespace Teatro
             var vtxList = new List<Vector3>();
             var uv0List = new List<Vector2>();
             var uv1List = new List<Vector2>();
+            var uv2List = new List<Vector3>();
             var idxList = new List<int>();
 
             // append segments to the arrays
@@ -129,7 +139,7 @@ namespace Teatro
                         l0, l1,
                         Mathf.PI * 2 * (ai + 0) / _arcCount,
                         Mathf.PI * 2 * (ai + 1) / _arcCount,
-                        vtxList, uv0List, uv1List, idxList);
+                        vtxList, uv0List, uv1List, uv2List, idxList);
                 }
             }
 
@@ -144,6 +154,7 @@ namespace Teatro
             mesh.SetVertices(vtxList);
             mesh.SetUVs(0, uv0List);
             mesh.SetUVs(1, uv1List);
+            mesh.SetUVs(2, uv2List);
             mesh.tangents = tanList;
             mesh.SetIndices(idxList.ToArray(), MeshTopology.Triangles, 0);
             mesh.hideFlags = HideFlags.DontSave;
@@ -158,12 +169,18 @@ namespace Teatro
             List<Vector3> vtxList,
             List<Vector2> uv0List,
             List<Vector2> uv1List,
+            List<Vector3> uv2List,
             List<int> idxList
         )
         {
             var vi0 = vtxList.Count;
             var down = Vector3.up * (2.0f / _ringCount);
             var uv1 = new Vector2(r0, l0);
+
+            // calculate the centroid
+            var lm = (l0 + l1) * 0.5f;
+            var rm = (r0 + r1) * 0.5f;
+            var uv2 = new Vector3(Mathf.Cos(rm) * lm, 0, Mathf.Sin(rm) * lm);
 
             for (var i = 0; i < _pointsOnArc; i++)
             {
@@ -197,6 +214,13 @@ namespace Teatro
                 uv1List.Add(uv1);
                 uv1List.Add(uv1);
                 uv1List.Add(uv1);
+
+                uv2List.Add(uv2);
+                uv2List.Add(uv2);
+                uv2List.Add(uv2);
+                uv2List.Add(uv2);
+                uv2List.Add(uv2);
+                uv2List.Add(uv2);
             }
 
             var vi2 = vtxList.Count;
@@ -216,6 +240,11 @@ namespace Teatro
             uv1List.Add(uv1);
             uv1List.Add(uv1);
 
+            uv2List.Add(uv2);
+            uv2List.Add(uv2);
+            uv2List.Add(uv2);
+            uv2List.Add(uv2);
+
             vtxList.Add(vtxList[vi2 - 6]);
             vtxList.Add(vtxList[vi2 - 6 + 1]);
             vtxList.Add(vtxList[vi2 - 6 + 3]);
@@ -230,6 +259,11 @@ namespace Teatro
             uv1List.Add(uv1);
             uv1List.Add(uv1);
             uv1List.Add(uv1);
+
+            uv2List.Add(uv2);
+            uv2List.Add(uv2);
+            uv2List.Add(uv2);
+            uv2List.Add(uv2);
 
             var vi = vi0;
 

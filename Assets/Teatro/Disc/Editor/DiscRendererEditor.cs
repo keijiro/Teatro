@@ -7,6 +7,8 @@ namespace Teatro
     [CustomEditor(typeof(DiscRenderer))]
     public class DiscRendererEditor : Editor
     {
+        SerializedProperty _transition;
+
         SerializedProperty _arcCount;
         SerializedProperty _ringCount;
         SerializedProperty _pointsOnArc;
@@ -14,7 +16,7 @@ namespace Teatro
         SerializedProperty _rotationSpeed;
         SerializedProperty _animationSpeed;
         SerializedProperty _displacement;
-        SerializedProperty _blockIntensity;
+        SerializedProperty _blockHighlight;
 
         SerializedProperty _baseColor;
         SerializedProperty _emissionColor1;
@@ -27,8 +29,12 @@ namespace Teatro
         SerializedProperty _normalTexture;
         SerializedProperty _normalScale;
 
+        SerializedProperty _randomSeed;
+
         void OnEnable()
         {
+            _transition = serializedObject.FindProperty("_transition");
+
             _arcCount = serializedObject.FindProperty("_arcCount");
             _ringCount = serializedObject.FindProperty("_ringCount");
             _pointsOnArc = serializedObject.FindProperty("_pointsOnArc");
@@ -36,7 +42,7 @@ namespace Teatro
             _rotationSpeed = serializedObject.FindProperty("_rotationSpeed");
             _animationSpeed = serializedObject.FindProperty("_animationSpeed");
             _displacement = serializedObject.FindProperty("_displacement");
-            _blockIntensity = serializedObject.FindProperty("_blockIntensity");
+            _blockHighlight = serializedObject.FindProperty("_blockHighlight");
 
             _baseColor = serializedObject.FindProperty("_baseColor");
             _emissionColor1 = serializedObject.FindProperty("_emissionColor1");
@@ -48,11 +54,17 @@ namespace Teatro
             _textureScale = serializedObject.FindProperty("_textureScale");
             _normalTexture = serializedObject.FindProperty("_normalTexture");
             _normalScale = serializedObject.FindProperty("_normalScale");
+
+            _randomSeed = serializedObject.FindProperty("_randomSeed");
         }
 
         public override void OnInspectorGUI()
         {
             serializedObject.Update();
+
+            EditorGUILayout.PropertyField(_transition);
+
+            EditorGUILayout.Space();
 
             EditorGUI.BeginChangeCheck();
 
@@ -68,7 +80,7 @@ namespace Teatro
             EditorGUILayout.PropertyField(_rotationSpeed);
             EditorGUILayout.PropertyField(_animationSpeed);
             EditorGUILayout.PropertyField(_displacement);
-            EditorGUILayout.PropertyField(_blockIntensity);
+            EditorGUILayout.PropertyField(_blockHighlight);
 
             EditorGUILayout.Space();
 
@@ -85,8 +97,11 @@ namespace Teatro
             EditorGUILayout.PropertyField(_normalTexture);
             EditorGUILayout.PropertyField(_normalScale);
 
+            EditorGUILayout.Space();
+
+            EditorGUILayout.PropertyField(_randomSeed);
+
             serializedObject.ApplyModifiedProperties();
         }
     }
 }
-

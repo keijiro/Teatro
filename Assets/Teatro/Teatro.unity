@@ -245,7 +245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &391101506
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -425,7 +425,7 @@ MonoBehaviour:
   _noiseFrequency: .5
   _noiseMotion: -1
   _scale: .0799999982
-  _sourceMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  _sourceMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 3}
   _color: {r: .818663538, g: .822287023, b: .83088237, a: 1}
   _metallic: .200000003
   _smoothness: .5
@@ -2048,13 +2048,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c74e08d2be3014581e8eb1c18f9496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transition: 1
   _arcCount: 12
   _ringCount: 38
   _pointsOnArc: 5
   _rotationSpeed: 0
   _animationSpeed: 0
   _displacement: .100000001
-  _blockIntensity: 2
+  _blockHighlight: 2
   _baseColor: {r: .227941155, g: .227941155, b: .227941155, a: 1}
   _emissionColor1: {r: 0, g: 0, b: 0, a: 1}
   _emissionColor2: {r: 1.0147059, g: 2.26064944, b: 3, a: 1}
@@ -2064,6 +2065,7 @@ MonoBehaviour:
   _textureScale: 4.5
   _normalTexture: {fileID: 2800000, guid: d1a9f852928a64b17af2f24a73c39a89, type: 3}
   _normalScale: .200000003
+  _randomSeed: 0
   _shader: {fileID: 4800000, guid: e1713609d4b97e84d8ee41ab96ae1aa5, type: 3}
 --- !u!4 &881077796
 Transform:
@@ -2285,13 +2287,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5c74e08d2be3014581e8eb1c18f9496, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transition: 1
   _arcCount: 12
   _ringCount: 38
   _pointsOnArc: 5
   _rotationSpeed: 0
   _animationSpeed: 0
   _displacement: .100000001
-  _blockIntensity: 2
+  _blockHighlight: 2
   _baseColor: {r: .227941155, g: .227941155, b: .227941155, a: 1}
   _emissionColor1: {r: 0, g: 0, b: 0, a: 1}
   _emissionColor2: {r: 1.0147059, g: 2.26064944, b: 3, a: 1}
@@ -2301,6 +2304,7 @@ MonoBehaviour:
   _textureScale: 4.5
   _normalTexture: {fileID: 2800000, guid: d1a9f852928a64b17af2f24a73c39a89, type: 3}
   _normalScale: .200000003
+  _randomSeed: 10
   _shader: {fileID: 4800000, guid: e1713609d4b97e84d8ee41ab96ae1aa5, type: 3}
 --- !u!4 &1241459922
 Transform:

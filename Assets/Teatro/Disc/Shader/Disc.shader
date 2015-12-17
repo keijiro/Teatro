@@ -76,33 +76,37 @@
         sampler2D _NormalTex;
         half _NormalScale;
 
-        float4 _Params; // rotation, animation, displace, emission
+        float2 _TParams; // rotation time, animation time
+        float3 _AParams; // scale, displacement, highlight
+        float _RandomSeed;
 
         void vert(inout appdata_full v, out Input data)
         {
             UNITY_INITIALIZE_OUTPUT(Input, data);
 
             float2 xz = v.vertex.xz;
-            float2 uv0 = v.texcoord;
-            float2 uv1 = v.texcoord1;
+            float2 uv0 = v.texcoord.xy;
+            float2 uv1 = v.texcoord1.xy + _RandomSeed;
+            float3 uv2 = v.texcoord2.xyz;
 
             // rotation
-            float r_spin = (nrand(uv1.y, 0) - 0.5f) * _Params.x;
+            float r_spin = (nrand(uv1.y, 0) - 0.5f) * _TParams.x;
             float4 q_spin = y_rotation(r_spin);
 
             // displacement with noise
-            float dy = snoise(uv1 * 0.67 + _Params.y * 0.4);
-            dy += max(sin(uv1.y * 25 - _Params.y * 1.8), 0);
-            dy *= _Params.z;
+            float dy = snoise(uv1 * 0.67 + _TParams.y * 0.4);
+            dy += max(sin(uv1.y * 25 - _TParams.y * 1.8), 0);
+            dy *= _AParams.y;
 
             // color selection
             float csel = nrand(uv1, 1) > 0.8;
 
             // emission intensity
-            float em = pow(max(snoise(uv1 * 4 + _Params.y * 0.4), 0), 8);
-            em *= _Params.w;
+            float em = pow(max(snoise(uv1 * 4 + _TParams.y * 0.4), 0), 8);
+            em *= _AParams.z;
 
             // modify vertex
+            v.vertex.xyz = lerp(uv2, v.vertex.xyz, _AParams.x);
             v.vertex.y += dy;
             v.vertex.xyz = rotate_vector(v.vertex.xyz, q_spin);
             v.normal = rotate_vector(v.normal, q_spin);
