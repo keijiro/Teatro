@@ -57,6 +57,16 @@ namespace Teatro
             set { _displacement = value; }
         }
 
+        public Color emissionColor1 {
+            get { return _emissionColor1; }
+            set { _emissionColor1 = value; }
+        }
+
+        public Color emissionColor2 {
+            get { return _emissionColor2; }
+            set { _emissionColor2 = value; }
+        }
+
         #endregion
 
         #region Internal Objects and Variables
