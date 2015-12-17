@@ -28,6 +28,41 @@ namespace Teatro
 
         [HideInInspector, SerializeField] Shader _shader;
 
+        public float minRadius {
+            get { return _minRadius; }
+            set { _minRadius = value; }
+        }
+
+        public float maxRadius {
+            get { return _maxRadius; }
+            set { _maxRadius = value; }
+        }
+
+        public float windingNumber {
+            get { return _windingNumber; }
+            set { _windingNumber = value; }
+        }
+
+        public float noiseAmplitude {
+            get { return _noiseAmplitude; }
+            set { _noiseAmplitude = value; }
+        }
+
+        public float noiseFrequency {
+            get { return _noiseFrequency; }
+            set { _noiseFrequency = value; }
+        }
+
+        public float noiseSpeed {
+            get { return _noiseSpeed; }
+            set { _noiseSpeed = value; }
+        }
+
+        public float noiseThreshold {
+            get { return _noiseThreshold; }
+            set { _noiseThreshold = value; }
+        }
+
         #endregion
 
         #region Internal Objects and Variables

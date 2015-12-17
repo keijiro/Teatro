@@ -37,6 +37,26 @@ namespace Teatro
 
         [SerializeField, HideInInspector] Shader _shader;
 
+        public float transition {
+            get { return _transition; }
+            set { _transition = value; }
+        }
+
+        public float rotationSpeed {
+            get { return _rotationSpeed; }
+            set { _rotationSpeed = value; }
+        }
+
+        public float animationSpeed {
+            get { return _animationSpeed; }
+            set { _animationSpeed = value; }
+        }
+
+        public float displacement {
+            get { return _displacement; }
+            set { _displacement = value; }
+        }
+
         #endregion
 
         #region Internal Objects and Variables
