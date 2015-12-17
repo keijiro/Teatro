@@ -4,55 +4,53 @@ namespace Teatro
 {
     public class PuppetController : MonoBehaviour
     {
+        [SerializeField] float _noiseFrequency = 0.1f;
         [SerializeField, Range(0, 1)] float _closeToOpen;
         [SerializeField, Range(0, 1)] float _noiseStrength;
 
         Puppet _puppet;
-        XXHash _hash;
         NoiseGenerator _noise;
         int _pose;
 
         float CalcValue(int seed, float close, float rest, float open)
         {
-            var v = 
+            var v =
                 close * Mathf.Max(0.0f, 1 - _closeToOpen * 2) +
                 open  * Mathf.Max(0.0f, _closeToOpen * 2 - 1) +
                 rest  * (1 - Mathf.Abs(0.5f - _closeToOpen) * 2);
             return Mathf.Lerp(v, _noise.Value01(seed), _noiseStrength);
         }
 
-        public void Rehash()
-        {
-            _hash = new XXHash(Random.Range(0, 0x7fffffff));
-        }
-
         void Start()
         {
             _puppet = GetComponent<Puppet>();
-            _hash = new XXHash(Random.Range(0, 0x7fffffff));
-            _noise = new NoiseGenerator(0.1f);
+            _noise = new NoiseGenerator(_noiseFrequency);
         }
 
         void Update()
         {
+            _noise.Frequency = _noiseFrequency;
             _noise.Step();
 
-            _puppet.spineBend = CalcValue(0, 0.9f, _hash.Value(0), 0.25f);
-            _puppet.spineTwist = CalcValue(1, 0.5f, _hash.Value(1), 0.5f);
+            _puppet.spineBend       = CalcValue(0, 0.9f, 0.7f, 0.23f);
+            _puppet.spineTwist      = CalcValue(1, 0.5f, 0.7f, _noise.Value01(20));
 
-            _puppet.leftArmStretch = CalcValue(2, 0, _hash.Value(2), _hash.Range(0.0f, 1.0f, 2));
-            _puppet.leftArmRaise = CalcValue(3, 0.8f, _hash.Value(3), _hash.Range(0.0f, 1.0f, 2));
-            _puppet.leftArmOpen = CalcValue(4, 0, _hash.Value(4), _hash.Range(1.0f, 0.0f, 2) * _hash.Value(4));
+            _puppet.leftArmStretch  = CalcValue(2, 0.0f, 0.5f, 0.0f);
+            _puppet.leftArmRaise    = CalcValue(3, 0.8f, 0.9f, 0.2f);
+            _puppet.leftArmOpen     = CalcValue(4, 0.0f, 0.3f, 1.0f);
 
-            _puppet.rightArmStretch = CalcValue(5, 0, _hash.Value(5), _hash.Range(1.0f, 0.0f, 2));
-            _puppet.rightArmRaise = CalcValue(6, 0.8f, _hash.Value(6), _hash.Range(1.0f, 0.0f, 2));
-            _puppet.rightArmOpen = CalcValue(7, 0, _hash.Value(7), _hash.Range(0.0f, 1.0f, 2) * _hash.Value(7));
+            _puppet.rightArmStretch = CalcValue(5, 0.0f, 0.3f, 0.7f);
+            _puppet.rightArmRaise   = CalcValue(6, 0.8f, 0.8f, 0.5f);
+            _puppet.rightArmOpen    = CalcValue(7, 0.0f, 0.1f, 0.7f);
 
-            _puppet.leftLegStretch = CalcValue(8, 0, _hash.Value(8), _hash.Range(0.0f, 0.5f, 8));
-            _puppet.leftLegRaise = CalcValue(9, 0.5f, _hash.Value(9), _hash.Range(0.0f, 0.5f, 9));
+            _puppet.leftLegStretch  = CalcValue(8, 0.0f, 0.7f, 0.6f);
+            _puppet.leftLegRaise    = CalcValue(9, 0.5f, 0.1f, 0.1f);
 
-            _puppet.rightLegStretch = CalcValue(10, 0, _hash.Value(10), _hash.Range(0.0f, 0.5f, 10));
-            _puppet.rightLegRaise = CalcValue(11, 0.5f, _hash.Value(11), _hash.Range(0.0f, 0.5f, 11));
+            _puppet.rightLegStretch = CalcValue(10, 0.0f, 0.1f, 0.8f);
+            _puppet.rightLegRaise   = CalcValue(11, 0.5f, 0.3f, 0.2f);
+
+            _puppet.noiseToBodyPosition = Mathf.Lerp(0.15f, 0.20f, _noiseStrength);
+            _puppet.noiseToBodyRotation = Mathf.Lerp(10.0f, 30.0f, _noiseStrength);
         }
     }
 }
