@@ -10,6 +10,16 @@ namespace Teatro
         [SerializeField, Range(0, 1)] float _throttle;
         [SerializeField, Range(0, 1)] float _transition;
 
+        public float throttle {
+            get { return _throttle; }
+            set { _throttle = value; }
+        }
+
+        public float transition {
+            get { return _transition; }
+            set { _transition = value; }
+        }
+
         [Space]
         [SerializeField] float _angularSpeed = 180.0f;
         [SerializeField] float _minRadius = 0.5f;

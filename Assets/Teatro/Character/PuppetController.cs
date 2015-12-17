@@ -8,6 +8,16 @@ namespace Teatro
         [SerializeField, Range(0, 1)] float _closeToOpen;
         [SerializeField, Range(0, 1)] float _noiseStrength;
 
+        public float closeToOpen {
+            get { return _closeToOpen; }
+            set { _closeToOpen = value; }
+        }
+
+        public float noiseStrength {
+            get { return _noiseStrength; }
+            set { _noiseStrength = value; }
+        }
+
         Puppet _puppet;
         NoiseGenerator _noise;
         int _pose;
