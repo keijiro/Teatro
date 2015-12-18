@@ -672,7 +672,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _transitionTime: .200000003
   _bokeh: {fileID: 873665409}
-  _isoline: {fileID: 873665417}
   _contour: {fileID: 873665411}
   _isolineBlack: {fileID: 873665416}
   _contourBlack: {fileID: 873665412}
@@ -704,7 +703,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &249014588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,7 +718,7 @@ MonoBehaviour:
   _maxParticles: 20000
   _emitterCenter: {x: 0, y: 0, z: 0}
   _emitterSize: {x: .600000024, y: 1.5, z: .600000024}
-  _throttle: 1
+  _throttle: 0
   _life: 8
   _lifeRandomness: .600000024
   _initialVelocity: {x: 0, y: 0, z: 0}
@@ -1179,7 +1178,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 25
+  m_RootOrder: 26
 --- !u!114 &344216227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1457,7 +1456,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 19
+  m_RootOrder: 20
 --- !u!114 &396539863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1933,7 +1932,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 21
+  m_RootOrder: 22
 --- !u!114 &473082983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3974,9 +3973,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 720881115}
   - 114: {fileID: 720881117}
+  - 114: {fileID: 720881118}
   - 114: {fileID: 720881116}
   m_Layer: 0
-  m_Name: B01 Isoline
+  m_Name: K23 Isoline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3993,7 +3993,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 30
+  m_RootOrder: 18
 --- !u!114 &720881116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4002,7 +4002,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 720881114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c7feb1b54a914d6fbfe8a70b0d210f0, type: 3}
+  m_Script: {fileID: 11500000, guid: fcbea1f4bc98b455093b3b4b607ed9fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   reaktor:
@@ -4010,14 +4010,35 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  threshold: .899999976
-  interval: .100000001
-  target:
+  optionType: 0
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 31
+    - time: .00100000005
+      value: 1
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 31
+    - time: 1
+      value: 1
+      inSlope: Infinity
+      outSlope: Infinity
+      tangentMode: 31
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  origin: {x: 0, y: 0, z: 0}
+  direction: {x: 1, y: 0, z: 0}
+  boolTarget:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 204748565}
-        m_MethodName: ToggleIsoline
-        m_Mode: 1
+      - m_Target: {fileID: 873665417}
+        m_MethodName: set_enabled
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -4026,8 +4047,34 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
+    m_TypeName: Reaktion.GenericCurveGear+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  intTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+IntEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  floatTarget:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 873665417}
+        m_MethodName: 
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Reaktion.GenericCurveGear+FloatEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  vectorTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+VectorEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &720881117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4083,7 +4130,7 @@ MonoBehaviour:
   offset:
     _control: 1
     _midiChannel: 16
-    _knobIndex: 32
+    _knobIndex: 75
     _noteNumber: 40
     _inputAxis: Jump
     _curve:
@@ -4101,13 +4148,62 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: 1
+  sensitivity: .5
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
   falldown: .5
+--- !u!114 &720881118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720881114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccf5be84930048ad9169adfd8b4577b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reaktor:
+    _mode: 1
+    _reference: {fileID: 0}
+    _name: 
+    _forceUpdate: 0
+  color1: {r: 6, g: 1.80882347, b: 1.80882347, a: 0}
+  color2: {r: 6, g: 1.80882347, b: 1.80882347, a: 1}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  target:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 873665417}
+        m_MethodName: set_lineColor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Reaktion.GenericColorGear+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &734377795
 GameObject:
   m_ObjectHideFlags: 0
@@ -4442,7 +4538,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &798287656
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4457,7 +4553,7 @@ MonoBehaviour:
   _maxParticles: 6000
   _emitterCenter: {x: 0, y: 0, z: 0}
   _emitterSize: {x: 2, y: .100000001, z: 2}
-  _throttle: 1
+  _throttle: 0
   _life: 5
   _lifeRandomness: .5
   _initialVelocity: {x: 0, y: 0, z: 0}
@@ -5508,7 +5604,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 28
+  m_RootOrder: 29
 --- !u!114 &927921357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5776,7 +5872,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 29
+  m_RootOrder: 30
 --- !u!114 &947099038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6431,7 +6527,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 22
+  m_RootOrder: 23
 --- !u!1 &1142712697
 GameObject:
   m_ObjectHideFlags: 0
@@ -6447,7 +6543,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1142712698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6462,7 +6558,7 @@ MonoBehaviour:
   _maxParticles: 40000
   _emitterCenter: {x: 0, y: 1.39999998, z: 0}
   _emitterSize: {x: 16, y: 5, z: 16}
-  _throttle: 1
+  _throttle: 0
   _life: 6
   _lifeRandomness: .600000024
   _initialVelocity: {x: 0, y: 0, z: 0}
@@ -6757,7 +6853,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 18
+  m_RootOrder: 19
 --- !u!114 &1199435710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7179,7 +7275,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 20
+  m_RootOrder: 21
 --- !u!114 &1205844804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7693,7 +7789,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 26
+  m_RootOrder: 27
 --- !u!114 &1209548625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7717,11 +7813,11 @@ MonoBehaviour:
     - time: 0
       value: 0
       inSlope: 0
-      outSlope: 400
+      outSlope: 1
       tangentMode: 21
     - time: 1
-      value: 400
-      inSlope: 400
+      value: 1
+      inSlope: 1
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
@@ -8510,7 +8606,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 24
+  m_RootOrder: 25
 --- !u!114 &1353863407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8665,13 +8761,14 @@ GameObject:
   m_Component:
   - 4: {fileID: 1356260072}
   - 114: {fileID: 1356260071}
+  - 114: {fileID: 1356260073}
   m_Layer: 0
   m_Name: Pink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1356260071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8683,10 +8780,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051131338091a4b3d861d193e64fb704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxParticles: 3000
+  _maxParticles: 1
   _emitterCenter: {x: 0, y: 1.20000005, z: -.5}
   _emitterSize: {x: .100000001, y: .100000001, z: .100000001}
-  _throttle: 1
+  _throttle: 0
   _life: 4
   _lifeRandomness: .600000024
   _initialVelocity: {x: 0, y: 0, z: -2}
@@ -8702,6 +8799,9 @@ MonoBehaviour:
   _noiseMotion: .689999998
   _shapes:
   - {fileID: 4300006, guid: d156dcf56f86f404393203fbed35c031, type: 3}
+  - {fileID: 4300004, guid: d156dcf56f86f404393203fbed35c031, type: 3}
+  - {fileID: 4300002, guid: d156dcf56f86f404393203fbed35c031, type: 3}
+  - {fileID: 4300000, guid: d156dcf56f86f404393203fbed35c031, type: 3}
   _scale: .600000024
   _scaleRandomness: .5
   _material: {fileID: 2100000, guid: bca82785ec4e7074f83539b4aff92f17, type: 2}
@@ -8724,6 +8824,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 17
+--- !u!114 &1356260073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1356260070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33ac71c4b5e5749008d506161e192f9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 675227889}
+  _enableRotation: 0
 --- !u!1 &1364370834
 GameObject:
   m_ObjectHideFlags: 0
@@ -8753,7 +8866,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 27
+  m_RootOrder: 28
 --- !u!114 &1364370836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9533,6 +9646,7 @@ Transform:
   - {fileID: 1426750013}
   - {fileID: 2083711710}
   - {fileID: 1913037516}
+  - {fileID: 720881115}
   - {fileID: 1199435709}
   - {fileID: 396539862}
   - {fileID: 1205844803}
@@ -9545,7 +9659,6 @@ Transform:
   - {fileID: 1364370835}
   - {fileID: 927921356}
   - {fileID: 947099037}
-  - {fileID: 720881115}
   - {fileID: 1281089570}
   - {fileID: 195993464}
   - {fileID: 1615373069}
@@ -10002,7 +10115,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 23
+  m_RootOrder: 24
 --- !u!114 &1884737067
 MonoBehaviour:
   m_ObjectHideFlags: 0

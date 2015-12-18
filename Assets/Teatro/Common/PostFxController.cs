@@ -13,7 +13,6 @@ namespace Teatro
 
         [Space]
         [SerializeField] Kino.Bokeh _bokeh;
-        [SerializeField] Kino.Isoline _isoline;
         [SerializeField] Kino.Contour _contour;
         [SerializeField] Kino.Isoline _isolineBlack;
         [SerializeField] Kino.Contour _contourBlack;
@@ -24,7 +23,6 @@ namespace Teatro
 
         Mode _mode;
         float _maxBlur;
-        Color _isolineColor;
         Color _contourColor;
 
         float DeltaTime {
@@ -34,7 +32,6 @@ namespace Teatro
         void Start()
         {
             _maxBlur = _bokeh.maxBlur;
-            _isolineColor = _isoline.lineColor;
             _contourColor = _contour.lineColor;
             StartModeCoroutine();
         }
@@ -44,11 +41,6 @@ namespace Teatro
             var rgb = invert > fadeout ? 0.5f : 0.0f;
             var alpha = Mathf.Max(invert, fadeout);
             _colorSuite.fadeColor = new Color(rgb, rgb, rgb, alpha);
-        }
-
-        public void ToggleIsoline()
-        {
-            StartCoroutine(SwitchIsoline(_isoline.enabled ^ true));
         }
 
         public void ToggleWhiteContour()
@@ -75,25 +67,6 @@ namespace Teatro
                 StartCoroutine(BlackContourCoroutine());
             else
                 StartCoroutine(ReadyCoroutine());
-        }
-
-        IEnumerator SwitchIsoline(bool state)
-        {
-            if (state) _isoline.enabled = true;
-
-            var c = _isolineColor;
-
-            for (var t = 0.0f; t < 1.0f;)
-            {
-                t = Mathf.Min(1.0f, t + DeltaTime);
-
-                c.a = state ? t : 1 - t;
-                _isoline.lineColor = c;
-
-                yield return null;
-            }
-
-            if (!state) _isoline.enabled = false;
         }
 
         IEnumerator ReadyCoroutine()
