@@ -85,6 +85,45 @@ NavMeshSettings:
     cellSize: .166666672
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &40926620
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 40926622}
+  - 114: {fileID: 40926621}
+  m_Layer: 0
+  m_Name: Configurator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &40926621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 40926620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4064e268cf6f844a598dc116d4178c12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &40926622
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 40926620}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
 --- !u!4 &83013740 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400304, guid: 70f78be1e034af54790b7297093153f7, type: 3}
@@ -394,7 +433,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 19
 --- !u!1 &249014587
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,7 +504,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
 --- !u!1 &269595131
 GameObject:
   m_ObjectHideFlags: 0
@@ -535,7 +574,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
 --- !u!1 &336053675
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,7 +1178,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 391101505}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e78ea337f1d85431b868e6a40222c78e, type: 3}
   m_Name: 
@@ -1172,7 +1211,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 17
 --- !u!1 &394955178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,7 +1288,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 20
+  m_RootOrder: 21
 --- !u!114 &396539863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1720,7 +1759,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 22
+  m_RootOrder: 23
 --- !u!114 &473082983
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2166,7 +2205,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 13
 --- !u!1 &556449590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2279,7 +2318,7 @@ MonoBehaviour:
     randomness: 0
   scale:
     mode: 4
-    min: .0599999987
+    min: 0
     max: 1
     curve:
       serializedVersion: 2
@@ -2287,13 +2326,23 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: 1
-        tangentMode: 0
+        outSlope: .13333334
+        tangentMode: 21
+      - time: .449999988
+        value: .0599999987
+        inSlope: .13333334
+        outSlope: -0
+        tangentMode: 21
+      - time: .550000012
+        value: .0599999987
+        inSlope: 0
+        outSlope: 2.08888888
+        tangentMode: 21
       - time: 1
         value: 1
-        inSlope: 1
+        inSlope: 2.08888888
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
     arbitraryVector: {x: 1, y: 1, z: 1}
@@ -2356,7 +2405,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 11
 --- !u!1 &596052682
 GameObject:
   m_ObjectHideFlags: 0
@@ -3416,7 +3465,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
 --- !u!1 &675227888
 GameObject:
   m_ObjectHideFlags: 0
@@ -3764,7 +3813,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 734377795}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e78ea337f1d85431b868e6a40222c78e, type: 3}
   m_Name: 
@@ -3797,7 +3846,7 @@ Transform:
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 18
 --- !u!1 &757409645
 GameObject:
   m_ObjectHideFlags: 0
@@ -3935,7 +3984,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 24
+  m_RootOrder: 25
 --- !u!114 &766301137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4128,7 +4177,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
 --- !u!1 &854714377
 GameObject:
   m_ObjectHideFlags: 0
@@ -4179,7 +4228,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
 --- !u!1 &873665399
 GameObject:
   m_ObjectHideFlags: 0
@@ -4396,12 +4445,12 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 873665399}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6fc18a55c333d51489e5ee49b3cbff50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _falloff: .555000007
+  _falloff: .449999988
   _shader: {fileID: 4800000, guid: 89a223cbeee1935419811f8736c0a9b3, type: 3}
 --- !u!114 &873665409
 MonoBehaviour:
@@ -4409,7 +4458,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 873665399}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c8d76155f53cfc45b4f02922de468b3, type: 3}
   m_Name: 
@@ -4421,7 +4470,7 @@ MonoBehaviour:
   _focalLength: .0500000007
   _maxBlur: .0500000007
   _irisAngle: 0
-  _sampleCount: 2
+  _sampleCount: 1
   _foregroundBlur: 1
   _visualize: 0
   _shader: {fileID: 4800000, guid: b99c58356816f7b46818fe7e788b2fa1, type: 3}
@@ -4632,7 +4681,7 @@ Transform:
   m_LocalScale: {x: 16, y: 16, z: 16}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
 --- !u!1 &889297949
 GameObject:
   m_ObjectHideFlags: 0
@@ -4835,7 +4884,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 23
+  m_RootOrder: 24
 --- !u!114 &922742870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5031,7 +5080,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!114 &931277364
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5045,6 +5094,180 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 675227889}
   _enableRotation: 0
+--- !u!1 &982773623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 982773624}
+  - 114: {fileID: 982773626}
+  - 114: {fileID: 982773625}
+  m_Layer: 0
+  m_Name: K23 Ambient Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &982773624
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982773623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1528206852}
+  m_RootOrder: 19
+--- !u!114 &982773625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982773623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbea1f4bc98b455093b3b4b607ed9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reaktor:
+    _mode: 1
+    _reference: {fileID: 0}
+    _name: 
+    _forceUpdate: 0
+  optionType: 2
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  origin: {x: 0, y: 0, z: 0}
+  direction: {x: 1, y: 0, z: 0}
+  boolTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  intTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+IntEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  floatTarget:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 40926621}
+        m_MethodName: set_ambientLightIntensity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Reaktion.GenericCurveGear+FloatEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  vectorTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+VectorEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &982773626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982773623}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3ec3ae67a0841d8aa990e0f2e1089e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  injector:
+    _mode: 0
+    _reference: {fileID: 0}
+    _name: 
+    _forceUpdate: 1
+  audioCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  gain:
+    _control: 0
+    _midiChannel: 16
+    _knobIndex: 2
+    _noteNumber: 40
+    _inputAxis: Jump
+    _curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+  offset:
+    _control: 1
+    _midiChannel: 16
+    _knobIndex: 75
+    _noteNumber: 40
+    _inputAxis: Jump
+    _curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+  sensitivity: .200000003
+  decaySpeed: 1
+  showAudioOptions: 0
+  headroom: 1
+  dynamicRange: 17
+  lowerBound: -60
+  falldown: .5
 --- !u!1 &1011179923
 GameObject:
   m_ObjectHideFlags: 0
@@ -5074,7 +5297,7 @@ Transform:
   - {fileID: 2052933342}
   - {fileID: 556449592}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!114 &1011179926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5380,6 +5603,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 1144928207}
   - 114: {fileID: 1144928208}
+  - 114: {fileID: 1144928209}
   m_Layer: 0
   m_Name: K07 Core Scale
   m_TagString: Untagged
@@ -5479,6 +5703,76 @@ MonoBehaviour:
   dynamicRange: 17
   lowerBound: -60
   falldown: .5
+--- !u!114 &1144928209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1144928206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbea1f4bc98b455093b3b4b607ed9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reaktor:
+    _mode: 1
+    _reference: {fileID: 0}
+    _name: 
+    _forceUpdate: 0
+  optionType: 2
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: .75
+      tangentMode: 21
+    - time: .400000006
+      value: .300000012
+      inSlope: .75
+      outSlope: -0
+      tangentMode: 21
+    - time: 1
+      value: .300000012
+      inSlope: 0
+      outSlope: 1.16666663
+      tangentMode: 21
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  origin: {x: 0, y: 0, z: 0}
+  direction: {x: 1, y: 0, z: 0}
+  boolTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  intTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+IntEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  floatTarget:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 931277362}
+        m_MethodName: set_throttle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Reaktion.GenericCurveGear+FloatEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  vectorTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+VectorEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1167564511
 GameObject:
   m_ObjectHideFlags: 0
@@ -5507,7 +5801,7 @@ Transform:
   m_Children:
   - {fileID: 490819588}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!114 &1167564513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5555,7 +5849,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 19
+  m_RootOrder: 20
 --- !u!114 &1199435710
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5977,7 +6271,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 21
+  m_RootOrder: 22
 --- !u!114 &1205844804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6519,7 +6813,7 @@ Transform:
   m_LocalScale: {x: 16, y: 16, z: 16}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!1 &1314805346
 GameObject:
   m_ObjectHideFlags: 0
@@ -7657,6 +7951,7 @@ Transform:
   - {fileID: 1426750013}
   - {fileID: 2083711710}
   - {fileID: 1913037516}
+  - {fileID: 982773624}
   - {fileID: 1199435709}
   - {fileID: 396539862}
   - {fileID: 1205844803}
@@ -7664,7 +7959,7 @@ Transform:
   - {fileID: 922742869}
   - {fileID: 766301136}
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 20
 --- !u!1 &1769183459
 GameObject:
   m_ObjectHideFlags: 0
@@ -7675,7 +7970,6 @@ GameObject:
   - 4: {fileID: 1769183462}
   - 114: {fileID: 1769183461}
   - 114: {fileID: 1769183460}
-  - 114: {fileID: 1769183463}
   m_Layer: 0
   m_Name: K06 Core Amplitude
   m_TagString: Untagged
@@ -7840,71 +8134,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1528206852}
   m_RootOrder: 6
---- !u!114 &1769183463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1769183459}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbea1f4bc98b455093b3b4b607ed9fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reaktor:
-    _mode: 1
-    _reference: {fileID: 0}
-    _name: 
-    _forceUpdate: 0
-  optionType: 2
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: .300000012
-      inSlope: 0
-      outSlope: .699999988
-      tangentMode: 21
-    - time: 1
-      value: 1
-      inSlope: .699999988
-      outSlope: 0
-      tangentMode: 21
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  origin: {x: 0, y: 0, z: 0}
-  direction: {x: 1, y: 0, z: 0}
-  boolTarget:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Reaktion.GenericCurveGear+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  intTarget:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Reaktion.GenericCurveGear+IntEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  floatTarget:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 931277362}
-        m_MethodName: set_throttle
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Reaktion.GenericCurveGear+FloatEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  vectorTarget:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Reaktion.GenericCurveGear+VectorEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1823232111
 GameObject:
   m_ObjectHideFlags: 0
@@ -7932,7 +8161,7 @@ Transform:
   m_Children:
   - {fileID: 1100144268}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1881300640
 GameObject:
   m_ObjectHideFlags: 0
@@ -7961,7 +8190,7 @@ Transform:
   m_Children:
   - {fileID: 394955179}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &1881300642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8315,6 +8544,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 2052933342}
   - 108: {fileID: 2052933341}
+  - 114: {fileID: 2052933343}
   m_Layer: 0
   m_Name: Point light
   m_TagString: Untagged
@@ -8366,6 +8596,90 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1011179925}
   m_RootOrder: 0
+--- !u!114 &2052933343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2052933340}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cb2331231cf48f5bcd3aa4030ea802, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reaktor:
+    _mode: 2
+    _reference: {fileID: 1144928208}
+    _name: 
+    _forceUpdate: 1
+  intensity:
+    enabled: 1
+    min: 0
+    max: 3
+    curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 2.22222233
+        tangentMode: 21
+      - time: .449999988
+        value: 1
+        inSlope: 2.22222233
+        outSlope: -0
+        tangentMode: 21
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 21
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+  enableColor: 0
+  colorGradient:
+    key0:
+      serializedVersion: 2
+      rgba: 4294967295
+    key1:
+      serializedVersion: 2
+      rgba: 4294967295
+    key2:
+      serializedVersion: 2
+      rgba: 0
+    key3:
+      serializedVersion: 2
+      rgba: 0
+    key4:
+      serializedVersion: 2
+      rgba: 0
+    key5:
+      serializedVersion: 2
+      rgba: 0
+    key6:
+      serializedVersion: 2
+      rgba: 0
+    key7:
+      serializedVersion: 2
+      rgba: 0
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!1 &2083711709
 GameObject:
   m_ObjectHideFlags: 0
@@ -8727,4 +9041,4 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 16
