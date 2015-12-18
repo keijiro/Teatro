@@ -485,7 +485,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 204748565}
-        m_MethodName: ToggleBlackAndWhite
+        m_MethodName: ToggleBlackContour
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -608,8 +608,8 @@ MonoBehaviour:
   _bokeh: {fileID: 873665409}
   _isoline: {fileID: 873665417}
   _contour: {fileID: 873665411}
-  _isolineBW: {fileID: 873665416}
-  _contourBW: {fileID: 873665412}
+  _isolineBlack: {fileID: 873665416}
+  _contourBlack: {fileID: 873665412}
 --- !u!4 &204748566
 Transform:
   m_ObjectHideFlags: 0
@@ -7250,7 +7250,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 204748565}
-        m_MethodName: ToggleContour
+        m_MethodName: ToggleWhiteContour
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
