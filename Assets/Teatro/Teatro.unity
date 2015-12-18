@@ -3967,7 +3967,7 @@ GameObject:
   - 114: {fileID: 766301138}
   - 114: {fileID: 766301137}
   m_Layer: 0
-  m_Name: B01 Camera Switch
+  m_Name: B11 Camera Switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4085,7 +4085,7 @@ MonoBehaviour:
   offset:
     _control: 1
     _midiChannel: 16
-    _knobIndex: 33
+    _knobIndex: 49
     _noteNumber: 40
     _inputAxis: Jump
     _curve:
@@ -4867,7 +4867,7 @@ GameObject:
   - 114: {fileID: 922742871}
   - 114: {fileID: 922742870}
   m_Layer: 0
-  m_Name: B00 Camera Jump
+  m_Name: B10 Camera Jump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4985,7 +4985,7 @@ MonoBehaviour:
   offset:
     _control: 1
     _midiChannel: 16
-    _knobIndex: 32
+    _knobIndex: 48
     _noteNumber: 40
     _inputAxis: Jump
     _curve:
