@@ -138,8 +138,9 @@ GameObject:
   - 4: {fileID: 149037106}
   - 114: {fileID: 149037108}
   - 114: {fileID: 149037107}
+  - 114: {fileID: 149037109}
   m_Layer: 0
-  m_Name: K11 Red Wire Amp
+  m_Name: K12 Wire Amp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -156,7 +157,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 8
+  m_RootOrder: 9
 --- !u!114 &149037107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +278,7 @@ MonoBehaviour:
   offset:
     _control: 1
     _midiChannel: 16
-    _knobIndex: 65
+    _knobIndex: 66
     _noteNumber: 40
     _inputAxis: Jump
     _curve:
@@ -302,6 +303,71 @@ MonoBehaviour:
   dynamicRange: 17
   lowerBound: -60
   falldown: .5
+--- !u!114 &149037109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149037105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbea1f4bc98b455093b3b4b607ed9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reaktor:
+    _mode: 1
+    _reference: {fileID: 0}
+    _name: 
+    _forceUpdate: 0
+  optionType: 2
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 4
+      tangentMode: 21
+    - time: 1
+      value: 4
+      inSlope: 4
+      outSlope: 0
+      tangentMode: 21
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  origin: {x: 0, y: 0, z: 0}
+  direction: {x: 1, y: 0, z: 0}
+  boolTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  intTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+IntEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  floatTarget:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 492188780}
+        m_MethodName: set_noiseAmplitude
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Reaktion.GenericCurveGear+FloatEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  vectorTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+VectorEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &187515800
 GameObject:
   m_ObjectHideFlags: 0
@@ -775,10 +841,9 @@ GameObject:
   - 114: {fileID: 336053678}
   - 114: {fileID: 336053677}
   - 114: {fileID: 336053679}
-  - 114: {fileID: 336053680}
   - 114: {fileID: 336053681}
   m_Layer: 0
-  m_Name: K13 Blue Wire
+  m_Name: K11 Blue Wire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -795,7 +860,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 10
+  m_RootOrder: 8
 --- !u!114 &336053677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -819,16 +884,11 @@ MonoBehaviour:
     - time: 0
       value: .850000024
       inSlope: 0
-      outSlope: 16.2999992
-      tangentMode: 21
-    - time: .5
-      value: 9
-      inSlope: 16.2999992
-      outSlope: -0
+      outSlope: 8.14999962
       tangentMode: 21
     - time: 1
       value: 9
-      inSlope: 0
+      inSlope: 8.14999962
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
@@ -878,7 +938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   injector:
-    _mode: 1
+    _mode: 0
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 1
@@ -898,7 +958,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
   gain:
-    _control: 1
+    _control: 0
     _midiChannel: 16
     _knobIndex: 67
     _noteNumber: 40
@@ -926,7 +986,7 @@ MonoBehaviour:
   offset:
     _control: 1
     _midiChannel: 16
-    _knobIndex: 67
+    _knobIndex: 65
     _noteNumber: 40
     _inputAxis: Jump
     _curve:
@@ -934,19 +994,14 @@ MonoBehaviour:
       m_Curve:
       - time: 0
         value: 0
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 21
-      - time: .5
-        value: .5
         inSlope: 1
-        outSlope: -0
-        tangentMode: 21
+        outSlope: 1
+        tangentMode: 10
       - time: 1
-        value: .5
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 21
+        value: 1
+        inSlope: 1
+        outSlope: 1
+        tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
   sensitivity: .200000003
@@ -1010,81 +1065,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 492188780}
         m_MethodName: set_windingNumber
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Reaktion.GenericCurveGear+FloatEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  vectorTarget:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Reaktion.GenericCurveGear+VectorEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &336053680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 336053675}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbea1f4bc98b455093b3b4b607ed9fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reaktor:
-    _mode: 1
-    _reference: {fileID: 0}
-    _name: 
-    _forceUpdate: 0
-  optionType: 2
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 14
-      tangentMode: 21
-    - time: .0500000007
-      value: .699999988
-      inSlope: 14
-      outSlope: -0
-      tangentMode: 21
-    - time: .5
-      value: .699999988
-      inSlope: 0
-      outSlope: 6.5999999
-      tangentMode: 21
-    - time: 1
-      value: 4
-      inSlope: 6.5999999
-      outSlope: 0
-      tangentMode: 21
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  origin: {x: 0, y: 0, z: 0}
-  direction: {x: 1, y: 0, z: 0}
-  boolTarget:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Reaktion.GenericCurveGear+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  intTarget:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Reaktion.GenericCurveGear+IntEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  floatTarget:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 492188780}
-        m_MethodName: set_noiseAmplitude
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5116,8 +5096,9 @@ GameObject:
   - 4: {fileID: 889297950}
   - 114: {fileID: 889297952}
   - 114: {fileID: 889297951}
+  - 114: {fileID: 889297953}
   m_Layer: 0
-  m_Name: K12 Red Wire Freq
+  m_Name: K13 Wire Freq
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5134,7 +5115,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 9
+  m_RootOrder: 10
 --- !u!114 &889297951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5255,7 +5236,7 @@ MonoBehaviour:
   offset:
     _control: 1
     _midiChannel: 16
-    _knobIndex: 66
+    _knobIndex: 67
     _noteNumber: 40
     _inputAxis: Jump
     _curve:
@@ -5280,6 +5261,71 @@ MonoBehaviour:
   dynamicRange: 17
   lowerBound: -60
   falldown: .5
+--- !u!114 &889297953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 889297949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcbea1f4bc98b455093b3b4b607ed9fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reaktor:
+    _mode: 1
+    _reference: {fileID: 0}
+    _name: 
+    _forceUpdate: 0
+  optionType: 2
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 21
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 21
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  origin: {x: 0, y: 0, z: 0}
+  direction: {x: 1, y: 0, z: 0}
+  boolTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  intTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+IntEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  floatTarget:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 492188780}
+        m_MethodName: set_noiseFrequency
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Reaktion.GenericCurveGear+FloatEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  vectorTarget:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: Reaktion.GenericCurveGear+VectorEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &922742868
 GameObject:
   m_ObjectHideFlags: 0
@@ -9477,9 +9523,9 @@ Transform:
   - {fileID: 1769183462}
   - {fileID: 1144928207}
   - {fileID: 1205872126}
+  - {fileID: 336053676}
   - {fileID: 149037106}
   - {fileID: 889297950}
-  - {fileID: 336053676}
   - {fileID: 1414053765}
   - {fileID: 2137395534}
   - {fileID: 463417433}
