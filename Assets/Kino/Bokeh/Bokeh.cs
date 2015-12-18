@@ -72,7 +72,7 @@ namespace Kino
         [SerializeField]
         float _maxBlur = 0.03f;
 
-        float maxBlur {
+        public float maxBlur {
             get { return _maxBlur; }
             set { _maxBlur = value; }
         }
