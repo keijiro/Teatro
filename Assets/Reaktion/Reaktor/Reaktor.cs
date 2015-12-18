@@ -85,7 +85,7 @@ public class Reaktor : MonoBehaviour
     void Start()
     {
         injector.Initialize(this);
-        gain.Reset(1);
+        gain.Reset(0);
         offset.Reset(0);
 
         // Begins with the lowest level.
