@@ -950,10 +950,10 @@ MonoBehaviour:
       m_PostInfinity: 2
   sensitivity: .200000003
   decaySpeed: 1
-  showAudioOptions: 0
-  headroom: 1
-  dynamicRange: 17
-  lowerBound: -60
+  showAudioOptions: 1
+  headroom: 0
+  dynamicRange: 20
+  lowerBound: -17
   falldown: .5
 --- !u!114 &336053679
 MonoBehaviour:
@@ -1697,14 +1697,19 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: 4
-      outSlope: 4
-      tangentMode: 10
+      inSlope: 2.99999976
+      outSlope: 2.99999976
+      tangentMode: 21
+    - time: .150000006
+      value: .449999988
+      inSlope: 2.99999976
+      outSlope: .0588235445
+      tangentMode: 21
     - time: 1
-      value: 4
-      inSlope: 4
-      outSlope: 4
-      tangentMode: 10
+      value: .5
+      inSlope: .0588235445
+      outSlope: .0588235408
+      tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
   origin: {x: 0, y: 0, z: 0}
@@ -1834,12 +1839,12 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: 1
-  decaySpeed: 1
-  showAudioOptions: 0
-  headroom: 1
-  dynamicRange: 17
-  lowerBound: -60
+  sensitivity: .939999998
+  decaySpeed: .300000012
+  showAudioOptions: 1
+  headroom: 0
+  dynamicRange: 20
+  lowerBound: -17
   falldown: .5
 --- !u!114 &463417436
 MonoBehaviour:
@@ -1864,11 +1869,11 @@ MonoBehaviour:
     - time: 0
       value: .100000001
       inSlope: 0
-      outSlope: .599999964
+      outSlope: .49999997
       tangentMode: 21
     - time: 1
-      value: .699999988
-      inSlope: .599999964
+      value: .599999964
+      inSlope: .49999997
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
@@ -4840,7 +4845,7 @@ MonoBehaviour:
   _backgroundColor: {r: .889705896, g: .889705896, b: .889705896, a: 1}
   _lowThreshold: .189999998
   _highThreshold: .261999995
-  _depthSensitivity: 0
+  _depthSensitivity: 2
   _normalSensitivity: 1
   _fallOffDepth: 40
   _shader: {fileID: 4800000, guid: b8cb1cfbd02c146ccbe95b4baf27a54e, type: 3}
@@ -5606,9 +5611,9 @@ MonoBehaviour:
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
-  headroom: 1
-  dynamicRange: 17
-  lowerBound: -60
+  headroom: 0
+  dynamicRange: 20
+  lowerBound: -17
   falldown: .5
 --- !u!1 &931277361
 GameObject:
@@ -5874,9 +5879,9 @@ MonoBehaviour:
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
-  headroom: 1
-  dynamicRange: 17
-  lowerBound: -60
+  headroom: 0
+  dynamicRange: 20
+  lowerBound: -17
   falldown: .5
 --- !u!1 &982773623
 GameObject:
@@ -8531,9 +8536,9 @@ MonoBehaviour:
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
-  headroom: 1
-  dynamicRange: 17
-  lowerBound: -60
+  headroom: 0
+  dynamicRange: 20
+  lowerBound: -17
   falldown: .5
 --- !u!114 &1364370838
 MonoBehaviour:
