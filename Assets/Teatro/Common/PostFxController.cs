@@ -17,6 +17,10 @@ namespace Teatro
         [SerializeField] Kino.Contour _contour;
         [SerializeField] Kino.Isoline _isolineBlack;
         [SerializeField] Kino.Contour _contourBlack;
+        [SerializeField] ColorSuite _colorSuite;
+
+        public float fadeout { get; set; }
+        public float invert { get; set; }
 
         Mode _mode;
         float _maxBlur;
@@ -33,6 +37,13 @@ namespace Teatro
             _isolineColor = _isoline.lineColor;
             _contourColor = _contour.lineColor;
             StartModeCoroutine();
+        }
+
+        void Update()
+        {
+            var rgb = invert > fadeout ? 0.5f : 0.0f;
+            var alpha = Mathf.Max(invert, fadeout);
+            _colorSuite.fadeColor = new Color(rgb, rgb, rgb, alpha);
         }
 
         public void ToggleIsoline()
