@@ -1,7 +1,9 @@
 Teatro
 ======
 
-*Teatro* is visual software made for [Katsuhiro Chiba][Chiba]’s live performance at [Takamatsu media art festival 2015][MAF].
+*Teatro* is a custom VJing program, which was originally made for
+[Katsuhiro Chiba][Chiba]’s live performance at
+[Takamatsu media art festival 2015][MAF].
 
 ![screenshot](http://49.media.tumblr.com/1176549492e6a60361467505a46be208/tumblr_nzcidaxOKw1qio469o1_400.gif)
 ![screenshot](http://45.media.tumblr.com/348c32d1e42d35b8846541d0b2e59d1e/tumblr_nzcrtrANmt1qio469o1_400.gif)
@@ -33,11 +35,12 @@ the inspector, and you can check/edit the CC number with it.
 Acknowledgements
 ----------------
 
-The HDR image files under the “sIBL Archive” directory are provided from sIBL
-Archive. See [their web site][sIBL] for further details.
+The HDR image files under the “sIBL Archive” directory are created and
+distributed by sIBL Archive. See [their web site][sIBL] for further details.
 
-The files under the “Astrella” directory are provided from Unity as sample
-materials.
+The files under the “Astrella” directory are provided from Unity
+Technologies as sample assets. Basically these assets can be used freely in
+Unity-based projects. See the [FAQ page][FAQ] for further details.
 
 License
 -------
@@ -65,3 +68,4 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 [Chiba]: https://soundcloud.com/katsuhiro-chiba
 [Reaktion]: https://github.com/keijiro/Reaktion
 [sIBL]: http://www.hdrlabs.com/sibl/archive.html
+[FAQ]: https://unity3d.com/unity/faq
