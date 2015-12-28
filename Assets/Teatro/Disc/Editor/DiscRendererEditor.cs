@@ -9,10 +9,6 @@ namespace Teatro
     {
         SerializedProperty _transition;
 
-        SerializedProperty _arcCount;
-        SerializedProperty _ringCount;
-        SerializedProperty _pointsOnArc;
-
         SerializedProperty _rotationSpeed;
         SerializedProperty _animationSpeed;
         SerializedProperty _displacement;
@@ -29,15 +25,12 @@ namespace Teatro
         SerializedProperty _normalTexture;
         SerializedProperty _normalScale;
 
+        SerializedProperty _mesh;
         SerializedProperty _randomSeed;
 
         void OnEnable()
         {
             _transition = serializedObject.FindProperty("_transition");
-
-            _arcCount = serializedObject.FindProperty("_arcCount");
-            _ringCount = serializedObject.FindProperty("_ringCount");
-            _pointsOnArc = serializedObject.FindProperty("_pointsOnArc");
 
             _rotationSpeed = serializedObject.FindProperty("_rotationSpeed");
             _animationSpeed = serializedObject.FindProperty("_animationSpeed");
@@ -55,6 +48,7 @@ namespace Teatro
             _normalTexture = serializedObject.FindProperty("_normalTexture");
             _normalScale = serializedObject.FindProperty("_normalScale");
 
+            _mesh = serializedObject.FindProperty("_mesh");
             _randomSeed = serializedObject.FindProperty("_randomSeed");
         }
 
@@ -63,17 +57,6 @@ namespace Teatro
             serializedObject.Update();
 
             EditorGUILayout.PropertyField(_transition);
-
-            EditorGUILayout.Space();
-
-            EditorGUI.BeginChangeCheck();
-
-            EditorGUILayout.PropertyField(_arcCount);
-            EditorGUILayout.PropertyField(_ringCount);
-            EditorGUILayout.PropertyField(_pointsOnArc);
-
-            if (EditorGUI.EndChangeCheck())
-                ((DiscRenderer)target).RequestReset();
 
             EditorGUILayout.Space();
 
@@ -99,6 +82,7 @@ namespace Teatro
 
             EditorGUILayout.Space();
 
+            EditorGUILayout.PropertyField(_mesh);
             EditorGUILayout.PropertyField(_randomSeed);
 
             serializedObject.ApplyModifiedProperties();

@@ -5152,9 +5152,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transition: 1
-  _arcCount: 12
-  _ringCount: 38
-  _pointsOnArc: 5
   _rotationSpeed: 0
   _animationSpeed: 0
   _displacement: .100000001
@@ -5168,6 +5165,7 @@ MonoBehaviour:
   _textureScale: 4.5
   _normalTexture: {fileID: 2800000, guid: d1a9f852928a64b17af2f24a73c39a89, type: 3}
   _normalScale: .200000003
+  _mesh: {fileID: 11400000, guid: 02f07a361d9f2e0448b1e28750646c06, type: 2}
   _randomSeed: 0
   _shader: {fileID: 4800000, guid: e1713609d4b97e84d8ee41ab96ae1aa5, type: 3}
 --- !u!4 &881077796
@@ -7981,9 +7979,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transition: 1
-  _arcCount: 12
-  _ringCount: 38
-  _pointsOnArc: 5
   _rotationSpeed: 0
   _animationSpeed: 0
   _displacement: .100000001
@@ -7997,6 +7992,7 @@ MonoBehaviour:
   _textureScale: 4.5
   _normalTexture: {fileID: 2800000, guid: d1a9f852928a64b17af2f24a73c39a89, type: 3}
   _normalScale: .200000003
+  _mesh: {fileID: 11400000, guid: 02f07a361d9f2e0448b1e28750646c06, type: 2}
   _randomSeed: 10
   _shader: {fileID: 4800000, guid: e1713609d4b97e84d8ee41ab96ae1aa5, type: 3}
 --- !u!4 &1241459922

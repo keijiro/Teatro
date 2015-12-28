@@ -1,10 +1,13 @@
 fileFormatVersion: 2
 guid: b5c74e08d2be3014581e8eb1c18f9496
-timeCreated: 1449925057
+timeCreated: 1451316521
 licenseType: Pro
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
+  - _albedoTexture: {instanceID: 0}
+  - _normalTexture: {instanceID: 0}
+  - _mesh: {fileID: 11400000, guid: 02f07a361d9f2e0448b1e28750646c06, type: 2}
   - _shader: {fileID: 4800000, guid: e1713609d4b97e84d8ee41ab96ae1aa5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
