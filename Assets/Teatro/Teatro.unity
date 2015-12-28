@@ -2558,7 +2558,7 @@ MonoBehaviour:
   _noiseFrequency: .5
   _noiseMotion: -1
   _scale: .0799999982
-  _sourceMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  _mesh: {fileID: 11400000, guid: 8d821505460daaf4baf4c9b8d017816f, type: 2}
   _color: {r: .818663538, g: .822287023, b: .83088237, a: 1}
   _metallic: .200000003
   _smoothness: .5
