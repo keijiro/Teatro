@@ -1366,6 +1366,7 @@ MonoBehaviour:
   _metallic: 0
   _smoothness: 0
   _emissionColor: {r: .927996576, g: 1.34328413, b: 1.75288236, a: 1}
+  _mesh: {fileID: 11400000, guid: 46ea815d31452ba4d93c01457d179094, type: 2}
   _randomSeed: 10
   _shader: {fileID: 4800000, guid: d1e9c9d06b41e458da4ccd2c17693cfa, type: 3}
 --- !u!4 &391101507
@@ -4246,6 +4247,7 @@ MonoBehaviour:
   _metallic: 0
   _smoothness: 0
   _emissionColor: {r: 1.75288236, g: .927996576, b: .927996576, a: 1}
+  _mesh: {fileID: 11400000, guid: 46ea815d31452ba4d93c01457d179094, type: 2}
   _randomSeed: 100
   _shader: {fileID: 4800000, guid: d1e9c9d06b41e458da4ccd2c17693cfa, type: 3}
 --- !u!4 &734377797
