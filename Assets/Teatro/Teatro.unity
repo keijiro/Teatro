@@ -2367,6 +2367,7 @@ MonoBehaviour:
   _noiseFrequency: .319999993
   _noiseSpeed: .75999999
   _noiseThreshold: -.200000003
+  _mesh: {fileID: 11400000, guid: 8832c65a4ecd5da47933bc5b959667fc, type: 2}
   _shader: {fileID: 4800000, guid: dfd37e27c5bf7e1439bf6711a93de3b6, type: 3}
 --- !u!4 &492188781
 Transform:
@@ -4631,6 +4632,7 @@ MonoBehaviour:
   _noiseFrequency: .140000001
   _noiseSpeed: .200000003
   _noiseThreshold: -2
+  _mesh: {fileID: 11400000, guid: 8832c65a4ecd5da47933bc5b959667fc, type: 2}
   _shader: {fileID: 4800000, guid: dfd37e27c5bf7e1439bf6711a93de3b6, type: 3}
 --- !u!4 &854714379
 Transform:

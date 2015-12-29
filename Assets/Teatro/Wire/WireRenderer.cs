@@ -26,6 +26,7 @@ namespace Teatro
         [SerializeField] float _noiseSpeed = 0.6f;
         [SerializeField] float _noiseThreshold = 0;
 
+        [HideInInspector, SerializeField] WireMesh _mesh;
         [HideInInspector, SerializeField] Shader _shader;
 
         public float minRadius {
@@ -67,16 +68,24 @@ namespace Teatro
 
         #region Internal Objects and Variables
 
-        Mesh _mesh;
         Material _material;
 
         #endregion
 
         #region MonoBehaviour Functions
 
+        void OnDestroy()
+        {
+            if (_material) DestroyImmediate(_material);
+        }
+
         void Update()
         {
-            if (_mesh == null) ResetResources();
+            if (_material == null)
+            {
+                _material = new Material(_shader);
+                _material.hideFlags = HideFlags.DontSave;
+            }
 
             _material.SetVector("_Radius", new Vector2(_minRadius, _maxRadius));
 
@@ -92,46 +101,7 @@ namespace Teatro
             _material.SetColor("_Color", _color);
 
             var matrix = transform.localToWorldMatrix;
-            Graphics.DrawMesh(_mesh, matrix, _material, 0); 
-        }
-
-        #endregion
-
-        #region Resource Management
-
-        void ResetResources()
-        {
-            if (_mesh) DestroyImmediate(_mesh);
-            if (_material) DestroyImmediate(_material);
-
-            _mesh = BuildMesh();
-
-            _material = new Material(_shader);
-            _material.hideFlags = HideFlags.DontSave;
-        }
-
-        Mesh BuildMesh()
-        {
-            const int vcount = 65000;
-
-            var va = new Vector3[vcount];
-            var ta = new Vector2[vcount];
-
-            for (var i = 0; i < vcount; i++)
-                ta[i] = new Vector2((float)i / vcount, 0);
-
-            var ia = new int[vcount];
-
-            for (var i = 0; i < vcount; i++)
-                ia[i] = i;
-
-            var mesh = new Mesh();
-            mesh.vertices = va;
-            mesh.uv = ta;
-            mesh.SetIndices(ia, MeshTopology.LineStrip, 0);
-            mesh.hideFlags = HideFlags.DontSave;
-            mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 1000);
-            return mesh;
+            Graphics.DrawMesh(_mesh.sharedMesh, matrix, _material, 0); 
         }
 
         #endregion
