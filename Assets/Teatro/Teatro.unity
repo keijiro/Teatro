@@ -511,7 +511,7 @@ GameObject:
   - 114: {fileID: 195993466}
   - 114: {fileID: 195993465}
   m_Layer: 0
-  m_Name: B03 Black And White
+  m_Name: B01 Black And White
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -618,7 +618,7 @@ MonoBehaviour:
   offset:
     _control: 1
     _midiChannel: 16
-    _knobIndex: 34
+    _knobIndex: 33
     _noteNumber: 40
     _inputAxis: Jump
     _curve:
@@ -8020,7 +8020,7 @@ GameObject:
   - 114: {fileID: 1281089572}
   - 114: {fileID: 1281089571}
   m_Layer: 0
-  m_Name: B02 Contour
+  m_Name: B00 Contour
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8127,7 +8127,7 @@ MonoBehaviour:
   offset:
     _control: 1
     _midiChannel: 16
-    _knobIndex: 33
+    _knobIndex: 32
     _noteNumber: 40
     _inputAxis: Jump
     _curve:
