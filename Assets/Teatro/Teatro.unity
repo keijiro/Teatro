@@ -3726,7 +3726,7 @@ GameObject:
   - 114: {fileID: 714468681}
   - 114: {fileID: 714468679}
   m_Layer: 0
-  m_Name: K04 Cluster Throttle
+  m_Name: K05 Cluster Throttle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3869,7 +3869,7 @@ MonoBehaviour:
   offset:
     _control: 1
     _midiChannel: 16
-    _knobIndex: 20
+    _knobIndex: 21
     _noteNumber: 40
     _inputAxis: Jump
     _curve:
@@ -3878,13 +3878,18 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: 1
-        tangentMode: 0
+        outSlope: 2.22222209
+        tangentMode: 21
+      - time: .450000018
+        value: 1
+        inSlope: 2.22222209
+        outSlope: -0
+        tangentMode: 21
       - time: 1
         value: 1
-        inSlope: 1
+        inSlope: 0
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
   sensitivity: .100000001
@@ -8391,13 +8396,18 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: 1
-        tangentMode: 0
+        outSlope: -0
+        tangentMode: 21
+      - time: .550000012
+        value: 0
+        inSlope: 0
+        outSlope: 2.22222233
+        tangentMode: 21
       - time: 1
         value: 1
-        inSlope: 1
+        inSlope: 2.22222233
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
   sensitivity: .0799999982
