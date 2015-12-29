@@ -1,7 +1,5 @@
-﻿//
-// Emgen - Mesh generator class library
-//
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Emgen
@@ -10,14 +8,13 @@ namespace Emgen
     {
         #region Internal Classes
 
-        // Midpoint table class
-        // Provides midpoints of edges without making duplication.
+        // Midpoint table, used to avoid vertex duplication.
         class MidpointTable
         {
-            VertexCache _vc;
-            Dictionary<int, int> _table;
+            VertexCache vertexCache;
+            Dictionary<int, int> table;
 
-            // Generates a key for the table from a pair of indices.
+            // Generates a key from a pair of indices.
             static int IndexPairToKey(int i1, int i2)
             {
                 if (i1 < i2)
@@ -26,30 +23,32 @@ namespace Emgen
                     return (i1 << 16) | i2;
             }
 
-            // Constructor.
+            // Constructor
             public MidpointTable(VertexCache vc)
             {
-                _vc = vc;
-                _table = new Dictionary<int, int>();
+                vertexCache = vc;
+                table = new Dictionary<int, int>();
             }
 
-            // Returns a midpoint with retrieving an existing vertex or adding a new one.
+            // Get the midpoint of the pair of indices.
             public int GetMidpoint(int i1, int i2)
             {
                 var key = IndexPairToKey(i1, i2);
-                if (_table.ContainsKey(key)) return _table[key];
-                var mid = (_vc.vertices[i1] + _vc.vertices[i2]) * 0.5f;
-                var i = _vc.AddVertex(mid.normalized);
-                _table[key] = i;
+                // return from the table
+                if (table.ContainsKey(key)) return table[key];
+                // add a new entry to the table
+                var mid = (vertexCache.vertices[i1] + vertexCache.vertices[i2]) * 0.5f;
+                var i = vertexCache.AddVertex(mid.normalized);
+                table[key] = i;
                 return i;
             }
         }
 
         #endregion
 
-        #region Public Members
+        #region Public Properties
 
-        public VertexCache vertexCache;
+        public VertexCache vertexCache { get; set; }
 
         #endregion
 
@@ -57,7 +56,7 @@ namespace Emgen
 
         public IcosphereBuilder()
         {
-            var t = (Mathf.Sqrt(5) + 1) / 2;
+            var t = (1 + Mathf.Sqrt(5)) / 2;
 
             vertexCache = new VertexCache();
 
@@ -103,7 +102,7 @@ namespace Emgen
 
         #endregion
 
-        #region Mesh Operation Methods
+        #region Mesh Operations
 
         public void Subdivide()
         {
@@ -111,7 +110,8 @@ namespace Emgen
             vc.vertices.AddRange(vertexCache.vertices);
 
             var midPoints = new MidpointTable(vc);
-            foreach (var t in vertexCache.triangles) {
+            foreach (var t in vertexCache.triangles)
+            {
                 var m1 = midPoints.GetMidpoint(t.i1, t.i2);
                 var m2 = midPoints.GetMidpoint(t.i2, t.i3);
                 var m3 = midPoints.GetMidpoint(t.i3, t.i1);

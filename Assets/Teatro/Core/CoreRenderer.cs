@@ -9,43 +9,56 @@ namespace Teatro
     {
         #region Public Properties
 
-        // Subdivision level
-        [SerializeField, Range(0, 4)]
-        int _subdivision = 2;
-
-        public int subdivision {
-            get { return _subdivision; }
-            set { _subdivision = Mathf.Clamp(value, 0, 4); }
-        }
-
-        // Wave speed
-        [SerializeField, Header("Wave Parameters")]
-        float _waveSpeed = 8;
-
-        public float waveSpeed {
-            get { return _waveSpeed; }
-            set { _waveSpeed = value; }
-        }
-
-        // Wave parameter alpha
         [SerializeField]
-        float _waveAlpha = 1;
+        float _maskFrequency = 0.5f;
 
-        public float waveAlpha {
-            get { return _waveAlpha; }
-            set { _waveAlpha = value; }
+        public float maskFrequency {
+            get { return _maskFrequency; }
+            set { _maskFrequency = value; }
         }
 
-        // Wave parameter beta
         [SerializeField]
-        float _waveBeta = 1;
+        float _maskMotion = 2;
 
-        public float waveBeta {
-            get { return _waveBeta; }
-            set { _waveBeta = value; }
+        public float maskMotion {
+            get { return _maskMotion; }
+            set { _maskMotion = value; }
         }
 
-        // Cutoff level
+        [Space]
+        [SerializeField]
+        float _spikeAmplitude = 8;
+
+        public float spikeAmplitude {
+            get { return _spikeAmplitude; }
+            set { _spikeAmplitude = value; }
+        }
+
+        [SerializeField]
+        float _spikeExponent = 8;
+
+        public float spikeExponent {
+            get { return _spikeExponent; }
+            set { _spikeExponent = value; }
+        }
+
+        [SerializeField]
+        float _spikeFrequency = 2;
+
+        public float spikeFrequency {
+            get { return _spikeFrequency; }
+            set { _spikeFrequency = value; }
+        }
+
+        [SerializeField]
+        float _spikeMotion = 2;
+
+        public float spikeMotion {
+            get { return _spikeMotion; }
+            set { _spikeMotion = value; }
+        }
+
+        [Space]
         [SerializeField, Range(0, 1)]
         float _cutoff = 0.5f;
 
@@ -54,176 +67,69 @@ namespace Teatro
             set { _cutoff = value; }
         }
 
-        // Noise amplitude
-        [SerializeField, Header("Noise Parameters")]
-        float _noiseAmplitude = 5;
+        [Space]
+        [SerializeField, ColorUsage(false, true, 0, 16, 0.125f, 3)]
+        Color _color = Color.white;
 
-        public float noiseAmplitude {
-            get { return _noiseAmplitude; }
-            set { _noiseAmplitude = value; }
+        public Color color {
+            get { return _color; }
+            set { _color = value; }
         }
 
-        // Exponent of noise amplitude
-        [SerializeField]
-        float _noiseExponent = 4.5f;
+        #endregion
 
-        public float noiseExponent {
-            get { return _noiseExponent; }
-            set { _noiseExponent = value; }
-        }
-
-        // Noise frequency
-        [SerializeField]
-        float _noiseFrequency = 3;
-
-        public float noiseFrequency {
-            get { return _noiseFrequency; }
-            set { _noiseFrequency = value; }
-        }
-
-        // Noise speed
-        [SerializeField]
-        float _noiseSpeed = 3;
-
-        public float noiseSpeed {
-            get { return _noiseSpeed; }
-            set { _noiseSpeed = value; }
-        }
-
-        // Rendering settings
-        [SerializeField, Header("Rendering")]
-        Material _material;
-        bool _owningMaterial; // whether owning the material
-
-        public Material sharedMaterial {
-            get { return _material; }
-            set { _material = value; }
-        }
-
-        public Material material {
-            get {
-                if (!_owningMaterial) {
-                    _material = Instantiate<Material>(_material);
-                    _owningMaterial = true;
-                }
-                return _material;
-            }
-            set {
-                if (_owningMaterial) Destroy(_material, 0.1f);
-                _material = value;
-                _owningMaterial = false;
-            }
-        }
+        #region Protected Properties
 
         [SerializeField]
-        bool _receiveShadows;
+        CoreMesh _mesh;
 
-        [SerializeField]
-        ShadowCastingMode _shadowCastingMode;
+        [SerializeField, HideInInspector]
+        Shader _shader;
 
         #endregion
 
         #region Private Members
 
-        Mesh _mesh;
-        int _subdivided = -1;
-        float _waveTime;
-        Vector3 _noiseOffset;
+        Material _material;
+        Vector3 _maskOffset;
+        Vector3 _spikeOffset;
 
         #endregion
 
         #region MonoBehaviour Functions
 
-        void Update()
+        void OnDestroy()
         {
-            if (_subdivided != _subdivision) RebuildMesh();
-
-            var noiseDir = new Vector3(1, 0.5f, 0.2f).normalized;
-
-            _waveTime += Time.deltaTime * _waveSpeed;
-            _noiseOffset += noiseDir * (Time.deltaTime * _noiseSpeed);
-
-            var props = new MaterialPropertyBlock();
-
-            props.SetFloat("_Cutoff", _cutoff);
-
-            Vector3 wparam1 = new Vector3(3.1f, 2.3f, 6.3f);
-            Vector3 wparam2 = new Vector3(0.031f, 0.022f, 0.039f);
-            Vector3 wparam3 = new Vector3(1.21f, 0.93f, 1.73f);
-
-            props.SetFloat("_WTime", _waveTime);
-            props.SetVector("_WParams1", wparam1 * _waveAlpha);
-            props.SetVector("_WParams2", wparam2);
-            props.SetVector("_WParams3", wparam3 * _waveBeta);
-
-            props.SetVector("_NOffset", _noiseOffset);
-
-            var np = new Vector3(_noiseFrequency, _noiseAmplitude, _noiseExponent);
-            props.SetVector("_NParams", np);
-
-            Graphics.DrawMesh(
-                _mesh, transform.localToWorldMatrix,
-                _material, 0, null, 0, props,
-                _shadowCastingMode, _receiveShadows);
+            if (_material) DestroyImmediate(_material);
         }
 
-        #endregion
-
-        #region Mesh Builder
-
-        void RebuildMesh()
+        void Update()
         {
-            if (_mesh) DestroyImmediate(_mesh);
-
-            // The core vertex shader needs positions of three vertices in a triangle
-            // to calculate the normal vector. To provide these information, it uses
-            // not only the position attribute but also the normal and tangent attributes
-            // to store the 2nd and 3rd vertex position.
-
-            IcosphereBuilder ib = new IcosphereBuilder();
-
-            for (var i = 0; i < _subdivision; i++) ib.Subdivide();
-
-            var vc = ib.vertexCache;
-
-            var vcount = 3 * vc.triangles.Count;
-            var va1 = new Vector3[vcount];
-            var va2 = new Vector3[vcount];
-            var va3 = new Vector4[vcount];
-
-            var vi = 0;
-            foreach (var t in vc.triangles)
+            if (_material == null)
             {
-                var v1 = vc.vertices[t.i1];
-                var v2 = vc.vertices[t.i2];
-                var v3 = vc.vertices[t.i3];
-
-                va1[vi + 0] = v1;
-                va2[vi + 0] = v2;
-                va3[vi + 0] = v3;
-
-                va1[vi + 1] = v2;
-                va2[vi + 1] = v3;
-                va3[vi + 1] = v1;
-
-                va1[vi + 2] = v3;
-                va2[vi + 2] = v1;
-                va3[vi + 2] = v2;
-
-                vi += 3;
+                _material = new Material(_shader);
+                _material.hideFlags = HideFlags.DontSave;
             }
 
-            _mesh = new Mesh();
-            _mesh.hideFlags = HideFlags.DontSave;
-            _mesh.bounds = new Bounds(Vector3.zero, Vector3.one * 10);
+            // state update
+            var maskDir = new Vector3(-0.3f, -1, -0.1f).normalized;
+            var spikeDir = new Vector3(1, 0.5f, 0.2f).normalized;
 
-            _mesh.vertices = va1;
-            _mesh.normals  = va2;
-            _mesh.tangents = va3;
+            _maskOffset += maskDir * (Time.deltaTime * _maskMotion);
+            _spikeOffset += spikeDir * (Time.deltaTime * _spikeMotion);
 
-            _mesh.SetIndices(vc.MakeIndexArrayForFlatMesh(), MeshTopology.Triangles, 0);
+            // material setup
+            _material.SetVector("_MaskOffset", _maskOffset);
+            _material.SetVector("_SpikeOffset", _spikeOffset);
+            _material.SetFloat("_MaskFreq", _maskFrequency);
+            _material.SetVector("_SpikeParams",
+                new Vector3(_spikeFrequency, _spikeAmplitude, _spikeExponent));
+            _material.SetFloat("_Cutoff", _cutoff);
+            _material.color = _color;
 
-            _subdivided = _subdivision;
+            // draw
+            Graphics.DrawMesh(
+                _mesh.sharedMesh, transform.localToWorldMatrix, _material, 0);
         }
 
         #endregion

@@ -1366,8 +1366,8 @@ MonoBehaviour:
   _metallic: 0
   _smoothness: 0
   _emissionColor: {r: .927996576, g: 1.34328413, b: 1.75288236, a: 1}
-  _mesh: {fileID: 11400000, guid: 46ea815d31452ba4d93c01457d179094, type: 2}
   _randomSeed: 10
+  _mesh: {fileID: 11400000, guid: 46ea815d31452ba4d93c01457d179094, type: 2}
   _shader: {fileID: 4800000, guid: d1e9c9d06b41e458da4ccd2c17693cfa, type: 3}
 --- !u!4 &391101507
 Transform:
@@ -2409,18 +2409,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69e01be7c81bd45bba0406870c1e30ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _subdivision: 3
-  _waveSpeed: 17
-  _waveAlpha: 1
-  _waveBeta: 1
+  _maskFrequency: 1
+  _maskMotion: 3
+  _spikeAmplitude: 8
+  _spikeExponent: 8
+  _spikeFrequency: 2
+  _spikeMotion: 2
   _cutoff: .400000006
-  _noiseAmplitude: 8
-  _noiseExponent: 8
-  _noiseFrequency: 2
-  _noiseSpeed: 2
-  _material: {fileID: 2100000, guid: ba8a3224acd004fe988a376deea9658b, type: 2}
-  _receiveShadows: 0
-  _shadowCastingMode: 0
+  _color: {r: 1.47061634, g: 6.37890673, b: 8.00000095, a: 1}
+  _mesh: {fileID: 11400000, guid: 8370ff78a46164d13be33b82b04169ab, type: 2}
+  _shader: {fileID: 4800000, guid: 5fa2f7daa9fd24a82877fe8d6175242f, type: 3}
 --- !u!4 &556449592
 Transform:
   m_ObjectHideFlags: 0
@@ -4248,8 +4246,8 @@ MonoBehaviour:
   _metallic: 0
   _smoothness: 0
   _emissionColor: {r: 1.75288236, g: .927996576, b: .927996576, a: 1}
-  _mesh: {fileID: 11400000, guid: 46ea815d31452ba4d93c01457d179094, type: 2}
   _randomSeed: 100
+  _mesh: {fileID: 11400000, guid: 46ea815d31452ba4d93c01457d179094, type: 2}
   _shader: {fileID: 4800000, guid: d1e9c9d06b41e458da4ccd2c17693cfa, type: 3}
 --- !u!4 &734377797
 Transform:
@@ -9906,7 +9904,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 556449591}
-        m_MethodName: set_noiseAmplitude
+        m_MethodName: set_spikeAmplitude
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
