@@ -1,14 +1,11 @@
-﻿//
-// Emgen - Mesh generator class library
-//
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 namespace Emgen
 {
     public class VertexCache
     {
-        #region Triangle Classes
+        #region Internal Triangle Representations
 
         public struct RawTriangle
         {
@@ -36,7 +33,7 @@ namespace Emgen
 
         #endregion
 
-        #region Public Members
+        #region Public Data Fields
 
         public List<Vector3> vertices;
         public List<IndexedTriangle> triangles;
@@ -91,7 +88,8 @@ namespace Emgen
         public IEnumerable<RawTriangle> GetRawTriangleEnumerator()
         {
             foreach (var t in triangles)
-                yield return new RawTriangle(vertices[t.i1], vertices[t.i2], vertices[t.i3]);
+                yield return new RawTriangle(
+                    vertices[t.i1], vertices[t.i2], vertices[t.i3]);
         }
 
         public void AddTriangle(int i1, int i2, int i3)
@@ -101,10 +99,10 @@ namespace Emgen
 
         public void AddTriangle(Vector3 v1, Vector3 v2, Vector3 v3)
         {
-            var i1 = LookUpOrAddVertex(v1);
-            var i2 = LookUpOrAddVertex(v2);
-            var i3 = LookUpOrAddVertex(v3);
-            triangles.Add(new IndexedTriangle(i1, i2, i3));
+            triangles.Add(new IndexedTriangle(
+                LookUpOrAddVertex(v1),
+                LookUpOrAddVertex(v2),
+                LookUpOrAddVertex(v3)));
         }
 
         #endregion
@@ -120,7 +118,8 @@ namespace Emgen
         {
             var indices = new int[6 * triangles.Count];
             var i = 0;
-            foreach (var t in triangles) {
+            foreach (var t in triangles)
+            {
                 indices[i++] = t.i1;
                 indices[i++] = t.i2;
                 indices[i++] = t.i2;
@@ -145,24 +144,25 @@ namespace Emgen
 
         public Vector3[] MakeVertexArrayForSmoothMesh()
         {
-            return vertices.ToArray ();
+            return vertices.ToArray();
         }
 
         public int[] MakeIndexArrayForSmoothMesh()
         {
             var indices = new int[3 * triangles.Count];
             var i = 0;
-            foreach (var t in triangles) {
-                indices [i++] = t.i1;
-                indices [i++] = t.i2;
-                indices [i++] = t.i3;
+            foreach (var t in triangles)
+            {
+                indices[i++] = t.i1;
+                indices[i++] = t.i2;
+                indices[i++] = t.i3;
             }
             return indices;
         }
 
         public Mesh BuildSmoothMesh()
         {
-            var mesh = new Mesh ();
+            var mesh = new Mesh();
             mesh.vertices = MakeVertexArrayForSmoothMesh();
             mesh.SetIndices(MakeIndexArrayForSmoothMesh(), MeshTopology.Triangles, 0);
             mesh.RecalculateNormals();
@@ -175,25 +175,25 @@ namespace Emgen
 
         public Vector3[] MakeVertexArrayForFlatMesh()
         {
-            var temp = new Vector3[3 * triangles.Count];
+            var vertices = new Vector3[3 * triangles.Count];
             var i = 0;
-            foreach (var t in triangles) {
-                temp[i++] = vertices[t.i1];
-                temp[i++] = vertices[t.i2];
-                temp[i++] = vertices[t.i3];
+            foreach (var t in triangles)
+            {
+                vertices[i++] = this.vertices[t.i1];
+                vertices[i++] = this.vertices[t.i2];
+                vertices[i++] = this.vertices[t.i3];
             }
-            return temp;
+            return vertices;
         }
 
         public int[] MakeIndexArrayForFlatMesh()
         {
             var indices = new int[3 * triangles.Count];
-            for (var i = 0; i < indices.Length; i++)
-                indices[i] = i;
+            for (var i = 0; i < indices.Length; i++) indices[i] = i;
             return indices;
         }
 
-        public Mesh BuildFlatMesh()
+        public Mesh BuildFlatMesh(bool optimize = false)
         {
             var mesh = new Mesh();
             mesh.vertices = MakeVertexArrayForFlatMesh();
