@@ -35,9 +35,9 @@ namespace Teatro
         Color _emissionColor = Color.white;
 
         [Space]
-        [SerializeField] RingMesh _mesh;
         [SerializeField] float _randomSeed;
 
+        [SerializeField, HideInInspector] RingMesh _mesh;
         [SerializeField, HideInInspector] Shader _shader;
 
         public float width {
