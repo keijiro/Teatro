@@ -32,12 +32,14 @@ namespace Kino
         SerializedProperty _startDistance;
         SerializedProperty _useRadialDistance;
         SerializedProperty _fadeToSkybox;
+        SerializedProperty _bgOpacity;
 
         void OnEnable()
         {
             _startDistance = serializedObject.FindProperty("_startDistance");
             _useRadialDistance = serializedObject.FindProperty("_useRadialDistance");
             _fadeToSkybox = serializedObject.FindProperty("_fadeToSkybox");
+            _bgOpacity = serializedObject.FindProperty("_bgOpacity");
         }
 
         public override void OnInspectorGUI()
@@ -47,6 +49,7 @@ namespace Kino
             EditorGUILayout.PropertyField(_startDistance);
             EditorGUILayout.PropertyField(_useRadialDistance);
             EditorGUILayout.PropertyField(_fadeToSkybox);
+            EditorGUILayout.PropertyField(_bgOpacity);
 
             serializedObject.ApplyModifiedProperties();
         }

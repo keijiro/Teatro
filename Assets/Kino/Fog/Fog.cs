@@ -58,6 +58,15 @@ namespace Kino
             set { _fadeToSkybox = value; }
         }
 
+        // Opacity on background
+        [SerializeField, Range(0, 1)]
+        float _bgOpacity;
+
+        public float bgOpacity {
+            get { return _bgOpacity; }
+            set { _bgOpacity = value; }
+        }
+
         #endregion
 
         #region Private Properties
@@ -135,6 +144,8 @@ namespace Kino
                 _material.DisableKeyword("USE_SKYBOX");
                 _material.SetColor("_FogColor", RenderSettings.fogColor);
             }
+
+            _material.SetFloat("_BgOffset", 1 - _bgOpacity);
 
             // Calculate vectors towards frustum corners.
             var cam = GetComponent<Camera>();
