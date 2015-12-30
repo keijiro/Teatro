@@ -47,6 +47,7 @@ Shader "Hidden/Kino/Fog"
     float _Density;
     float _LinearGrad;
     float _LinearOffs;
+    float _BgOffset;
 
     // Fog/skybox information
     half4 _FogColor;
@@ -130,11 +131,13 @@ Shader "Hidden/Kino/Fog"
 
         // Reconstruct world space position & direction towards this screen pixel.
         float zsample = SAMPLE_DEPTH_TEXTURE(_CameraDepthTexture, i.uv_depth);
-        float depth = Linear01Depth(zsample * (zsample < 1.0));
+        float depth = Linear01Depth(zsample);
 
         // Compute fog amount.
         float g = ComputeDistance(i.ray, depth) - _DistanceOffset;
         half fog = ComputeFogFactor(max(0.0, g));
+
+        fog = min(fog + (zsample == 1.0) * _BgOffset, 1);
 
     #if USE_SKYBOX
         // Look up the skybox color.
