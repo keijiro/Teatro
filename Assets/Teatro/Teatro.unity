@@ -528,7 +528,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 32
+  m_RootOrder: 33
 --- !u!114 &195993465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3732,7 +3732,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 34
+  m_RootOrder: 35
 --- !u!114 &704503801
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4536,7 +4536,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 38
+  m_RootOrder: 39
 --- !u!114 &766301137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5588,7 +5588,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 37
+  m_RootOrder: 38
 --- !u!114 &922742870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5742,7 +5742,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 28
+  m_RootOrder: 29
 --- !u!114 &927921357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6010,7 +6010,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 29
+  m_RootOrder: 30
 --- !u!114 &947099038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7077,13 +7077,18 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: 1
-        tangentMode: 0
+        outSlope: 2
+        tangentMode: 21
+      - time: .5
+        value: 1
+        inSlope: 2
+        outSlope: -0
+        tangentMode: 21
       - time: 1
         value: 1
-        inSlope: 1
+        inSlope: 0
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
   sensitivity: .200000003
@@ -7867,7 +7872,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 23
+  m_RootOrder: 24
 --- !u!114 &1209548625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8309,7 +8314,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 31
+  m_RootOrder: 32
 --- !u!114 &1281089571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8891,7 +8896,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 27
+  m_RootOrder: 28
 --- !u!114 &1364370836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9550,7 +9555,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 24
+  m_RootOrder: 25
 --- !u!114 &1426750014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9659,7 +9664,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 33
+  m_RootOrder: 34
 --- !u!114 &1481443293
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9822,6 +9827,7 @@ Transform:
   - {fileID: 344216226}
   - {fileID: 720881115}
   - {fileID: 1199435709}
+  - {fileID: 2093001787}
   - {fileID: 1209548624}
   - {fileID: 1426750013}
   - {fileID: 2083711710}
@@ -9991,7 +9997,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 35
+  m_RootOrder: 36
 --- !u!114 &1615373070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10420,7 +10426,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 26
+  m_RootOrder: 27
 --- !u!114 &1913037517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10529,7 +10535,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 30
+  m_RootOrder: 31
 --- !u!114 &1987232094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10703,7 +10709,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 36
+  m_RootOrder: 37
 --- !u!114 &1993397532
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11274,7 +11280,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 25
+  m_RootOrder: 26
 --- !u!114 &2083711711
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11349,6 +11355,219 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
   sensitivity: .150000006
+  decaySpeed: 1
+  showAudioOptions: 0
+  headroom: 1
+  dynamicRange: 17
+  lowerBound: -60
+  falldown: .5
+--- !u!1 &2093001786
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 2093001787}
+  - 114: {fileID: 2093001790}
+  - 114: {fileID: 2093001789}
+  - 114: {fileID: 2093001788}
+  m_Layer: 0
+  m_Name: K24 Rings Color
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2093001787
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2093001786}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1528206852}
+  m_RootOrder: 23
+--- !u!114 &2093001788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2093001786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccf5be84930048ad9169adfd8b4577b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reaktor:
+    _mode: 1
+    _reference: {fileID: 0}
+    _name: 
+    _forceUpdate: 0
+  color1: {r: 1.79999995, g: .47647059, b: .47647059, a: 1}
+  color2: {r: 6, g: 1.58823538, b: 1.58823538, a: 1}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  target:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 734377796}
+        m_MethodName: set_emissionColor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Teatro.GenericColorGear+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2093001789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2093001786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dccf5be84930048ad9169adfd8b4577b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reaktor:
+    _mode: 1
+    _reference: {fileID: 0}
+    _name: 
+    _forceUpdate: 0
+  color1: {r: .650735259, g: 1.04315424, b: 1.5, a: 1}
+  color2: {r: 1.7352941, g: 2.78174448, b: 4, a: 1}
+  curve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  target:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 391101506}
+        m_MethodName: set_emissionColor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: Teatro.GenericColorGear+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+--- !u!114 &2093001790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2093001786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3ec3ae67a0841d8aa990e0f2e1089e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  injector:
+    _mode: 0
+    _reference: {fileID: 0}
+    _name: 
+    _forceUpdate: 1
+  audioCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 1
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  gain:
+    _control: 0
+    _midiChannel: 16
+    _knobIndex: 2
+    _noteNumber: 40
+    _inputAxis: Jump
+    _curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 1
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 1
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+  offset:
+    _control: 1
+    _midiChannel: 16
+    _knobIndex: 76
+    _noteNumber: 40
+    _inputAxis: Jump
+    _curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: -0
+        tangentMode: 21
+      - time: .5
+        value: 0
+        inSlope: 0
+        outSlope: 2
+        tangentMode: 21
+      - time: 1
+        value: 1
+        inSlope: 2
+        outSlope: 0
+        tangentMode: 21
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+  sensitivity: .200000003
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
