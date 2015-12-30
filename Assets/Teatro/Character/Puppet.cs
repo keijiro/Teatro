@@ -4,183 +4,282 @@ namespace Teatro
 {
     public class Puppet : MonoBehaviour
     {
-        #region Exposed Parameters
+        #region Common Parameters
 
-        [SerializeField, Range(0, 1)] float _spineBend = 0.5f;
-        [SerializeField, Range(0, 1)] float _spineTwist = 0.5f;
+        [Space, Range(0, 1)]
+        [SerializeField] float _transition;
 
-        [Space]
-        [SerializeField, Range(0, 1)] float _leftArmStretch = 0;
-        [SerializeField, Range(0, 1)] float _leftArmRaise = 0.5f;
-        [SerializeField, Range(0, 1)] float _leftArmOpen = 0;
+        public float transition {
+            get { return _transition; }
+            set { _transition = value; }
+        }
 
-        [Space]
-        [SerializeField, Range(0, 1)] float _rightArmStretch = 0;
-        [SerializeField, Range(0, 1)] float _rightArmRaise = 0.5f;
-        [SerializeField, Range(0, 1)] float _rightArmOpen = 0;
-
-        [Space]
-        [SerializeField, Range(0, 1)] float _leftLegStretch = 0;
-        [SerializeField, Range(0, 1)] float _leftLegRaise = 0.5f;
-
-        [Space]
-        [SerializeField, Range(0, 1)] float _rightLegStretch = 0;
-        [SerializeField, Range(0, 1)] float _rightLegRaise = 0.5f;
-
-        [Space]
-        [SerializeField] float _noiseFrequency = 0.3f;
-
-        [Space]
-        [SerializeField] float _noiseToBodyPosition = 0.15f;
-        [SerializeField] float _noiseToBodyRotation = 10.0f;
-        [SerializeField] float _noiseToSpineRotation = 20.0f;
-        [SerializeField] float _noiseToIKTarget = 0.1f;
+        [SerializeField] float _noise1Frequency;
+        [SerializeField] float _noise2Frequency;
+        [SerializeField] float _noise3Frequency;
 
         #endregion
 
-        #region Public Properties
-
-        public float spineBend {
-            get { return _spineBend; }
-            set { _spineBend = value; }
-        }
-
-        public float spineTwist {
-            get { return _spineTwist; }
-            set { _spineTwist = value; }
-        }
-
-        public float leftArmStretch {
-            get { return _leftArmStretch; }
-            set { _leftArmStretch = value; }
-        }
-
-        public float leftArmRaise {
-            get { return _leftArmRaise; }
-            set { _leftArmRaise = value; }
-        }
-
-        public float leftArmOpen {
-            get { return _leftArmOpen; }
-            set { _leftArmOpen = value; }
-        }
-
-        public float rightArmStretch {
-            get { return _rightArmStretch; }
-            set { _rightArmStretch = value; }
-        }
-
-        public float rightArmRaise {
-            get { return _rightArmRaise; }
-            set { _rightArmRaise = value; }
-        }
-
-        public float rightArmOpen {
-            get { return _rightArmOpen; }
-            set { _rightArmOpen = value; }
-        }
-
-        public float leftLegStretch {
-            get { return _leftLegStretch; }
-            set { _leftLegStretch = value; }
-        }
-
-        public float leftLegRaise {
-            get { return _leftLegRaise; }
-            set { _leftLegRaise = value; }
-        }
-
-        public float rightLegStretch {
-            get { return _rightLegStretch; }
-            set { _rightLegStretch = value; }
-        }
-
-        public float rightLegRaise {
-            get { return _rightLegRaise; }
-            set { _rightLegRaise = value; }
-        }
-
-        public float noiseToBodyPosition {
-            get { return _noiseToBodyPosition; }
-            set { _noiseToBodyPosition = value; }
-        }
-
-        public float noiseToBodyRotation {
-            get { return _noiseToBodyRotation; }
-            set { _noiseToBodyRotation = value; }
-        }
-
-        #endregion
-
-        #region Private Variables
+        #region Private Properties
 
         Animator _animator;
-        NoiseGenerator _noise;
+        NoiseGenerator _noise1;
+        NoiseGenerator _noise2;
+        NoiseGenerator _noise3;
 
-        Vector3 _originalBodyPosition;
-        Vector3 _bodyPosition;
-        Quaternion _bodyRotation;
-
-        Quaternion _spineRotation;
-
-        Vector3 _leftHandPosition;
-        Vector3 _leftFootPosition;
-
-        Vector3 _rightHandPosition;
-        Vector3 _rightFootPosition;
-
-        #endregion
-
-        #region Utility Functions
-
-        static Vector3 Tween(Vector3 current, Vector3 target)
-        {
-            return Vector3.Lerp(target, current, Mathf.Exp(-6 * Time.deltaTime));
+        float pose1Weight {
+            get { return Mathf.Max(1 - _transition * 2, 0.0f); }
         }
 
-        static Quaternion Tween(Quaternion current, Quaternion target)
+        float pose2Weight {
+            get { return 1 - Mathf.Abs(0.5f - _transition) * 2; }
+        }
+
+        float pose3Weight {
+            get { return Mathf.Max(_transition * 2 - 1, 0.0f); }
+        }
+
+        float ApplyPoseWeights(float s1, float s2, float s3)
         {
-            if (current == target)
-                return target;
+            return s1 * pose1Weight + s2 * pose2Weight + s3 * pose3Weight;
+        }
+
+        Vector3 ApplyPoseWeights(Vector3 v1, Vector3 v2, Vector3 v3)
+        {
+            return v1 * pose1Weight + v2 * pose2Weight + v3 * pose3Weight;
+        }
+
+        Quaternion ApplyPoseWeights(Quaternion q1, Quaternion q2, Quaternion q3)
+        {
+            if (pose1Weight > 0)
+                return Quaternion.Slerp(q1, q2, pose2Weight);
             else
-                return Quaternion.Lerp(target, current, Mathf.Exp(-6 * Time.deltaTime));
+                return Quaternion.Slerp(q3, q2, pose2Weight);
         }
 
         #endregion
 
-        #region Pose Calculation Functions
+        #region Body (Root Joint)
+
+        [Header("Root Joint")]
+        [SerializeField] float _noiseToBodyPosition1;
+        [SerializeField] float _noiseToBodyRotation1;
+        [Space]
+        [SerializeField] float _noiseToBodyPosition2;
+        [SerializeField] float _noiseToBodyRotation2;
+        [Space]
+        [SerializeField] float _noiseToBodyPosition3;
+        [SerializeField] float _noiseToBodyRotation3;
+
+        Vector3 CalculateBodyPosition()
+        {
+            var n1 = _noise1.Vector(0) * _noiseToBodyPosition1;
+            var n2 = _noise2.Vector(1) * _noiseToBodyPosition2;
+            var n3 = _noise3.Vector(2) * _noiseToBodyPosition3;
+            return ApplyPoseWeights(n1, n2, n3);
+        }
+
+        Quaternion CalculateBodyRotation()
+        {
+            var n1 = _noise1.Rotation(3, _noiseToBodyRotation1);
+            var n2 = _noise2.Rotation(4, _noiseToBodyRotation2);
+            var n3 = _noise3.Rotation(5, _noiseToBodyRotation3);
+            return ApplyPoseWeights(n1, n2, n3);
+        }
+
+        #endregion
+
+        #region Spine Joints
+
+        [Header("Spine Joints")]
+        [SerializeField] float _spineBend1;
+        [SerializeField] Vector3 _noiseToSpineRotation1;
+        [Space]
+        [SerializeField] float _spineBend2;
+        [SerializeField] Vector3 _noiseToSpineRotation2;
+        [Space]
+        [SerializeField] float _spineBend3;
+        [SerializeField] Vector3 _noiseToSpineRotation3;
 
         Quaternion CalculateSpineRotation()
         {
-            float a1 = (_spineBend  * 2 - 1) * 45;
-            float a2 = (_spineTwist * 2 - 1) * 45;
-            return
-                Quaternion.AngleAxis(a1, Vector3.right) *
-                Quaternion.AngleAxis(a2, Vector3.up) *
-                _noise.Rotation(1, _noiseToSpineRotation);
+            var r1 = Vector3.Scale(_noise1.Vector(10), _noiseToSpineRotation1);
+            r1.x += _spineBend1;
+
+            var r2 = Vector3.Scale(_noise2.Vector(11), _noiseToSpineRotation2);
+            r2.x += _spineBend2;
+
+            var r3 = Vector3.Scale(_noise3.Vector(12), _noiseToSpineRotation3);
+            r3.x += _spineBend3;
+
+            return Quaternion.Euler(ApplyPoseWeights(r1, r2, r3));
         }
+
+        #endregion
+
+        #region Hand IK Target
+
+        [Header("Hand IK Target")]
+        [SerializeField] Vector3 _handTarget1;
+        [SerializeField] float _noiseToHandTarget1;
+        [Space]
+        [SerializeField] Vector3 _handTarget2;
+        [SerializeField] Vector3 _noiseToHandTarget2;
+        [Space]
+        [SerializeField] Vector3 _leftHandTarget3;
+        [SerializeField] Vector3 _rightHandTarget3;
+        [SerializeField] float _noiseToHandTarget3;
+        [Space]
+        [SerializeField] float _noiseToHandRotation;
 
         Vector3 CalculateHandPosition(bool right)
         {
-            var ry = (right ? _rightArmOpen : -_leftArmOpen) * 80;
-            var rx = (right ? _rightArmRaise : _leftArmRaise) * -90 + 50;
-            var s = Mathf.Lerp(0.25f, 0.5f, right ? _rightArmStretch : _leftArmStretch);
-            var n = _noise.Vector(right ? 2 : 3) * _noiseToIKTarget;
-            return
-                Quaternion.AngleAxis(ry, Vector3.up) *
-                Quaternion.AngleAxis(rx, Vector3.right) *
-                Vector3.forward * s + n;
+            var hip = _animator.GetBoneTransform(HumanBodyBones.Hips);
+            var neck = _animator.GetBoneTransform(HumanBodyBones.Neck);
+
+            // pose 1
+            var p1 = _handTarget1;
+            p1 += _noise1.Vector(right ? 20 : 21) * _noiseToHandTarget1;
+            if (!right) p1.x *= -1;
+            p1 = hip.TransformPoint(p1);
+
+            // pose 2
+            var p2 = _handTarget2;
+            var n2 = _noise2.Vector(right ? 20 : 21);
+            p2 += Vector3.Scale(n2, _noiseToHandTarget2);
+            if (!right) p2.x *= -1;
+            p2 = neck.TransformPoint(p2);
+
+            // pose 3
+            var p3 = right ? _rightHandTarget3 : _leftHandTarget3;
+            p3 += _noise3.Vector(right ? 22 : 23) * _noiseToHandTarget3;
+            p3 = hip.TransformPoint(p3);
+
+            return ApplyPoseWeights(p1, p2, p3);
         }
+
+        Quaternion CalculateHandRotation(bool right)
+        {
+            return _noise1.Rotation(right ? 24 : 25, _noiseToHandRotation);
+        }
+
+        #endregion
+
+        #region Foot IK Target
+
+        [Header("Foot IK Target")]
+        [SerializeField] Vector3 _FootTarget1;
+        [SerializeField] float _noiseToFootTarget1;
+        [Space]
+        [SerializeField] Vector3 _FootTarget2;
+        [SerializeField] Vector3 _noiseToFootTarget2;
+        [Space]
+        [SerializeField] Vector3 _leftFootTarget3;
+        [SerializeField] Vector3 _rightFootTarget3;
+        [SerializeField] float _noiseToFootTarget3;
+        [Space]
+        [SerializeField] float _noiseToFootRotation;
 
         Vector3 CalculateFootPosition(bool right)
         {
-            var rx = (right ? _rightLegRaise : _leftLegRaise) * -110 + 45;
-            var s = Mathf.Lerp(-0.3f, -0.75f, right ? _rightLegStretch : _leftLegStretch);
-            var o = (right ? _rightLegStretch : -_leftLegStretch) * 0.15f;
-            var n = _noise.Vector(right ? 4 : 5) * _noiseToIKTarget;
-            return
-                Quaternion.AngleAxis(rx, Vector3.right) *
-                (Vector3.up * s + Vector3.right * o) + n;
+            var hip = _animator.GetBoneTransform(HumanBodyBones.Hips);
+
+            // pose 1
+            var p1 = _FootTarget1;
+            p1 += _noise1.Vector(right ? 30 : 31) * _noiseToFootTarget1;
+            if (!right) p1.x *= -1;
+
+            // pose 2
+            var p2 = _FootTarget2;
+            var n2 = _noise2.Vector(right ? 30 : 31);
+            p2 += Vector3.Scale(n2, _noiseToFootTarget2);
+            if (!right) p2.x *= -1;
+
+            // pose 3
+            var p3 = right ? _rightFootTarget3 : _leftFootTarget3;
+            p3 += _noise3.Vector(right ? 32 : 33) * _noiseToFootTarget3;
+
+            return hip.TransformPoint(ApplyPoseWeights(p1, p2, p3));
+        }
+
+        Quaternion CalculateFootRotation(bool right)
+        {
+            var r = _noise2.Value01(right ? 34 : 35) * _noiseToFootRotation;
+            return Quaternion.AngleAxis(r, Vector3.right);
+        }
+
+        #endregion
+
+        #region Finger Joints
+
+        [Header("Fingers")]
+        [SerializeField] float _noiseToThumbRotation;
+        [SerializeField] float _noiseToFingerRotation;
+
+        void UpdateFinger(
+            int noiseSeed, bool thumb, bool right,
+            HumanBodyBones bone1, HumanBodyBones bone2, HumanBodyBones bone3)
+        {
+            var a = thumb ? Vector3.up : Vector3.forward;
+            var r = thumb ? _noiseToThumbRotation : _noiseToFingerRotation;
+            var n = _noise2.Value01(noiseSeed) * (right ? -1 : 1);
+            var q = Quaternion.AngleAxis(r * n, a);
+            _animator.SetBoneLocalRotation(bone1, q);
+            _animator.SetBoneLocalRotation(bone2, q);
+            _animator.SetBoneLocalRotation(bone3, q);
+        }
+
+        void UpdateAllFingers()
+        {
+            UpdateFinger(40, true, false,
+                HumanBodyBones.LeftThumbProximal,
+                HumanBodyBones.LeftThumbIntermediate,
+                HumanBodyBones.LeftThumbDistal);
+
+            UpdateFinger(41, false, false,
+                HumanBodyBones.LeftIndexProximal,
+                HumanBodyBones.LeftIndexIntermediate,
+                HumanBodyBones.LeftIndexDistal);
+
+            UpdateFinger(41, false, false,
+                HumanBodyBones.LeftMiddleProximal,
+                HumanBodyBones.LeftMiddleIntermediate,
+                HumanBodyBones.LeftMiddleDistal);
+
+            UpdateFinger(42, false, false,
+                HumanBodyBones.LeftRingProximal,
+                HumanBodyBones.LeftRingIntermediate,
+                HumanBodyBones.LeftRingDistal);
+
+            UpdateFinger(42, false, false,
+                HumanBodyBones.LeftLittleProximal,
+                HumanBodyBones.LeftLittleIntermediate,
+                HumanBodyBones.LeftLittleDistal);
+
+            UpdateFinger(45, true, true,
+                HumanBodyBones.RightThumbProximal,
+                HumanBodyBones.RightThumbIntermediate,
+                HumanBodyBones.RightThumbDistal);
+
+            UpdateFinger(46, false, true,
+                HumanBodyBones.RightIndexProximal,
+                HumanBodyBones.RightIndexIntermediate,
+                HumanBodyBones.RightIndexDistal);
+
+            UpdateFinger(46, false, true,
+                HumanBodyBones.RightMiddleProximal,
+                HumanBodyBones.RightMiddleIntermediate,
+                HumanBodyBones.RightMiddleDistal);
+
+            UpdateFinger(47, false, true,
+                HumanBodyBones.RightRingProximal,
+                HumanBodyBones.RightRingIntermediate,
+                HumanBodyBones.RightRingDistal);
+
+            UpdateFinger(47, false, true,
+                HumanBodyBones.RightLittleProximal,
+                HumanBodyBones.RightLittleIntermediate,
+                HumanBodyBones.RightLittleDistal);
         }
 
         #endregion
@@ -190,71 +289,52 @@ namespace Teatro
         void Start()
         {
             _animator = GetComponent<Animator>();
-            _noise = new NoiseGenerator(_noiseFrequency);
 
-            var hip = _animator.GetBoneTransform(HumanBodyBones.Hips);
-            _originalBodyPosition = _bodyPosition = hip.position;
-
-            _spineRotation = CalculateSpineRotation();
-
-            _leftHandPosition = CalculateHandPosition(false);
-            _leftFootPosition = CalculateFootPosition(false);
-
-            _rightHandPosition = CalculateHandPosition(true);
-            _rightFootPosition = CalculateFootPosition(true);
+            _noise1 = new NoiseGenerator(_noise1Frequency);
+            _noise2 = new NoiseGenerator(_noise2Frequency);
+            _noise3 = new NoiseGenerator(_noise3Frequency);
         }
 
         void Update()
         {
-            _noise.Frequency = _noiseFrequency;
-            _noise.Step();
+            _noise1.Frequency = _noise1Frequency;
+            _noise2.Frequency = _noise2Frequency;
+            _noise3.Frequency = _noise3Frequency;
 
-            _spineRotation = Tween(_spineRotation, CalculateSpineRotation());
-
-            _leftHandPosition = Tween(_leftHandPosition, CalculateHandPosition(false));
-            _leftFootPosition = Tween(_leftFootPosition, CalculateFootPosition(false));
-
-            _rightHandPosition = Tween(_rightHandPosition, CalculateHandPosition(true));
-            _rightFootPosition = Tween(_rightFootPosition, CalculateFootPosition(true));
+            _noise1.Step();
+            _noise2.Step();
+            _noise3.Step();
         }
 
         void OnAnimatorMove()
         {
-            var bp = _originalBodyPosition + _noise.Vector(6) * _noiseToBodyPosition;
-            var br = _noise.Rotation(7, _noiseToBodyRotation);
-
-            _bodyPosition = Tween(_bodyPosition, bp);
-            _bodyRotation = Tween(_bodyRotation, br);
-
-            _animator.bodyPosition = _bodyPosition;
-            _animator.bodyRotation = _bodyRotation;
+            _animator.bodyPosition = CalculateBodyPosition();
+            _animator.bodyRotation = CalculateBodyRotation();
         }
 
         void OnAnimatorIK(int layerIndex)
         {
+            var spine = CalculateSpineRotation();
+            _animator.SetBoneLocalRotation(HumanBodyBones.Spine, spine);
+            _animator.SetBoneLocalRotation(HumanBodyBones.Chest, spine);
+
             _animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
+            _animator.SetIKPosition(AvatarIKGoal.LeftHand, CalculateHandPosition(false));
+            _animator.SetBoneLocalRotation(HumanBodyBones.LeftHand, CalculateHandRotation(false));
+
             _animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
+            _animator.SetIKPosition(AvatarIKGoal.RightHand, CalculateHandPosition(true));
+            _animator.SetBoneLocalRotation(HumanBodyBones.RightHand, CalculateHandRotation(true));
+
             _animator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1);
+            _animator.SetIKPosition(AvatarIKGoal.LeftFoot, CalculateFootPosition(false));
+            _animator.SetBoneLocalRotation(HumanBodyBones.LeftFoot, CalculateFootRotation(false));
+
             _animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, 1);
+            _animator.SetIKPosition(AvatarIKGoal.RightFoot, CalculateFootPosition(true));
+            _animator.SetBoneLocalRotation(HumanBodyBones.RightFoot, CalculateFootRotation(true));
 
-            _animator.SetBoneLocalRotation(HumanBodyBones.Spine, _spineRotation);
-            _animator.SetBoneLocalRotation(HumanBodyBones.Chest, _spineRotation);
-
-            var hip  = _animator.GetBoneTransform(HumanBodyBones.Hips);
-            var larm = _animator.GetBoneTransform(HumanBodyBones.LeftShoulder);
-            var rarm = _animator.GetBoneTransform(HumanBodyBones.RightShoulder);
-            var lleg = _animator.GetBoneTransform(HumanBodyBones.LeftUpperLeg).position;
-            var rleg = _animator.GetBoneTransform(HumanBodyBones.RightUpperLeg).position;
-
-            var lhp = larm.TransformPoint(_leftHandPosition);
-            var rhp = rarm.TransformPoint(_rightHandPosition);
-            var lfp = hip.TransformPoint(hip.InverseTransformPoint(lleg) + _leftFootPosition);
-            var rfp = hip.TransformPoint(hip.InverseTransformPoint(rleg) + _rightFootPosition);
-
-            _animator.SetIKPosition(AvatarIKGoal.LeftHand, lhp);
-            _animator.SetIKPosition(AvatarIKGoal.RightHand, rhp);
-            _animator.SetIKPosition(AvatarIKGoal.LeftFoot, lfp);
-            _animator.SetIKPosition(AvatarIKGoal.RightFoot, rfp);
+            UpdateAllFingers();
         }
 
         #endregion

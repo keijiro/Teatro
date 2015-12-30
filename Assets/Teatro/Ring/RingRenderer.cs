@@ -34,6 +34,11 @@ namespace Teatro
         [SerializeField, ColorUsage(true, true, 0, 8, 0.125f, 3)]
         Color _emissionColor = Color.white;
 
+        public Color emissionColor {
+            get { return _emissionColor; }
+            set { _emissionColor = value; }
+        }
+
         [Space]
         [SerializeField] float _randomSeed;
 

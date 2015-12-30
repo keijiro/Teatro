@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.Events;
+using Reaktion;
 
-namespace Reaktion
+namespace Teatro
 {
     public class GenericColorGear : MonoBehaviour
     {
@@ -10,10 +11,10 @@ namespace Reaktion
 
         public ReaktorLink reaktor;
 
-        [ColorUsage(true, true, 0, 8, 0.125f, 3)]
+        [ColorUsage(true, true, 0, 16, 0.125f, 3)]
         public Color color1 = Color.black;
 
-        [ColorUsage(true, true, 0, 8, 0.125f, 3)]
+        [ColorUsage(true, true, 0, 16, 0.125f, 3)]
         public Color color2 = Color.white;
 
         public AnimationCurve curve = AnimationCurve.Linear(0, 0, 1, 1);
