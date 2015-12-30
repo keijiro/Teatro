@@ -528,7 +528,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 32
+  m_RootOrder: 31
 --- !u!114 &195993465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1161,7 +1161,7 @@ GameObject:
   - 114: {fileID: 344216228}
   - 114: {fileID: 344216227}
   m_Layer: 0
-  m_Name: S03 Puppet Particles
+  m_Name: S02 Puppet Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1178,7 +1178,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 26
+  m_RootOrder: 25
 --- !u!114 &344216227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1299,7 +1299,7 @@ MonoBehaviour:
   offset:
     _control: 1
     _midiChannel: 16
-    _knobIndex: 3
+    _knobIndex: 2
     _noteNumber: 40
     _inputAxis: Jump
     _curve:
@@ -4212,7 +4212,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Reaktion.GenericColorGear+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
+    m_TypeName: Teatro.GenericColorGear+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &734377795
 GameObject:
@@ -4408,7 +4408,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 36
+  m_RootOrder: 35
 --- !u!114 &766301137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5460,7 +5460,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 35
+  m_RootOrder: 34
 --- !u!114 &922742870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5614,7 +5614,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 29
+  m_RootOrder: 28
 --- !u!114 &927921357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5882,7 +5882,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 30
+  m_RootOrder: 29
 --- !u!114 &947099038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6375,7 +6375,7 @@ GameObject:
   - 114: {fileID: 1113029987}
   - 114: {fileID: 1113029986}
   m_Layer: 0
-  m_Name: S00 Puppet Open
+  m_Name: S00 Puppet Pose
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6428,8 +6428,8 @@ MonoBehaviour:
   floatTarget:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1375615767}
-        m_MethodName: set_closeToOpen
+      - m_Target: {fileID: 1375615765}
+        m_MethodName: set_transition
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6512,6 +6512,11 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 1
         tangentMode: 0
+      - time: .5
+        value: .5
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
       - time: 1
         value: 1
         inSlope: 1
@@ -6519,7 +6524,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: 1
+  sensitivity: .159999996
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
@@ -7880,7 +7885,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 27
+  m_RootOrder: 26
 --- !u!114 &1209548625
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8128,7 +8133,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 31
+  m_RootOrder: 30
 --- !u!114 &1281089571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8612,7 +8617,7 @@ GameObject:
   - 114: {fileID: 1353863408}
   - 114: {fileID: 1353863407}
   m_Layer: 0
-  m_Name: S02 Puppet Transition
+  m_Name: S01 Puppet Transition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8629,7 +8634,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 25
+  m_RootOrder: 24
 --- !u!114 &1353863407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8750,7 +8755,7 @@ MonoBehaviour:
   offset:
     _control: 1
     _midiChannel: 16
-    _knobIndex: 2
+    _knobIndex: 1
     _noteNumber: 40
     _inputAxis: Jump
     _curve:
@@ -8889,7 +8894,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 28
+  m_RootOrder: 27
 --- !u!114 &1364370836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9160,37 +9165,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2640f9c7eb8d5944a8d44d824f98128d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spineBend: .5
-  _spineTwist: .5
-  _leftArmStretch: 0
-  _leftArmRaise: .5
-  _leftArmOpen: 0
-  _rightArmStretch: 0
-  _rightArmRaise: .5
-  _rightArmOpen: 0
-  _leftLegStretch: 0
-  _leftLegRaise: .5
-  _rightLegStretch: 0
-  _rightLegRaise: .5
-  _noiseFrequency: .300000012
-  _noiseToBodyPosition: .150000006
-  _noiseToBodyRotation: 10
-  _noiseToSpineRotation: 20
-  _noiseToIKTarget: .100000001
---- !u!114 &1375615767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1375615763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48607bb00c0ac9f479c123717e265b71, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _noiseFrequency: .300000012
-  _closeToOpen: .100000001
-  _noiseStrength: 0
+  _transition: 0
+  _noise1Frequency: .180000007
+  _noise2Frequency: .219999999
+  _noise3Frequency: .400000006
+  _noiseToBodyPosition1: .150000006
+  _noiseToBodyRotation1: 8
+  _noiseToBodyPosition2: .300000012
+  _noiseToBodyRotation2: 45
+  _noiseToBodyPosition3: .150000006
+  _noiseToBodyRotation3: 10
+  _spineBend1: 35
+  _noiseToSpineRotation1: {x: 8, y: 8, z: 8}
+  _spineBend2: 10
+  _noiseToSpineRotation2: {x: 30, y: 60, z: 15}
+  _spineBend3: -20
+  _noiseToSpineRotation3: {x: 10, y: 20, z: 10}
+  _handTarget1: {x: .200000003, y: .0399999991, z: .349999994}
+  _noiseToHandTarget1: .0799999982
+  _handTarget2: {x: .400000006, y: 0, z: .150000006}
+  _noiseToHandTarget2: {x: .300000012, y: .400000006, z: .150000006}
+  _leftHandTarget3: {x: -.349999994, y: .639999986, z: -.0599999987}
+  _rightHandTarget3: {x: .330000013, y: .560000002, z: -.0299999993}
+  _noiseToHandTarget3: .0500000007
+  _noiseToHandRotation: 40
+  _FootTarget1: {x: .119999997, y: -.439999998, z: .0500000007}
+  _noiseToFootTarget1: .100000001
+  _FootTarget2: {x: .200000003, y: -.550000012, z: 0}
+  _noiseToFootTarget2: {x: .200000003, y: .319999993, z: .400000006}
+  _leftFootTarget3: {x: -.209999993, y: -.730000019, z: -.170000002}
+  _rightFootTarget3: {x: .25, y: -.629999995, z: -.239999995}
+  _noiseToFootTarget3: .200000003
+  _noiseToFootRotation: 40
+  _noiseToThumbRotation: 15
+  _noiseToFingerRotation: 90
 --- !u!114 &1375615769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9301,7 +9309,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Reaktion.GenericColorGear+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
+    m_TypeName: Teatro.GenericColorGear+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1414053767
 MonoBehaviour:
@@ -9446,7 +9454,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: Reaktion.GenericColorGear+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
+    m_TypeName: Teatro.GenericColorGear+ColorEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1001 &1424738481
 Prefab:
@@ -9461,11 +9469,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 70f78be1e034af54790b7297093153f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.02999997
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 70f78be1e034af54790b7297093153f7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: .25
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 70f78be1e034af54790b7297093153f7, type: 3}
       propertyPath: m_LocalRotation.x
@@ -9485,7 +9493,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 70f78be1e034af54790b7297093153f7, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 100312, guid: 70f78be1e034af54790b7297093153f7, type: 3}
       propertyPath: m_IsActive
@@ -9854,7 +9862,6 @@ Transform:
   - {fileID: 1205844803}
   - {fileID: 473082982}
   - {fileID: 1113029988}
-  - {fileID: 1884737066}
   - {fileID: 1353863406}
   - {fileID: 344216226}
   - {fileID: 1209548624}
@@ -9897,7 +9904,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 33
+  m_RootOrder: 32
 --- !u!114 &1615373070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10115,180 +10122,6 @@ MonoBehaviour:
   _yawRange: 90
   _pitchRange: 25
   _bankRange: 20
---- !u!1 &1884737065
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1884737066}
-  - 114: {fileID: 1884737068}
-  - 114: {fileID: 1884737067}
-  m_Layer: 0
-  m_Name: S01 Puppet Noise
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1884737066
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1884737065}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1528206852}
-  m_RootOrder: 24
---- !u!114 &1884737067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1884737065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcbea1f4bc98b455093b3b4b607ed9fc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  reaktor:
-    _mode: 1
-    _reference: {fileID: 0}
-    _name: 
-    _forceUpdate: 0
-  optionType: 2
-  curve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  origin: {x: 0, y: 0, z: 0}
-  direction: {x: 1, y: 0, z: 0}
-  boolTarget:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Reaktion.GenericCurveGear+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  intTarget:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Reaktion.GenericCurveGear+IntEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  floatTarget:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1375615767}
-        m_MethodName: set_noiseStrength
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: Reaktion.GenericCurveGear+FloatEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  vectorTarget:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: Reaktion.GenericCurveGear+VectorEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
---- !u!114 &1884737068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1884737065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a3ec3ae67a0841d8aa990e0f2e1089e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  injector:
-    _mode: 0
-    _reference: {fileID: 0}
-    _name: 
-    _forceUpdate: 1
-  audioCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 1
-      tangentMode: 0
-    - time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  gain:
-    _control: 0
-    _midiChannel: 16
-    _knobIndex: 2
-    _noteNumber: 40
-    _inputAxis: Jump
-    _curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-      - time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-  offset:
-    _control: 1
-    _midiChannel: 16
-    _knobIndex: 1
-    _noteNumber: 40
-    _inputAxis: Jump
-    _curve:
-      serializedVersion: 2
-      m_Curve:
-      - time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 1
-        tangentMode: 0
-      - time: 1
-        value: 1
-        inSlope: 1
-        outSlope: 0
-        tangentMode: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-  sensitivity: 1
-  decaySpeed: 1
-  showAudioOptions: 0
-  headroom: 1
-  dynamicRange: 17
-  lowerBound: -60
-  falldown: .5
 --- !u!1 &1913037515
 GameObject:
   m_ObjectHideFlags: 0
@@ -10599,7 +10432,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1528206852}
-  m_RootOrder: 34
+  m_RootOrder: 33
 --- !u!114 &1993397532
 MonoBehaviour:
   m_ObjectHideFlags: 0
