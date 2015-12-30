@@ -37,6 +37,11 @@ namespace Teatro
         [SerializeField] float _scale = 0.05f;
         [SerializeField] ClusterMesh _mesh;
 
+        public float scale {
+            get { return _scale; }
+            set { _scale = value; }
+        }
+
         [Space]
         [SerializeField] Color _color = Color.white;
         [SerializeField, Range(0, 1)] float _metallic = 0.5f;
