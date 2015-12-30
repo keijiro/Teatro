@@ -883,11 +883,16 @@ MonoBehaviour:
     - time: 0
       value: .850000024
       inSlope: 0
-      outSlope: 8.14999962
+      outSlope: 81.5000076
+      tangentMode: 21
+    - time: .099999994
+      value: 9
+      inSlope: 81.5000076
+      outSlope: -0
       tangentMode: 21
     - time: 1
       value: 9
-      inSlope: 8.14999962
+      inSlope: 0
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
@@ -1033,16 +1038,11 @@ MonoBehaviour:
     - time: 0
       value: 0
       inSlope: 0
-      outSlope: 1599.99963
-      tangentMode: 21
-    - time: .0500000119
-      value: 80
-      inSlope: 1599.99963
-      outSlope: -0
+      outSlope: 80
       tangentMode: 21
     - time: 1
       value: 80
-      inSlope: 0
+      inSlope: 80
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
@@ -5371,13 +5371,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: .0500000007
       inSlope: 0
-      outSlope: 2
+      outSlope: .699999988
       tangentMode: 21
     - time: 1
-      value: 2
-      inSlope: 2
+      value: .75
+      inSlope: .699999988
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
@@ -5516,13 +5516,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: 0
+      value: .119999997
       inSlope: 0
-      outSlope: 1
+      outSlope: .879999995
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 1
+      inSlope: .879999995
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
