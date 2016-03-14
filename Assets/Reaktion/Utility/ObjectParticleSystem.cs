@@ -48,7 +48,8 @@ public class ObjectParticleSystem : MonoBehaviour
 
     void LateUpdate()
     {
-        var count = GetComponent<ParticleSystem>().GetParticles(particles);
+        var ps = GetComponent<ParticleSystem>();
+        var count = ps.GetParticles(particles);
 
         for (var i = 0; i < count; i++)
         {
@@ -59,7 +60,7 @@ public class ObjectParticleSystem : MonoBehaviour
 
             o.transform.position = prefab.transform.position + p.position;
             o.transform.localRotation = Quaternion.AngleAxis(p.rotation, p.axisOfRotation) * prefab.transform.rotation;
-            o.transform.localScale = prefab.transform.localScale * p.size;
+            o.transform.localScale = prefab.transform.localScale * p.GetCurrentSize(ps);
         }
 
         for (var i = count; i < pool.Length; i++)

@@ -53,7 +53,10 @@ public class ParticleSystemGear : MonoBehaviour
         }
 
         if (emissionRate.enabled)
-            GetComponent<ParticleSystem>().emissionRate = emissionRate.Evaluate(reaktor.Output);
+        {
+            var em = GetComponent<ParticleSystem>().emission;
+            em.rate = new ParticleSystem.MinMaxCurve(emissionRate.Evaluate(reaktor.Output));
+        }
 
         if (size.enabled)
             ResizeParticles(size.Evaluate(reaktor.Output));
@@ -67,7 +70,7 @@ public class ParticleSystemGear : MonoBehaviour
         var count = GetComponent<ParticleSystem>().GetParticles(tempArray);
 
         for (var i = 0; i < count; i++)
-            tempArray[i].size = newSize;
+            tempArray[i].startSize = newSize;
 
         GetComponent<ParticleSystem>().SetParticles(tempArray, count);
     }
