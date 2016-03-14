@@ -8,25 +8,25 @@ SceneSettings:
   m_PVSPortalsArray: []
   m_OcclusionBakeSettings:
     smallestOccluder: 5
-    smallestHole: .25
+    smallestHole: 0.25
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
   m_Fog: 1
-  m_FogColor: {r: .117647052, g: .117647052, b: .117647052, a: 1}
+  m_FogColor: {r: 0.11764705, g: 0.11764705, b: 0.11764705, a: 1}
   m_FogMode: 3
-  m_FogDensity: .180000007
+  m_FogDensity: 0.18
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: .211999997, g: .226999998, b: .259000003, a: 1}
-  m_AmbientEquatorColor: {r: .114, g: .125, b: .133000001, a: 1}
-  m_AmbientGroundColor: {r: .0469999984, g: .0430000015, b: .0350000001, a: 1}
+  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
+  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SkyboxMaterial: {fileID: 2100000, guid: 453cba8ed67ea48b885a439e9a82abe7, type: 2}
-  m_HaloStrength: .5
+  m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
@@ -40,7 +40,7 @@ RenderSettings:
 --- !u!157 &4
 LightmapSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 5
+  serializedVersion: 6
   m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
@@ -66,7 +66,7 @@ LightmapSettings:
     m_FinalGather: 0
     m_FinalGatherRayCount: 1024
     m_ReflectionCompression: 2
-  m_LightmapSnapshot: {fileID: 0}
+  m_LightingDataAsset: {fileID: 0}
   m_RuntimeCPUUsage: 25
 --- !u!196 &5
 NavMeshSettings:
@@ -74,15 +74,15 @@ NavMeshSettings:
   m_ObjectHideFlags: 0
   m_BuildSettings:
     serializedVersion: 2
-    agentRadius: .5
+    agentRadius: 0.5
     agentHeight: 2
     agentSlope: 45
-    agentClimb: .400000006
+    agentClimb: 0.4
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
     accuratePlacement: 0
     minRegionArea: 2
-    cellSize: .166666672
+    cellSize: 0.16666667
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
 --- !u!1 &40926620
@@ -160,7 +160,7 @@ MonoBehaviour:
   positionFrequency:
     enabled: 0
     min: 0
-    max: .100000001
+    max: 0.1
     curve:
       serializedVersion: 2
       m_Curve:
@@ -176,10 +176,11 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   rotationFrequency:
     enabled: 0
     min: 0
-    max: .100000001
+    max: 0.1
     curve:
       serializedVersion: 2
       m_Curve:
@@ -195,10 +196,11 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   positionAmount:
     enabled: 1
     min: 0
-    max: .200000003
+    max: 0.2
     curve:
       serializedVersion: 2
       m_Curve:
@@ -214,6 +216,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   rotationAmount:
     enabled: 1
     min: 0
@@ -233,6 +236,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!114 &79844088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,8 +248,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d637268abbbb5428e991dd9ec93136f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionFrequency: .800000012
-  rotationFrequency: .600000024
+  positionFrequency: 0.8
+  rotationFrequency: 0.6
   positionAmount: 0
   rotationAmount: 0
   positionComponents: {x: 1, y: 1, z: 1}
@@ -315,7 +319,7 @@ MonoBehaviour:
     _name: 
     _forceUpdate: 0
   color1: {r: 0, g: 0, b: 0, a: 0}
-  color2: {r: 3, g: .441176534, b: .441176534, a: 1}
+  color2: {r: 3, g: 0.44117653, b: 0.44117653, a: 1}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -331,6 +335,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   target:
     m_PersistentCalls:
       m_Calls:
@@ -378,6 +383,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -399,6 +405,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -420,13 +427,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &149037105
 GameObject:
   m_ObjectHideFlags: 0
@@ -489,6 +497,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -553,6 +562,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -574,6 +584,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -595,13 +606,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &149037109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,6 +646,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -715,6 +728,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -736,6 +750,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 0
     _midiChannel: 16
@@ -757,6 +772,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 1
@@ -777,7 +793,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fallOffSpeed: 2.5
   _noiseFrequency: 80
-  _noiseAmplitude: .300000012
+  _noiseAmplitude: 0.3
   _keyCode1: 49
   _keyCode2: 50
   _keyCode3: 51
@@ -858,6 +874,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -879,6 +896,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -900,13 +918,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &195993463
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,8 +971,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  threshold: .899999976
-  interval: .100000001
+  threshold: 0.9
+  interval: 0.1
   target:
     m_PersistentCalls:
       m_Calls:
@@ -1001,6 +1020,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -1022,6 +1042,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -1043,13 +1064,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &202716732
 GameObject:
   m_ObjectHideFlags: 0
@@ -1111,6 +1133,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -1175,6 +1198,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 1
     _midiChannel: 16
@@ -1196,6 +1220,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -1217,13 +1242,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .400000006
+      m_RotationOrder: 4
+  sensitivity: 0.4
   decaySpeed: 1
   showAudioOptions: 1
   headroom: 0
   dynamicRange: 20
   lowerBound: -17
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &204748564
 GameObject:
   m_ObjectHideFlags: 0
@@ -1251,7 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: deb3076e68d5f634cbd88a650ef34c14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transitionTime: .200000003
+  _transitionTime: 0.2
   _bokeh: {fileID: 873665409}
   _contour: {fileID: 873665411}
   _isolineBlack: {fileID: 873665416}
@@ -1308,19 +1334,22 @@ ParticleSystemRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_RenderMode: 4
-  m_MaxParticleSize: .5
+  m_SortMode: 0
+  m_MinParticleSize: 0
+  m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
   m_SortingFudge: 0
   m_NormalDirection: 1
-  m_SortMode: 0
+  m_RenderAlignment: 0
+  m_Pivot: {x: 0, y: 0, z: 0}
   m_Mesh: {fileID: 4300006, guid: 19fd098692a084a2494eaf1819ef7336, type: 3}
   m_Mesh1: {fileID: 4300004, guid: 19fd098692a084a2494eaf1819ef7336, type: 3}
   m_Mesh2: {fileID: 4300002, guid: 19fd098692a084a2494eaf1819ef7336, type: 3}
@@ -1331,15 +1360,52 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 214555799}
+  serializedVersion: 2
   lengthInSec: 5
-  startDelay: 0
+  startDelay:
+    scalar: 0
+    maxCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    minCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    minMaxState: 0
   speed: 1
   randomSeed: 0
   looping: 1
   prewarm: 0
   playOnAwake: 1
   moveWithTransform: 1
+  scalingMode: 2
   InitialModule:
+    serializedVersion: 2
     enabled: 1
     startLifetime:
       scalar: 3
@@ -1358,6 +1424,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1373,9 +1440,10 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: .300000012
+      scalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1391,6 +1459,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1406,6 +1475,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     startColor:
       maxGradient:
@@ -1513,17 +1583,89 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .400000006
+          value: 0.4
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 3
+    startRotationX:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    startRotationY:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
     startRotation:
       scalar: 3.1415925
       maxCurve:
@@ -1536,6 +1678,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1546,10 +1689,12 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 3
+    randomizeRotationDirection: 0
     gravityModifier: 0
-    inheritVelocity: 0
     maxNumParticles: 1000
+    rotation3D: 0
   ShapeModule:
     serializedVersion: 2
     enabled: 1
@@ -1563,9 +1708,16 @@ ParticleSystem:
     arc: 360
     placementMode: 0
     m_Mesh: {fileID: 0}
+    m_MeshRenderer: {fileID: 0}
+    m_SkinnedMeshRenderer: {fileID: 0}
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
+    m_UseMeshMaterialIndex: 0
+    m_UseMeshColors: 1
     randomDirection: 1
   EmissionModule:
     enabled: 1
+    serializedVersion: 2
     m_Type: 0
     rate:
       scalar: 0
@@ -1584,6 +1736,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1599,11 +1752,16 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     cnt0: 30
     cnt1: 30
     cnt2: 30
     cnt3: 30
+    cntmax0: 30
+    cntmax1: 30
+    cntmax2: 30
+    cntmax3: 30
     time0: 0
     time1: 0
     time2: 0
@@ -1618,41 +1776,42 @@ ParticleSystem:
         m_Curve:
         - time: 0
           value: 0
-          inSlope: 18.2094574
-          outSlope: 18.2094574
+          inSlope: 18.209457
+          outSlope: 18.209457
           tangentMode: 0
-        - time: .105454549
+        - time: 0.10545455
           value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: .290909082
-          value: .716216266
+        - time: 0.29090908
+          value: 0.71621627
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: .519963682
+        - time: 0.5199637
           value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: .694668531
-          value: .702702761
+        - time: 0.69466853
+          value: 0.70270276
           inSlope: 0
           outSlope: 0
           tangentMode: 0
-        - time: .853900373
+        - time: 0.8539004
           value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         - time: 1
           value: 0
-          inSlope: -13.6261196
-          outSlope: -13.6261196
+          inSlope: -13.62612
+          outSlope: -13.62612
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1668,11 +1827,82 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 1
   RotationModule:
     enabled: 1
+    x:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    y:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
     curve:
-      scalar: 1.39626336
+      scalar: 1.3962634
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1683,6 +1913,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1693,7 +1924,9 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 3
+    separateAxes: 0
   ColorModule:
     enabled: 0
     gradient:
@@ -1809,6 +2042,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1824,6 +2058,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 1
     tilesX: 1
     tilesY: 1
@@ -1850,6 +2085,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1865,6 +2101,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     y:
       scalar: 0
@@ -1883,6 +2120,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1898,6 +2136,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     z:
       scalar: 0
@@ -1916,6 +2155,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1931,8 +2171,47 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     inWorldSpace: 0
+  InheritVelocityModule:
+    enabled: 0
+    m_Mode: 0
+    m_Curve:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
   ForceModule:
     enabled: 0
     x:
@@ -1952,6 +2231,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -1967,6 +2247,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     y:
       scalar: 0
@@ -1985,6 +2266,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -2000,6 +2282,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     z:
       scalar: 0
@@ -2018,6 +2301,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -2033,6 +2317,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     inWorldSpace: 0
     randomizePerFrame: 0
@@ -2058,6 +2343,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -2073,6 +2359,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     y:
       scalar: 1
@@ -2091,6 +2378,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -2106,6 +2394,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     z:
       scalar: 1
@@ -2124,6 +2413,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -2139,6 +2429,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     magnitude:
       scalar: 1
@@ -2157,6 +2448,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -2172,6 +2464,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     separateAxis: 0
     inWorldSpace: 0
@@ -2195,6 +2488,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -2210,12 +2504,13 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 1
     range: {x: 0, y: 1}
   RotationBySpeedModule:
     enabled: 0
-    curve:
-      scalar: .785398185
+    x:
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -2231,6 +2526,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -2246,7 +2542,79 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
+    y:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    curve:
+      scalar: 0.7853982
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    separateAxes: 0
     range: {x: 0, y: 1}
   ColorBySpeedModule:
     enabled: 0
@@ -2347,24 +2715,131 @@ ParticleSystem:
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
+    serializedVersion: 2
     type: 0
+    collisionMode: 0
     plane0: {fileID: 0}
     plane1: {fileID: 0}
     plane2: {fileID: 0}
     plane3: {fileID: 0}
     plane4: {fileID: 0}
     plane5: {fileID: 0}
-    dampen: 0
-    bounce: 1
-    energyLossOnCollision: 0
+    m_Dampen:
+      scalar: 0
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    m_Bounce:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    m_EnergyLossOnCollision:
+      scalar: 0
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
     minKillSpeed: 0
-    particleRadius: .00999999978
+    radiusScale: 1
     collidesWith:
       serializedVersion: 2
       m_Bits: 4294967295
+    maxCollisionShapes: 256
     quality: 0
-    voxelSize: .5
+    voxelSize: 0.5
     collisionMessages: 0
+    collidesWithDynamic: 1
+    interiorCollisions: 1
   SubModule:
     enabled: 0
     subEmitterBirth: {fileID: 0}
@@ -2380,7 +2855,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 214555799}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.20000005, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2403,8 +2878,8 @@ MonoBehaviour:
     _forceUpdate: 1
   burst:
     enabled: 1
-    threshold: .5
-    interval: .100000001
+    threshold: 0.5
+    interval: 0.1
   burstNumber: 30
   emissionRate:
     enabled: 1
@@ -2425,9 +2900,10 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   size:
     enabled: 0
-    min: .5
+    min: 0.5
     max: 1.5
     curve:
       serializedVersion: 2
@@ -2444,6 +2920,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!1 &227276434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2505,6 +2982,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -2580,6 +3058,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -2601,6 +3080,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -2622,13 +3102,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &249014587
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,28 +3139,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxParticles: 20000
   _emitterCenter: {x: 0, y: 0, z: 0}
-  _emitterSize: {x: .600000024, y: 1.5, z: .600000024}
+  _emitterSize: {x: 0.6, y: 1.5, z: 0.6}
   _throttle: 0
   _life: 8
-  _lifeRandomness: .600000024
+  _lifeRandomness: 0.6
   _initialVelocity: {x: 0, y: 0, z: 0}
-  _directionSpread: .200000003
+  _directionSpread: 0.2
   _speedRandomness: 1
   _acceleration: {x: 0, y: 0, z: 0}
-  _drag: 1.24000001
+  _drag: 1.24
   _spin: 80
   _speedToSpin: 600
-  _spinRandomness: .300000012
-  _noiseAmplitude: .800000012
-  _noiseFrequency: .699999988
-  _noiseMotion: .800000012
+  _spinRandomness: 0.3
+  _noiseAmplitude: 0.8
+  _noiseFrequency: 0.7
+  _noiseMotion: 0.8
   _shapes:
   - {fileID: 4300006, guid: 7977aa2e23a3b4949b0dec50b282bc9b, type: 3}
   - {fileID: 4300004, guid: 7977aa2e23a3b4949b0dec50b282bc9b, type: 3}
   - {fileID: 4300010, guid: 7977aa2e23a3b4949b0dec50b282bc9b, type: 3}
   - {fileID: 4300008, guid: 7977aa2e23a3b4949b0dec50b282bc9b, type: 3}
-  _scale: .5
-  _scaleRandomness: .731999993
+  _scale: 0.5
+  _scaleRandomness: 0.732
   _material: {fileID: 2100000, guid: bfa5018f006cf0d4b98424ce21224f02, type: 2}
   _castShadows: 0
   _receiveShadows: 0
@@ -2695,7 +3176,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 249014587}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.39999998, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2728,28 +3209,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxParticles: 40000
-  _emitterCenter: {x: 0, y: 1.39999998, z: 0}
+  _emitterCenter: {x: 0, y: 1.4, z: 0}
   _emitterSize: {x: 20, y: 5, z: 20}
   _throttle: 0
   _life: 6
-  _lifeRandomness: .600000024
+  _lifeRandomness: 0.6
   _initialVelocity: {x: 0, y: 0, z: 0}
-  _directionSpread: .200000003
-  _speedRandomness: .5
+  _directionSpread: 0.2
+  _speedRandomness: 0.5
   _acceleration: {x: 0, y: 0, z: 0}
-  _drag: .100000001
+  _drag: 0.1
   _spin: 100
   _speedToSpin: 180
-  _spinRandomness: .5
-  _noiseAmplitude: .0399999991
-  _noiseFrequency: .200000003
+  _spinRandomness: 0.5
+  _noiseAmplitude: 0.04
+  _noiseFrequency: 0.2
   _noiseMotion: 1
   _shapes:
   - {fileID: 4300006, guid: d156dcf56f86f404393203fbed35c031, type: 3}
   - {fileID: 4300004, guid: d156dcf56f86f404393203fbed35c031, type: 3}
   - {fileID: 4300002, guid: d156dcf56f86f404393203fbed35c031, type: 3}
-  _scale: .180000007
-  _scaleRandomness: .5
+  _scale: 0.18
+  _scaleRandomness: 0.5
   _material: {fileID: 2100000, guid: 5903ea7755514432cb86b7e3f00f2477, type: 2}
   _castShadows: 0
   _receiveShadows: 0
@@ -2822,13 +3303,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .850000024
+      value: 0.85
       inSlope: 0
-      outSlope: 81.5000076
+      outSlope: 81.50001
       tangentMode: 21
-    - time: .099999994
+    - time: 0.099999994
       value: 9
-      inSlope: 81.5000076
+      inSlope: 81.50001
       outSlope: -0
       tangentMode: 21
     - time: 1
@@ -2838,6 +3319,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -2902,6 +3384,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -2916,18 +3399,19 @@ MonoBehaviour:
         inSlope: 0
         outSlope: -0
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 0
         inSlope: 0
         outSlope: 1
         tangentMode: 21
       - time: 1
-        value: .5
+        value: 0.5
         inSlope: 1
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -2949,13 +3433,14 @@ MonoBehaviour:
         tangentMode: 10
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 1
   headroom: 0
   dynamicRange: 20
   lowerBound: -17
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &336053679
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2988,6 +3473,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -3046,7 +3532,7 @@ MonoBehaviour:
       inSlope: Infinity
       outSlope: Infinity
       tangentMode: 31
-    - time: .00100000005
+    - time: 0.001
       value: 1
       inSlope: Infinity
       outSlope: Infinity
@@ -3058,6 +3544,7 @@ MonoBehaviour:
       tangentMode: 31
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -3152,6 +3639,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -3216,6 +3704,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -3237,6 +3726,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -3258,13 +3748,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &385865005
 GameObject:
   m_ObjectHideFlags: 0
@@ -3338,18 +3829,19 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .00999999978
+    - time: 0.01
       value: 0
       inSlope: 0
-      outSlope: 1.01010096
+      outSlope: 1.010101
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 1.01010096
-      outSlope: 1.01010096
+      inSlope: 1.010101
+      outSlope: 1.010101
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -3414,6 +3906,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -3435,6 +3928,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -3456,13 +3950,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &391101505
 GameObject:
   m_ObjectHideFlags: 0
@@ -3491,20 +3986,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _throttle: 1
-  _width: .0199999996
-  _minLength: .00999999978
-  _maxLength: .0500000007
-  _minRadius: .200000003
+  _width: 0.02
+  _minLength: 0.01
+  _maxLength: 0.05
+  _minRadius: 0.2
   _maxRadius: 5
-  _slide: .200000003
+  _slide: 0.2
   _arcAngle: 60
   _rotationSpeed: 30
   _noiseFrequency: 4
-  _noiseMotion: .5
-  _albedoColor: {r: .397058845, g: .397058845, b: .397058845, a: 0}
+  _noiseMotion: 0.5
+  _albedoColor: {r: 0.39705884, g: 0.39705884, b: 0.39705884, a: 0}
   _metallic: 0
   _smoothness: 0
-  _emissionColor: {r: .927996576, g: 1.34328413, b: 1.75288236, a: 1}
+  _emissionColor: {r: 0.9279966, g: 1.3432841, b: 1.7528824, a: 1}
   _randomSeed: 10
   _mesh: {fileID: 11400000, guid: 46ea815d31452ba4d93c01457d179094, type: 2}
   _shader: {fileID: 4800000, guid: d1e9c9d06b41e458da4ccd2c17693cfa, type: 3}
@@ -3515,7 +4010,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 391101505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3559,9 +4054,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d637268abbbb5428e991dd9ec93136f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionFrequency: .300000012
-  rotationFrequency: .300000012
-  positionAmount: .300000012
+  positionFrequency: 0.3
+  rotationFrequency: 0.3
+  positionAmount: 0.3
   rotationAmount: 10
   positionComponents: {x: 1, y: 1, z: 1}
   rotationComponents: {x: 1, y: 1, z: 1}
@@ -3640,18 +4135,19 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .100000001
+    - time: 0.1
       value: 0
       inSlope: 0
-      outSlope: 1.11111116
+      outSlope: 1.1111112
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 1.11111116
+      inSlope: 1.1111112
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -3716,6 +4212,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -3737,6 +4234,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -3758,13 +4256,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .150000006
+      m_RotationOrder: 4
+  sensitivity: 0.15
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &448481653
 GameObject:
   m_ObjectHideFlags: 0
@@ -3820,8 +4319,8 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 1
       tangentMode: 21
-    - time: .5
-      value: .5
+    - time: 0.5
+      value: 0.5
       inSlope: 1
       outSlope: 19
       tangentMode: 21
@@ -3832,7 +4331,8 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
-  origin: {x: 0, y: .00999999978, z: .00999999978}
+    m_RotationOrder: 4
+  origin: {x: 0, y: 0.01, z: 0.01}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
     m_PersistentCalls:
@@ -3896,6 +4396,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -3917,6 +4418,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -3938,13 +4440,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &448481657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3970,7 +4473,7 @@ MonoBehaviour:
       inSlope: Infinity
       outSlope: Infinity
       tangentMode: 31
-    - time: .00100000005
+    - time: 0.001
       value: 1
       inSlope: Infinity
       outSlope: Infinity
@@ -3982,6 +4485,7 @@ MonoBehaviour:
       tangentMode: 31
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -4078,21 +4582,22 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: 2.99999976
-      outSlope: 2.99999976
+      inSlope: 2.9999998
+      outSlope: 2.9999998
       tangentMode: 21
-    - time: .150000006
-      value: .449999988
-      inSlope: 2.99999976
-      outSlope: .0588235445
+    - time: 0.15
+      value: 0.45
+      inSlope: 2.9999998
+      outSlope: 0.058823545
       tangentMode: 21
     - time: 1
-      value: .5
-      inSlope: .0588235445
-      outSlope: .0588235408
+      value: 0.5
+      inSlope: 0.058823545
+      outSlope: 0.05882354
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -4168,6 +4673,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 1
     _midiChannel: 16
@@ -4182,18 +4688,19 @@ MonoBehaviour:
         inSlope: 0
         outSlope: -0
         tangentMode: 21
-      - time: .550000012
+      - time: 0.55
         value: 0
         inSlope: 0
-        outSlope: 2.22222233
+        outSlope: 2.2222223
         tangentMode: 21
       - time: 1
         value: 1
-        inSlope: 2.22222233
+        inSlope: 2.2222223
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -4206,27 +4713,28 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: .333333313
+        outSlope: 0.3333333
         tangentMode: 21
-      - time: .450000018
-        value: .149999991
-        inSlope: .333333313
-        outSlope: 2.70930212e-08
+      - time: 0.45000002
+        value: 0.14999999
+        inSlope: 0.3333333
+        outSlope: 0.000000027093021
         tangentMode: 21
       - time: 1
-        value: .150000006
-        inSlope: 2.70930212e-08
+        value: 0.15
+        inSlope: 0.000000027093021
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .939999998
-  decaySpeed: .300000012
+      m_RotationOrder: 4
+  sensitivity: 0.94
+  decaySpeed: 0.3
   showAudioOptions: 1
   headroom: 0
   dynamicRange: 20
   lowerBound: -17
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &463417436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4248,17 +4756,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .100000001
+      value: 0.1
       inSlope: 0
-      outSlope: .49999997
+      outSlope: 0.49999997
       tangentMode: 21
     - time: 1
-      value: .599999964
-      inSlope: .49999997
+      value: 0.59999996
+      inSlope: 0.49999997
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -4359,7 +4868,7 @@ MonoBehaviour:
       inSlope: Infinity
       outSlope: Infinity
       tangentMode: 31
-    - time: .00100000005
+    - time: 0.001
       value: 1
       inSlope: Infinity
       outSlope: Infinity
@@ -4371,6 +4880,7 @@ MonoBehaviour:
       tangentMode: 31
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -4429,18 +4939,19 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .100000001
+    - time: 0.1
       value: 0
       inSlope: 0
-      outSlope: 1.11111116
+      outSlope: 1.1111112
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 1.11111116
+      inSlope: 1.1111112
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -4505,6 +5016,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -4526,6 +5038,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -4547,13 +5060,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .150000006
+      m_RotationOrder: 4
+  sensitivity: 0.15
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &473082986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4570,8 +5084,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  threshold: .0500000007
-  interval: .100000001
+  threshold: 0.05
+  interval: 0.1
   target:
     m_PersistentCalls:
       m_Calls:
@@ -4629,8 +5143,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d637268abbbb5428e991dd9ec93136f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionFrequency: .800000012
-  rotationFrequency: .600000024
+  positionFrequency: 0.8
+  rotationFrequency: 0.6
   positionAmount: 0
   rotationAmount: 0
   positionComponents: {x: 1, y: 1, z: 1}
@@ -4656,7 +5170,7 @@ MonoBehaviour:
   positionFrequency:
     enabled: 0
     min: 0
-    max: .100000001
+    max: 0.1
     curve:
       serializedVersion: 2
       m_Curve:
@@ -4672,10 +5186,11 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   rotationFrequency:
     enabled: 0
     min: 0
-    max: .100000001
+    max: 0.1
     curve:
       serializedVersion: 2
       m_Curve:
@@ -4691,10 +5206,11 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   positionAmount:
     enabled: 1
     min: 0
-    max: .100000001
+    max: 0.1
     curve:
       serializedVersion: 2
       m_Curve:
@@ -4710,6 +5226,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   rotationAmount:
     enabled: 1
     min: 0
@@ -4729,6 +5246,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!1 &492188779
 GameObject:
   m_ObjectHideFlags: 0
@@ -4756,17 +5274,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4583b3be7097b14197f4ffa3cbf714c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 1.29411769, g: 2.32048702, b: 4, a: 1}
-  _minRadius: .850000024
+  _color: {r: 1.2941177, g: 2.320487, b: 4, a: 1}
+  _minRadius: 0.85
   _maxRadius: 8
   _windingNumber: 80
-  _waveAmplitude: .0299999993
-  _waveFrequency: .400000006
+  _waveAmplitude: 0.03
+  _waveFrequency: 0.4
   _waveSpeed: 4
-  _noiseAmplitude: .850000024
-  _noiseFrequency: .319999993
-  _noiseSpeed: .75999999
-  _noiseThreshold: -.200000003
+  _noiseAmplitude: 0.85
+  _noiseFrequency: 0.32
+  _noiseSpeed: 0.76
+  _noiseThreshold: -0.2
   _mesh: {fileID: 11400000, guid: 8832c65a4ecd5da47933bc5b959667fc, type: 2}
   _shader: {fileID: 4800000, guid: dfd37e27c5bf7e1439bf6711a93de3b6, type: 3}
 --- !u!4 &492188781
@@ -4776,7 +5294,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 492188779}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .200000003, z: 0}
+  m_LocalPosition: {x: 0, y: 0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4815,8 +5333,8 @@ MonoBehaviour:
   _spikeExponent: 8
   _spikeFrequency: 2
   _spikeMotion: 2
-  _cutoff: .400000006
-  _color: {r: 1.47061634, g: 6.37890673, b: 8.00000095, a: 1}
+  _cutoff: 0.4
+  _color: {r: 1.4706163, g: 6.3789067, b: 8.000001, a: 1}
   _mesh: {fileID: 11400000, guid: 8370ff78a46164d13be33b82b04169ab, type: 2}
   _shader: {fileID: 4800000, guid: 5fa2f7daa9fd24a82877fe8d6175242f, type: 3}
 --- !u!4 &556449592
@@ -4827,7 +5345,7 @@ Transform:
   m_GameObject: {fileID: 556449590}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .0599999987, y: .0599999987, z: .0599999987}
+  m_LocalScale: {x: 0.06, y: 0.06, z: 0.06}
   m_Children: []
   m_Father: {fileID: 1011179925}
   m_RootOrder: 1
@@ -4866,6 +5384,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     arbitraryVector: {x: 0, y: 1, z: 0}
     randomness: 0
   rotation:
@@ -4887,6 +5406,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     arbitraryVector: {x: 0, y: 1, z: 0}
     randomness: 0
   scale:
@@ -4908,6 +5428,7 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     arbitraryVector: {x: 1, y: 1, z: 1}
     randomness: 0
   addInitialValue: 0
@@ -4941,21 +5462,21 @@ MonoBehaviour:
   _throttle: 0
   _transition: 0
   _angularSpeed: 100
-  _minRadius: .600000024
-  _maxRadius: 1.20000005
+  _minRadius: 0.6
+  _maxRadius: 1.2
   _height: 3
   _scatter: 20
-  _noiseFrequency: .5
+  _noiseFrequency: 0.5
   _noiseMotion: -1
-  _scale: .0799999982
+  _scale: 0.08
   _mesh: {fileID: 11400000, guid: 8d821505460daaf4baf4c9b8d017816f, type: 2}
-  _color: {r: .818663538, g: .822287023, b: .83088237, a: 1}
-  _metallic: .200000003
-  _smoothness: .5
+  _color: {r: 0.81866354, g: 0.822287, b: 0.8308824, a: 1}
+  _metallic: 0.2
+  _smoothness: 0.5
   _albedoTexture: {fileID: 2800000, guid: f6672ca95260c4899876666bd1726356, type: 3}
-  _textureScale: .0799999982
+  _textureScale: 0.08
   _normalTexture: {fileID: 2800000, guid: d1a9f852928a64b17af2f24a73c39a89, type: 3}
-  _normalScale: .800000012
+  _normalScale: 0.8
   _shader: {fileID: 4800000, guid: 48a9bdebdd1d7442db6f8eaa8eb41f7e, type: 3}
 --- !u!4 &575467863
 Transform:
@@ -4964,7 +5485,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 575467861}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.29999995, z: 0}
+  m_LocalPosition: {x: 0, y: 1.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -5007,19 +5528,22 @@ ParticleSystemRenderer:
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
   m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: .5
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_RenderMode: 4
-  m_MaxParticleSize: .5
+  m_SortMode: 0
+  m_MinParticleSize: 0
+  m_MaxParticleSize: 0.5
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
   m_SortingFudge: 0
   m_NormalDirection: 1
-  m_SortMode: 0
+  m_RenderAlignment: 0
+  m_Pivot: {x: 0, y: 0, z: 0}
   m_Mesh: {fileID: 4300006, guid: 19fd098692a084a2494eaf1819ef7336, type: 3}
   m_Mesh1: {fileID: 4300004, guid: 19fd098692a084a2494eaf1819ef7336, type: 3}
   m_Mesh2: {fileID: 4300002, guid: 19fd098692a084a2494eaf1819ef7336, type: 3}
@@ -5030,18 +5554,55 @@ ParticleSystem:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 596052682}
+  serializedVersion: 2
   lengthInSec: 5
-  startDelay: 0
+  startDelay:
+    scalar: 0
+    maxCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    minCurve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      - time: 1
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    minMaxState: 0
   speed: 1
   randomSeed: 0
   looping: 1
   prewarm: 0
   playOnAwake: 1
   moveWithTransform: 0
+  scalingMode: 2
   InitialModule:
+    serializedVersion: 2
     enabled: 1
     startLifetime:
-      scalar: .800000012
+      scalar: 0.8
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5052,19 +5613,21 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .25
+          value: 0.25
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 3
     startSpeed:
-      scalar: .400000006
+      scalar: 0.4
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5080,6 +5643,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5095,6 +5659,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     startColor:
       maxGradient:
@@ -5191,7 +5756,7 @@ ParticleSystem:
         rgba: 4294967295
       minMaxState: 0
     startSize:
-      scalar: .300000012
+      scalar: 0.3
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5202,17 +5767,89 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .333333313
+          value: 0.3333333
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 3
+    startRotationX:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    startRotationY:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
     startRotation:
       scalar: 3.1415925
       maxCurve:
@@ -5225,6 +5862,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5235,15 +5873,17 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 3
+    randomizeRotationDirection: 0
     gravityModifier: 0
-    inheritVelocity: 0
     maxNumParticles: 1000
+    rotation3D: 0
   ShapeModule:
     serializedVersion: 2
     enabled: 1
     type: 0
-    radius: .00999999978
+    radius: 0.01
     angle: 25
     length: 5
     boxX: 1
@@ -5252,9 +5892,16 @@ ParticleSystem:
     arc: 360
     placementMode: 0
     m_Mesh: {fileID: 0}
+    m_MeshRenderer: {fileID: 0}
+    m_SkinnedMeshRenderer: {fileID: 0}
+    m_MeshMaterialIndex: 0
+    m_MeshNormalOffset: 0
+    m_UseMeshMaterialIndex: 0
+    m_UseMeshColors: 1
     randomDirection: 1
   EmissionModule:
     enabled: 1
+    serializedVersion: 2
     m_Type: 0
     rate:
       scalar: 0
@@ -5273,6 +5920,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5288,11 +5936,16 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     cnt0: 30
     cnt1: 30
     cnt2: 30
     cnt3: 30
+    cntmax0: 30
+    cntmax1: 30
+    cntmax2: 30
+    cntmax3: 30
     time0: 0
     time1: 0
     time2: 0
@@ -5307,26 +5960,27 @@ ParticleSystem:
         m_Curve:
         - time: 0
           value: 1
-          inSlope: -.0682920665
-          outSlope: -.0682920665
+          inSlope: -0.06829207
+          outSlope: -0.06829207
           tangentMode: 0
-        - time: .108111992
+        - time: 0.10811199
           value: 1
-          inSlope: .0743965805
-          outSlope: .0743965805
+          inSlope: 0.07439658
+          outSlope: 0.07439658
           tangentMode: 0
-        - time: .245833248
-          value: .62216568
-          inSlope: -1.23885071
-          outSlope: -1.23885071
+        - time: 0.24583325
+          value: 0.6221657
+          inSlope: -1.2388507
+          outSlope: -1.2388507
           tangentMode: 0
         - time: 1
           value: 0
-          inSlope: -2.52242661
-          outSlope: -2.52242661
+          inSlope: -2.5224266
+          outSlope: -2.5224266
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5342,11 +5996,82 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 1
   RotationModule:
     enabled: 1
+    x:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    y:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
     curve:
-      scalar: 1.74532926
+      scalar: 1.7453293
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5357,17 +6082,20 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .099999994
+          value: 0.099999994
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 3
+    separateAxes: 0
   ColorModule:
     enabled: 0
     gradient:
@@ -5483,6 +6211,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5498,6 +6227,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 1
     tilesX: 1
     tilesY: 1
@@ -5524,6 +6254,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5539,6 +6270,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     y:
       scalar: 0
@@ -5557,6 +6289,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5572,6 +6305,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     z:
       scalar: 0
@@ -5590,6 +6324,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5605,8 +6340,47 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     inWorldSpace: 0
+  InheritVelocityModule:
+    enabled: 0
+    m_Mode: 0
+    m_Curve:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
   ForceModule:
     enabled: 1
     x:
@@ -5621,6 +6395,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5631,6 +6406,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     y:
       scalar: 0
@@ -5644,6 +6420,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5654,6 +6431,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     z:
       scalar: 3
@@ -5667,6 +6445,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5677,6 +6456,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     inWorldSpace: 1
     randomizePerFrame: 0
@@ -5702,6 +6482,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5717,6 +6498,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     y:
       scalar: 1
@@ -5735,6 +6517,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5750,6 +6533,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     z:
       scalar: 1
@@ -5768,6 +6552,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5783,6 +6568,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     magnitude:
       scalar: 1
@@ -5801,6 +6587,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5816,6 +6603,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
     separateAxis: 0
     inWorldSpace: 0
@@ -5839,6 +6627,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5854,12 +6643,13 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 1
     range: {x: 0, y: 1}
   RotationBySpeedModule:
     enabled: 0
-    curve:
-      scalar: .785398185
+    x:
+      scalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -5875,6 +6665,7 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minCurve:
         serializedVersion: 2
         m_Curve:
@@ -5890,7 +6681,79 @@ ParticleSystem:
           tangentMode: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
+        m_RotationOrder: 4
       minMaxState: 0
+    y:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    curve:
+      scalar: 0.7853982
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    separateAxes: 0
     range: {x: 0, y: 1}
   ColorBySpeedModule:
     enabled: 0
@@ -5991,24 +6854,131 @@ ParticleSystem:
     range: {x: 0, y: 1}
   CollisionModule:
     enabled: 0
+    serializedVersion: 2
     type: 0
+    collisionMode: 0
     plane0: {fileID: 0}
     plane1: {fileID: 0}
     plane2: {fileID: 0}
     plane3: {fileID: 0}
     plane4: {fileID: 0}
     plane5: {fileID: 0}
-    dampen: 0
-    bounce: 1
-    energyLossOnCollision: 0
+    m_Dampen:
+      scalar: 0
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    m_Bounce:
+      scalar: 1
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
+    m_EnergyLossOnCollision:
+      scalar: 0
+      maxCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 1
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minCurve:
+        serializedVersion: 2
+        m_Curve:
+        - time: 0
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        - time: 1
+          value: 0
+          inSlope: 0
+          outSlope: 0
+          tangentMode: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      minMaxState: 0
     minKillSpeed: 0
-    particleRadius: .00999999978
+    radiusScale: 1
     collidesWith:
       serializedVersion: 2
       m_Bits: 4294967295
+    maxCollisionShapes: 256
     quality: 0
-    voxelSize: .5
+    voxelSize: 0.5
     collisionMessages: 0
+    collidesWithDynamic: 1
+    interiorCollisions: 1
   SubModule:
     enabled: 0
     subEmitterBirth: {fileID: 0}
@@ -6062,20 +7032,20 @@ MonoBehaviour:
   _extent: {x: 30, y: 30}
   _offset: {x: 0, y: 0}
   _positionNoiseMode: 1
-  _positionNoiseAmplitude: .5
-  _positionNoiseFrequency: .100000001
-  _positionNoiseSpeed: .400000006
+  _positionNoiseAmplitude: 0.5
+  _positionNoiseFrequency: 0.1
+  _positionNoiseSpeed: 0.4
   _rotationNoiseMode: 4
   _rotationNoiseAmplitude: 45
-  _rotationNoiseFrequency: .0799999982
-  _rotationNoiseSpeed: .25
+  _rotationNoiseFrequency: 0.08
+  _rotationNoiseSpeed: 0.25
   _scaleNoiseMode: 0
-  _scaleNoiseAmplitude: .5
+  _scaleNoiseAmplitude: 0.5
   _scaleNoiseFrequency: 1
-  _scaleNoiseSpeed: .200000003
+  _scaleNoiseSpeed: 0.2
   _shapes: []
-  _baseScale: {x: .400000006, y: .400000006, z: 2}
-  _scaleRandomness: .5
+  _baseScale: {x: 0.4, y: 0.4, z: 2}
+  _scaleRandomness: 0.5
   _material: {fileID: 2100000, guid: a81334420531b40568771ecb7971ae68, type: 2}
   _castShadows: 0
   _receiveShadows: 0
@@ -6090,8 +7060,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 638400135}
-  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: -.800000012, z: 0}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -6155,20 +7125,20 @@ MonoBehaviour:
   _extent: {x: 30, y: 30}
   _offset: {x: -100, y: 0}
   _positionNoiseMode: 1
-  _positionNoiseAmplitude: .5
-  _positionNoiseFrequency: .100000001
-  _positionNoiseSpeed: .400000006
+  _positionNoiseAmplitude: 0.5
+  _positionNoiseFrequency: 0.1
+  _positionNoiseSpeed: 0.4
   _rotationNoiseMode: 4
   _rotationNoiseAmplitude: 45
-  _rotationNoiseFrequency: .0799999982
-  _rotationNoiseSpeed: .25
+  _rotationNoiseFrequency: 0.08
+  _rotationNoiseSpeed: 0.25
   _scaleNoiseMode: 0
-  _scaleNoiseAmplitude: .5
+  _scaleNoiseAmplitude: 0.5
   _scaleNoiseFrequency: 1
-  _scaleNoiseSpeed: .200000003
+  _scaleNoiseSpeed: 0.2
   _shapes: []
-  _baseScale: {x: .400000006, y: .400000006, z: 2}
-  _scaleRandomness: .5
+  _baseScale: {x: 0.4, y: 0.4, z: 2}
+  _scaleRandomness: 0.5
   _material: {fileID: 2100000, guid: a81334420531b40568771ecb7971ae68, type: 2}
   _castShadows: 0
   _receiveShadows: 0
@@ -6183,7 +7153,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 672775861}
-  m_LocalRotation: {x: -1.1520229e-07, y: -.707106948, z: -.70710659, w: 1.15202347e-07}
+  m_LocalRotation: {x: -0.00000011520229, y: -0.70710695, z: -0.7071066, w: 0.00000011520235}
   m_LocalPosition: {x: 0, y: 3.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -6210,8 +7180,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 675227888}
-  m_LocalRotation: {x: .0436193869, y: 0, z: 0, w: .999048233}
-  m_LocalPosition: {x: 0, y: .0799999982, z: .25}
+  m_LocalRotation: {x: 0.043619387, y: 0, z: 0, w: 0.99904823}
+  m_LocalPosition: {x: 0, y: 0.08, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 83013740}
@@ -6239,7 +7209,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 688525288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.00780185917, y: 0, z: 0}
+  m_LocalPosition: {x: -0.007801859, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2008358585}
@@ -6256,12 +7226,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d637268abbbb5428e991dd9ec93136f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionFrequency: .100000001
-  rotationFrequency: .150000006
-  positionAmount: .200000003
+  positionFrequency: 0.1
+  rotationFrequency: 0.15
+  positionAmount: 0.2
   rotationAmount: 30
   positionComponents: {x: 1, y: 1, z: 1}
-  rotationComponents: {x: .699999988, y: 0, z: 1}
+  rotationComponents: {x: 0.7, y: 0, z: 1}
   positionOctave: 2
   rotationOctave: 2
 --- !u!1 &704503799
@@ -6309,8 +7279,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  threshold: .899999976
-  interval: .100000001
+  threshold: 0.9
+  interval: 0.1
   target:
     m_PersistentCalls:
       m_Calls:
@@ -6358,6 +7328,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -6379,6 +7350,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -6400,13 +7372,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &714468677
 GameObject:
   m_ObjectHideFlags: 0
@@ -6462,18 +7435,19 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .00999999978
+    - time: 0.01
       value: 0
       inSlope: 0
-      outSlope: 1.01010096
+      outSlope: 1.010101
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 1.01010096
-      outSlope: 1.01010096
+      inSlope: 1.010101
+      outSlope: 1.010101
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -6538,6 +7512,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -6559,6 +7534,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -6571,11 +7547,11 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: 2.22222209
+        outSlope: 2.222222
         tangentMode: 21
-      - time: .450000018
+      - time: 0.45000002
         value: 1
-        inSlope: 2.22222209
+        inSlope: 2.222222
         outSlope: -0
         tangentMode: 21
       - time: 1
@@ -6585,13 +7561,14 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .100000001
+      m_RotationOrder: 4
+  sensitivity: 0.1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &714468681
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6617,7 +7594,7 @@ MonoBehaviour:
       inSlope: Infinity
       outSlope: Infinity
       tangentMode: 31
-    - time: .0100000016
+    - time: 0.010000002
       value: 1
       inSlope: Infinity
       outSlope: Infinity
@@ -6629,6 +7606,7 @@ MonoBehaviour:
       tangentMode: 31
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -6717,7 +7695,7 @@ MonoBehaviour:
       inSlope: Infinity
       outSlope: Infinity
       tangentMode: 31
-    - time: .00100000005
+    - time: 0.001
       value: 1
       inSlope: Infinity
       outSlope: Infinity
@@ -6729,6 +7707,7 @@ MonoBehaviour:
       tangentMode: 31
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -6804,6 +7783,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -6825,6 +7805,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -6846,13 +7827,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .5
+      m_RotationOrder: 4
+  sensitivity: 0.5
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &720881118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6869,8 +7851,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  color1: {r: 6, g: 1.80882347, b: 1.80882347, a: 0}
-  color2: {r: 6, g: 1.80882347, b: 1.80882347, a: 1}
+  color1: {r: 6, g: 1.8088235, b: 1.8088235, a: 0}
+  color2: {r: 6, g: 1.8088235, b: 1.8088235, a: 1}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -6886,6 +7868,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   target:
     m_PersistentCalls:
       m_Calls:
@@ -6955,15 +7938,16 @@ MonoBehaviour:
     - time: 0
       value: 0
       inSlope: 0
-      outSlope: .200000003
+      outSlope: 0.2
       tangentMode: 21
     - time: 1
-      value: .200000003
-      inSlope: .200000003
+      value: 0.2
+      inSlope: 0.2
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -7020,15 +8004,16 @@ MonoBehaviour:
     - time: 0
       value: 0
       inSlope: 0
-      outSlope: .049999997
+      outSlope: 0.049999997
       tangentMode: 21
     - time: 1
-      value: .049999997
-      inSlope: .049999997
+      value: 0.049999997
+      inSlope: 0.049999997
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -7093,6 +8078,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -7114,6 +8100,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -7135,13 +8122,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &734377795
 GameObject:
   m_ObjectHideFlags: 0
@@ -7170,20 +8158,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _throttle: 1
-  _width: .0299999993
-  _minLength: .00999999978
-  _maxLength: .00999999978
-  _minRadius: .200000003
+  _width: 0.03
+  _minLength: 0.01
+  _maxLength: 0.01
+  _minRadius: 0.2
   _maxRadius: 5
-  _slide: .400000006
-  _arcAngle: 58.2000008
+  _slide: 0.4
+  _arcAngle: 58.2
   _rotationSpeed: 30
   _noiseFrequency: 1
-  _noiseMotion: .200000003
-  _albedoColor: {r: .397058845, g: .397058845, b: .397058845, a: 0}
+  _noiseMotion: 0.2
+  _albedoColor: {r: 0.39705884, g: 0.39705884, b: 0.39705884, a: 0}
   _metallic: 0
   _smoothness: 0
-  _emissionColor: {r: 1.75288236, g: .927996576, b: .927996576, a: 1}
+  _emissionColor: {r: 1.7528824, g: 0.9279966, b: 0.9279966, a: 1}
   _randomSeed: 100
   _mesh: {fileID: 11400000, guid: 46ea815d31452ba4d93c01457d179094, type: 2}
   _shader: {fileID: 4800000, guid: d1e9c9d06b41e458da4ccd2c17693cfa, type: 3}
@@ -7194,7 +8182,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 734377795}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .379999995, z: 0}
+  m_LocalPosition: {x: 0, y: 0.38, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7222,7 +8210,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 757409645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .00780185917, y: 0, z: 0}
+  m_LocalPosition: {x: 0.007801859, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 688525289}
@@ -7263,6 +8251,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     arbitraryVector: {x: 0, y: 1, z: 0}
     randomness: 0
   rotation:
@@ -7284,6 +8273,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     arbitraryVector: {x: 0, y: 1, z: 0}
     randomness: 0
   scale:
@@ -7305,6 +8295,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
     arbitraryVector: {x: 1, y: 1, z: 1}
     randomness: 0
   addInitialValue: 1
@@ -7353,8 +8344,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  threshold: .899999976
-  interval: .100000001
+  threshold: 0.9
+  interval: 0.1
   target:
     m_PersistentCalls:
       m_Calls:
@@ -7413,6 +8404,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -7434,6 +8426,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -7455,13 +8448,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &798287655
 GameObject:
   m_ObjectHideFlags: 0
@@ -7491,25 +8485,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxParticles: 6000
   _emitterCenter: {x: 0, y: 0, z: 0}
-  _emitterSize: {x: 2, y: .100000001, z: 2}
+  _emitterSize: {x: 2, y: 0.1, z: 2}
   _throttle: 0
   _life: 5
-  _lifeRandomness: .5
+  _lifeRandomness: 0.5
   _initialVelocity: {x: 0, y: 0, z: 0}
-  _directionSpread: .200000003
-  _speedRandomness: .5
-  _acceleration: {x: 0, y: .5, z: 0}
-  _drag: 1.79999995
+  _directionSpread: 0.2
+  _speedRandomness: 0.5
+  _acceleration: {x: 0, y: 0.5, z: 0}
+  _drag: 1.8
   _spin: 20
   _speedToSpin: 60
-  _spinRandomness: .300000012
-  _noiseAmplitude: .800000012
-  _noiseFrequency: .550000012
-  _noiseMotion: .699999988
+  _spinRandomness: 0.3
+  _noiseAmplitude: 0.8
+  _noiseFrequency: 0.55
+  _noiseMotion: 0.7
   _shapes:
   - {fileID: 4300000, guid: 9693308a3efbb4f70b2e2ca1df26b2e9, type: 3}
-  _scale: .400000006
-  _scaleRandomness: .899999976
+  _scale: 0.4
+  _scaleRandomness: 0.9
   _material: {fileID: 2100000, guid: abd86474d62ac46abb2888538d179e57, type: 2}
   _castShadows: 0
   _receiveShadows: 0
@@ -7557,16 +8551,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4583b3be7097b14197f4ffa3cbf714c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _color: {r: 6.53900003, g: 2.11555886, b: 2.11555886, a: 1}
-  _minRadius: .400000006
+  _color: {r: 6.539, g: 2.1155589, b: 2.1155589, a: 1}
+  _minRadius: 0.4
   _maxRadius: 5
   _windingNumber: 10
-  _waveAmplitude: .200000003
-  _waveFrequency: .100000001
+  _waveAmplitude: 0.2
+  _waveFrequency: 0.1
   _waveSpeed: 4
   _noiseAmplitude: 1.62
-  _noiseFrequency: .140000001
-  _noiseSpeed: .200000003
+  _noiseFrequency: 0.14
+  _noiseSpeed: 0.2
   _noiseThreshold: -2
   _mesh: {fileID: 11400000, guid: 8832c65a4ecd5da47933bc5b959667fc, type: 2}
   _shader: {fileID: 4800000, guid: dfd37e27c5bf7e1439bf6711a93de3b6, type: 3}
@@ -7577,7 +8571,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 854714377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.20000005, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -7647,14 +8641,14 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .117647052, g: .117647052, b: .117647052, a: 0}
+  m_BackGroundColor: {r: 0.11764705, g: 0.11764705, b: 0.11764705, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 1
     height: 1
-  near clip plane: .100000001
+  near clip plane: 0.1
   far clip plane: 100
   field of view: 28
   orthographic: 0
@@ -7670,7 +8664,7 @@ Camera:
   m_HDR: 1
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
-  m_StereoSeparation: .0219999999
+  m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
 --- !u!4 &873665404
 Transform:
@@ -7696,7 +8690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _intensity: 2
-  _sampleRadius: .75
+  _sampleRadius: 0.75
   _rangeCheck: 1
   _fallOffDistance: 100
   _sampleCount: 2
@@ -7712,11 +8706,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6363bba448bf64e60a763433f9ddf81b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _radius1: 1.11000001
+  _radius1: 1.11
   _radius2: 4
-  _intensity1: .402999997
-  _intensity2: .200000003
-  _threshold: .300000012
+  _intensity1: 0.403
+  _intensity2: 0.2
+  _threshold: 0.3
   _temporalFiltering: 0
   _shader: {fileID: 4800000, guid: 5a711a01011934ebcb58ef5ad52159d6, type: 3}
 --- !u!114 &873665407
@@ -7733,38 +8727,40 @@ MonoBehaviour:
   _colorTemp: 0
   _colorTint: 0
   _toneMapping: 1
-  _exposure: .769999981
+  _exposure: 0.77
   _saturation: 1
   _rCurve:
     serializedVersion: 2
     m_Curve:
     - time: 0
       value: 0
-      inSlope: 1.24489784
-      outSlope: 1.24489784
+      inSlope: 1.2448978
+      outSlope: 1.2448978
       tangentMode: 0
     - time: 1
       value: 1
-      inSlope: 1.25533605
-      outSlope: 1.25533605
+      inSlope: 1.255336
+      outSlope: 1.255336
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   _gCurve:
     serializedVersion: 2
     m_Curve:
     - time: 0
       value: 0
-      inSlope: .49999997
-      outSlope: .49999997
+      inSlope: 0.49999997
+      outSlope: 0.49999997
       tangentMode: 0
     - time: 1
       value: 1
-      inSlope: .753634632
-      outSlope: .753634632
+      inSlope: 0.75363463
+      outSlope: 0.75363463
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   _bCurve:
     serializedVersion: 2
     m_Curve:
@@ -7775,11 +8771,12 @@ MonoBehaviour:
       tangentMode: 0
     - time: 1
       value: 1
-      inSlope: 1.27083421
-      outSlope: 1.27083421
+      inSlope: 1.2708342
+      outSlope: 1.2708342
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   _cCurve:
     serializedVersion: 2
     m_Curve:
@@ -7795,6 +8792,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   _fadeColor: {r: 0, g: 0, b: 0, a: 0}
   _forceFade: 0
   _ditherMode: 1
@@ -7810,7 +8808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc18a55c333d51489e5ee49b3cbff50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _falloff: .449999988
+  _falloff: 0.45
   _shader: {fileID: 4800000, guid: 89a223cbeee1935419811f8736c0a9b3, type: 3}
 --- !u!114 &873665409
 MonoBehaviour:
@@ -7827,8 +8825,8 @@ MonoBehaviour:
   _distance: 5
   _fNumber: 1
   _useCameraFov: 1
-  _focalLength: .0500000007
-  _maxBlur: .0500000007
+  _focalLength: 0.05
+  _maxBlur: 0.05
   _irisAngle: 0
   _sampleCount: 2
   _foregroundBlur: 1
@@ -7845,9 +8843,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e11ef96a8174459fa3d231009ff28f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lateralShift: .500999987
-  _axialStrength: .360000014
-  _axialShift: .0909999982
+  _lateralShift: 0.501
+  _axialStrength: 0.36
+  _axialShift: 0.091
   _axialQuality: 1
   _shader: {fileID: 4800000, guid: 4e3f6504698a346cb971f9ab5286fca9, type: 3}
 --- !u!114 &873665411
@@ -7862,9 +8860,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lineColor: {r: 0, g: 0, b: 0, a: 1}
-  _backgroundColor: {r: .889705896, g: .889705896, b: .889705896, a: 1}
-  _lowThreshold: .189999998
-  _highThreshold: .261999995
+  _backgroundColor: {r: 0.8897059, g: 0.8897059, b: 0.8897059, a: 1}
+  _lowThreshold: 0.19
+  _highThreshold: 0.262
   _depthSensitivity: 2
   _normalSensitivity: 1
   _fallOffDepth: 40
@@ -7882,8 +8880,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _lineColor: {r: 1, g: 1, b: 1, a: 1}
   _backgroundColor: {r: 0, g: 0, b: 0, a: 1}
-  _lowThreshold: .250999987
-  _highThreshold: .324000001
+  _lowThreshold: 0.251
+  _highThreshold: 0.324
   _depthSensitivity: 0
   _normalSensitivity: 1
   _fallOffDepth: 40
@@ -7947,10 +8945,11 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   viewportWidth:
     enabled: 0
     min: 1
-    max: .200000003
+    max: 0.2
     curve:
       serializedVersion: 2
       m_Curve:
@@ -7966,10 +8965,11 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   viewportHeight:
     enabled: 0
     min: 1
-    max: .200000003
+    max: 0.2
     curve:
       serializedVersion: 2
       m_Curve:
@@ -7985,6 +8985,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!114 &873665416
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8000,14 +9001,14 @@ MonoBehaviour:
   _luminanceBlending: 0
   _fallOffDepth: 40
   _backgroundColor: {r: 0, g: 0, b: 0, a: 0}
-  _axis: {x: .577000022, y: .577000022, z: .577000022}
-  _interval: .0199999996
+  _axis: {x: 0.577, y: 0.577, z: 0.577}
+  _interval: 0.02
   _offset: {x: 0, y: 0, z: 0}
   _distortionFrequency: 1
   _distortionAmount: 0
   _modulationMode: 0
   _modulationAxis: {x: 0, y: 0, z: 1}
-  _modulationFrequency: .200000003
+  _modulationFrequency: 0.2
   _modulationSpeed: 1
   _modulationExponent: 24
   _shader: {fileID: 4800000, guid: 0b28d88716f604cfcaf7c4121ff9a6ad, type: 3}
@@ -8022,20 +9023,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd9623f651504dedb56bf70950956bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lineColor: {r: 6, g: 1.80882347, b: 1.80882347, a: 1}
+  _lineColor: {r: 6, g: 1.8088235, b: 1.8088235, a: 1}
   _luminanceBlending: 0
   _fallOffDepth: 40
   _backgroundColor: {r: 0, g: 0, b: 0, a: 0}
   _axis: {x: 0, y: 1, z: 0}
-  _interval: .0500000007
+  _interval: 0.05
   _offset: {x: 0, y: 0, z: 0}
   _distortionFrequency: 1
   _distortionAmount: 0
   _modulationMode: 1
   _modulationAxis: {x: 0, y: 0, z: 1}
-  _modulationFrequency: .200000003
+  _modulationFrequency: 0.2
   _modulationSpeed: 2
-  _modulationExponent: 2.20000005
+  _modulationExponent: 2.2
   _shader: {fileID: 4800000, guid: 0b28d88716f604cfcaf7c4121ff9a6ad, type: 3}
 --- !u!114 &873665418
 MonoBehaviour:
@@ -8077,20 +9078,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd9623f651504dedb56bf70950956bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _lineColor: {r: .970588088, g: 2.67018318, b: 6, a: 1}
+  _lineColor: {r: 0.9705881, g: 2.6701832, b: 6, a: 1}
   _luminanceBlending: 0
   _fallOffDepth: 40
   _backgroundColor: {r: 0, g: 0, b: 0, a: 0}
   _axis: {x: 1, y: 0, z: 0}
-  _interval: .100000001
+  _interval: 0.1
   _offset: {x: 0, y: 0, z: 0}
-  _distortionFrequency: .540000021
+  _distortionFrequency: 0.54
   _distortionAmount: 0
   _modulationMode: 2
-  _modulationAxis: {x: 0, y: 1, z: .5}
-  _modulationFrequency: .0299999993
+  _modulationAxis: {x: 0, y: 1, z: 0.5}
+  _modulationFrequency: 0.03
   _modulationSpeed: 5
-  _modulationExponent: 4.80000019
+  _modulationExponent: 4.8
   _shader: {fileID: 4800000, guid: 0b28d88716f604cfcaf7c4121ff9a6ad, type: 3}
 --- !u!1 &881077794
 GameObject:
@@ -8122,17 +9123,17 @@ MonoBehaviour:
   _transition: 1
   _rotationSpeed: 0
   _animationSpeed: 0
-  _displacement: .100000001
+  _displacement: 0.1
   _blockHighlight: 4
-  _baseColor: {r: .227941155, g: .227941155, b: .227941155, a: 1}
+  _baseColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
   _emissionColor1: {r: 0, g: 0, b: 0, a: 1}
-  _emissionColor2: {r: 1.0147059, g: 2.26064944, b: 3, a: 1}
-  _metallic: .600000024
-  _smoothness: .899999976
+  _emissionColor2: {r: 1.0147059, g: 2.2606494, b: 3, a: 1}
+  _metallic: 0.6
+  _smoothness: 0.9
   _albedoTexture: {fileID: 2800000, guid: f6672ca95260c4899876666bd1726356, type: 3}
   _textureScale: 4.5
   _normalTexture: {fileID: 2800000, guid: d1a9f852928a64b17af2f24a73c39a89, type: 3}
-  _normalScale: .200000003
+  _normalScale: 0.2
   _mesh: {fileID: 11400000, guid: 02f07a361d9f2e0448b1e28750646c06, type: 2}
   _randomSeed: 0
   _shader: {fileID: 4800000, guid: e1713609d4b97e84d8ee41ab96ae1aa5, type: 3}
@@ -8143,7 +9144,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 881077794}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -.200000003, z: 0}
+  m_LocalPosition: {x: 0, y: -0.2, z: 0}
   m_LocalScale: {x: 16, y: 16, z: 16}
   m_Children: []
   m_Father: {fileID: 0}
@@ -8199,17 +9200,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .0500000007
+      value: 0.05
       inSlope: 0
-      outSlope: .699999988
+      outSlope: 0.7
       tangentMode: 21
     - time: 1
-      value: .75
-      inSlope: .699999988
+      value: 0.75
+      inSlope: 0.7
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -8274,6 +9276,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -8295,6 +9298,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -8316,13 +9320,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &889297953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8344,17 +9349,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .119999997
+      value: 0.12
       inSlope: 0
-      outSlope: .879999995
+      outSlope: 0.88
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: .879999995
+      inSlope: 0.88
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -8433,8 +9439,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  threshold: .899999976
-  interval: .100000001
+  threshold: 0.9
+  interval: 0.1
   target:
     m_PersistentCalls:
       m_Calls:
@@ -8493,6 +9499,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -8514,6 +9521,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -8535,13 +9543,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &927921355
 GameObject:
   m_ObjectHideFlags: 0
@@ -8603,6 +9612,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -8667,6 +9677,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 1
     _midiChannel: 16
@@ -8681,7 +9692,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 2
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 1
         inSlope: 2
         outSlope: -0
@@ -8693,6 +9704,7 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -8707,7 +9719,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: -0
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 0
         inSlope: 0
         outSlope: 2
@@ -8719,13 +9731,14 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 0
   dynamicRange: 20
   lowerBound: -17
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &931277361
 GameObject:
   m_ObjectHideFlags: 0
@@ -8755,11 +9768,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxParticles: 1
-  _emitterCenter: {x: 0, y: 1.29999995, z: -.300000012}
-  _emitterSize: {x: .0599999987, y: .0599999987, z: .0599999987}
-  _throttle: .300000012
+  _emitterCenter: {x: 0, y: 1.3, z: -0.3}
+  _emitterSize: {x: 0.06, y: 0.06, z: 0.06}
+  _throttle: 0.3
   _life: 4
-  _lifeRandomness: .800000012
+  _lifeRandomness: 0.8
   _initialVelocity: {x: 1, y: 0, z: 0}
   _directionSpread: 1
   _speedRandomness: 1
@@ -8767,16 +9780,16 @@ MonoBehaviour:
   _drag: 2
   _spin: 600
   _speedToSpin: 880
-  _spinRandomness: .5
-  _noiseAmplitude: .200000003
-  _noiseFrequency: 1.60000002
-  _noiseMotion: .400000006
+  _spinRandomness: 0.5
+  _noiseAmplitude: 0.2
+  _noiseFrequency: 1.6
+  _noiseMotion: 0.4
   _shapes:
   - {fileID: 4300006, guid: d156dcf56f86f404393203fbed35c031, type: 3}
   - {fileID: 4300004, guid: d156dcf56f86f404393203fbed35c031, type: 3}
   - {fileID: 4300002, guid: d156dcf56f86f404393203fbed35c031, type: 3}
-  _scale: .0599999987
-  _scaleRandomness: .5
+  _scale: 0.06
+  _scaleRandomness: 0.5
   _material: {fileID: 2100000, guid: 519aa4dc5eef64f399139871a10510b5, type: 2}
   _castShadows: 0
   _receiveShadows: 0
@@ -8871,6 +9884,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -8935,6 +9949,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 1
     _midiChannel: 16
@@ -8949,7 +9964,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 2
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 1
         inSlope: 2
         outSlope: -0
@@ -8961,6 +9976,7 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -8975,7 +9991,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: -0
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 0
         inSlope: 0
         outSlope: 2
@@ -8987,13 +10003,14 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 0
   dynamicRange: 20
   lowerBound: -17
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &982773623
 GameObject:
   m_ObjectHideFlags: 0
@@ -9055,6 +10072,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -9119,6 +10137,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -9140,6 +10159,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -9161,13 +10181,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1011179923
 GameObject:
   m_ObjectHideFlags: 0
@@ -9191,7 +10212,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1011179923}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.39999998, z: -.25}
+  m_LocalPosition: {x: 0, y: 1.4, z: -0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2052933342}
@@ -9237,7 +10258,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1100144267}
-  m_LocalRotation: {x: 0, y: .349390119, z: 0, w: -.936977386}
+  m_LocalRotation: {x: 0, y: 0.34939012, z: 0, w: -0.9369774}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9301,6 +10322,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   rotation:
     enabled: 1
     min: 16
@@ -9320,6 +10342,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!1 &1108360198
 GameObject:
   m_ObjectHideFlags: 0
@@ -9360,14 +10383,14 @@ MonoBehaviour:
   _rotationNoiseMode: 0
   _rotationNoiseAmplitude: 45
   _rotationNoiseFrequency: 1
-  _rotationNoiseSpeed: .200000003
+  _rotationNoiseSpeed: 0.2
   _scaleNoiseMode: 0
-  _scaleNoiseAmplitude: .5
+  _scaleNoiseAmplitude: 0.5
   _scaleNoiseFrequency: 1
-  _scaleNoiseSpeed: .200000003
+  _scaleNoiseSpeed: 0.2
   _shapes: []
-  _baseScale: {x: 5, y: .00999999978, z: .00999999978}
-  _scaleRandomness: .100000001
+  _baseScale: {x: 5, y: 0.01, z: 0.01}
+  _scaleRandomness: 0.1
   _material: {fileID: 2100000, guid: 9f6ef42cfa8484c20a8054f4ed2b5601, type: 2}
   _castShadows: 0
   _receiveShadows: 0
@@ -9382,7 +10405,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1108360198}
-  m_LocalRotation: {x: .499999821, y: .500000238, z: .499999911, w: -.500000119}
+  m_LocalRotation: {x: 0.49999982, y: 0.50000024, z: 0.4999999, w: -0.5000001}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -9429,7 +10452,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 10.000001
         tangentMode: 21
-      - time: .099999994
+      - time: 0.099999994
         value: 1
         inSlope: 10.000001
         outSlope: -0
@@ -9441,6 +10464,7 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
 --- !u!1 &1113029985
 GameObject:
   m_ObjectHideFlags: 0
@@ -9490,6 +10514,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -9554,6 +10579,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -9575,6 +10601,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -9589,8 +10616,8 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 1
         tangentMode: 0
-      - time: .5
-        value: .5
+      - time: 0.5
+        value: 0.5
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -9601,13 +10628,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .159999996
+      m_RotationOrder: 4
+  sensitivity: 0.16
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!4 &1113029988
 Transform:
   m_ObjectHideFlags: 0
@@ -9680,6 +10708,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -9694,7 +10723,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 2
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 1
         inSlope: 2
         outSlope: -0
@@ -9706,6 +10735,7 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -9718,11 +10748,11 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: 2.22222209
+        outSlope: 2.222222
         tangentMode: 21
-      - time: .450000018
+      - time: 0.45000002
         value: 1
-        inSlope: 2.22222209
+        inSlope: 2.222222
         outSlope: -0
         tangentMode: 21
       - time: 1
@@ -9732,13 +10762,14 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &1144928209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9762,15 +10793,16 @@ MonoBehaviour:
     - time: 0
       value: 0
       inSlope: 0
-      outSlope: .300000012
+      outSlope: 0.3
       tangentMode: 21
     - time: 1
-      value: .300000012
-      inSlope: .300000012
-      outSlope: 1.16666663
+      value: 0.3
+      inSlope: 0.3
+      outSlope: 1.1666666
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -9826,8 +10858,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1167564511}
-  m_LocalRotation: {x: 0, y: .349390119, z: 0, w: -.936977386}
-  m_LocalPosition: {x: 1.96422386, y: 1.20000005, z: -2.26755905}
+  m_LocalRotation: {x: 0, y: 0.34939012, z: 0, w: -0.9369774}
+  m_LocalPosition: {x: 1.9642239, y: 1.2, z: -2.267559}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 490819588}
@@ -9906,18 +10938,19 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .049999997
+    - time: 0.049999997
       value: 0
       inSlope: 0
-      outSlope: 1.05263162
+      outSlope: 1.0526316
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 1.05263162
-      outSlope: 1.01010096
+      inSlope: 1.0526316
+      outSlope: 1.010101
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -9993,6 +11026,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -10014,6 +11048,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -10028,7 +11063,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 2
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 1
         inSlope: 2
         outSlope: -0
@@ -10040,13 +11075,14 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &1199435712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10072,7 +11108,7 @@ MonoBehaviour:
       inSlope: Infinity
       outSlope: Infinity
       tangentMode: 31
-    - time: .00100000005
+    - time: 0.001
       value: 1
       inSlope: Infinity
       outSlope: Infinity
@@ -10084,6 +11120,7 @@ MonoBehaviour:
       tangentMode: 31
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -10153,23 +11190,24 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .00999999978
+    - time: 0.01
       value: 0
       inSlope: 0
-      outSlope: .157894731
+      outSlope: 0.15789473
       tangentMode: 21
-    - time: .200000003
-      value: .0299999993
-      inSlope: .157894731
+    - time: 0.2
+      value: 0.03
+      inSlope: 0.15789473
       outSlope: -0
       tangentMode: 21
     - time: 1
-      value: .0299999993
+      value: 0.03
       inSlope: 0
-      outSlope: 1.01010096
+      outSlope: 1.010101
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -10228,23 +11266,24 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .00999999978
+    - time: 0.01
       value: 0
       inSlope: 0
-      outSlope: .105263151
+      outSlope: 0.10526315
       tangentMode: 21
-    - time: .200000003
-      value: .0199999996
-      inSlope: .105263151
+    - time: 0.2
+      value: 0.02
+      inSlope: 0.10526315
       outSlope: -0
       tangentMode: 21
     - time: 1
-      value: .0199999996
+      value: 0.02
       inSlope: 0
-      outSlope: 1.01010096
+      outSlope: 1.010101
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -10351,18 +11390,19 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .100000001
+    - time: 0.1
       value: 0
       inSlope: 0
-      outSlope: 1.11111116
+      outSlope: 1.1111112
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 1.11111116
+      inSlope: 1.1111112
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -10427,6 +11467,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -10448,6 +11489,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -10469,13 +11511,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .150000006
+      m_RotationOrder: 4
+  sensitivity: 0.15
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1205872125
 GameObject:
   m_ObjectHideFlags: 0
@@ -10539,6 +11582,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -10603,6 +11647,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -10624,6 +11669,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -10645,13 +11691,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &1205872129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10677,7 +11724,7 @@ MonoBehaviour:
       inSlope: Infinity
       outSlope: Infinity
       tangentMode: 31
-    - time: .00100000005
+    - time: 0.001
       value: 1
       inSlope: Infinity
       outSlope: Infinity
@@ -10689,6 +11736,7 @@ MonoBehaviour:
       tangentMode: 31
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -10743,13 +11791,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .400000006
+      value: 0.4
       inSlope: 0
-      outSlope: 46.0000038
+      outSlope: 46.000004
       tangentMode: 21
-    - time: .099999994
+    - time: 0.099999994
       value: 5
-      inSlope: 46.0000038
+      inSlope: 46.000004
       outSlope: -0
       tangentMode: 21
     - time: 1
@@ -10759,6 +11807,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -10854,6 +11903,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -10918,6 +11968,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -10939,6 +11990,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -10960,13 +12012,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &1209548627
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11013,27 +12066,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxParticles: 20000
-  _emitterCenter: {x: 0, y: 1.39999998, z: -2}
+  _emitterCenter: {x: 0, y: 1.4, z: -2}
   _emitterSize: {x: 10, y: 10, z: 10}
   _throttle: 0
   _life: 3
-  _lifeRandomness: .600000024
+  _lifeRandomness: 0.6
   _initialVelocity: {x: 0, y: 0, z: 0}
-  _directionSpread: .200000003
-  _speedRandomness: .5
+  _directionSpread: 0.2
+  _speedRandomness: 0.5
   _acceleration: {x: 0, y: 0, z: 0}
-  _drag: .100000001
+  _drag: 0.1
   _spin: 100
   _speedToSpin: 180
-  _spinRandomness: .5
-  _noiseAmplitude: .200000003
-  _noiseFrequency: .5
+  _spinRandomness: 0.5
+  _noiseAmplitude: 0.2
+  _noiseFrequency: 0.5
   _noiseMotion: 1
   _shapes:
   - {fileID: 4300006, guid: 2435b8e088489402c9a997107b5922e9, type: 3}
   - {fileID: 4300000, guid: 2435b8e088489402c9a997107b5922e9, type: 3}
-  _scale: .600000024
-  _scaleRandomness: .5
+  _scale: 0.6
+  _scaleRandomness: 0.5
   _material: {fileID: 2100000, guid: f6af162d3216545b29ec191102d34343, type: 2}
   _castShadows: 0
   _receiveShadows: 0
@@ -11084,17 +12137,17 @@ MonoBehaviour:
   _transition: 1
   _rotationSpeed: 0
   _animationSpeed: 0
-  _displacement: .100000001
+  _displacement: 0.1
   _blockHighlight: 2
-  _baseColor: {r: .227941155, g: .227941155, b: .227941155, a: 1}
+  _baseColor: {r: 0.22794116, g: 0.22794116, b: 0.22794116, a: 1}
   _emissionColor1: {r: 0, g: 0, b: 0, a: 1}
-  _emissionColor2: {r: 1.0147059, g: 2.26064944, b: 3, a: 1}
-  _metallic: .600000024
-  _smoothness: .899999976
+  _emissionColor2: {r: 1.0147059, g: 2.2606494, b: 3, a: 1}
+  _metallic: 0.6
+  _smoothness: 0.9
   _albedoTexture: {fileID: 2800000, guid: f6672ca95260c4899876666bd1726356, type: 3}
   _textureScale: 4.5
   _normalTexture: {fileID: 2800000, guid: d1a9f852928a64b17af2f24a73c39a89, type: 3}
-  _normalScale: .200000003
+  _normalScale: 0.2
   _mesh: {fileID: 11400000, guid: 02f07a361d9f2e0448b1e28750646c06, type: 2}
   _randomSeed: 10
   _shader: {fileID: 4800000, guid: e1713609d4b97e84d8ee41ab96ae1aa5, type: 3}
@@ -11104,7 +12157,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1241459920}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: -1.62920685e-07}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: -0.00000016292068}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 16, y: 16, z: 16}
   m_Children: []
@@ -11167,10 +12220,11 @@ MonoBehaviour:
     - time: 1
       value: 50
       inSlope: 50
-      outSlope: -212.500015
+      outSlope: -212.50002
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -11235,6 +12289,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 1
     _midiChannel: 16
@@ -11249,28 +12304,29 @@ MonoBehaviour:
         inSlope: 0
         outSlope: -0
         tangentMode: 21
-      - time: .550000012
+      - time: 0.55
         value: 0
         inSlope: 0
-        outSlope: 6.66666794
+        outSlope: 6.666668
         tangentMode: 21
-      - time: .699999988
+      - time: 0.7
         value: 1
-        inSlope: 6.66666794
+        inSlope: 6.666668
         outSlope: -0
         tangentMode: 21
-      - time: .800000012
+      - time: 0.8
         value: 1
         inSlope: 0
-        outSlope: -5.00000048
+        outSlope: -5.0000005
         tangentMode: 21
       - time: 1
         value: 0
-        inSlope: -5.00000048
+        inSlope: -5.0000005
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -11281,29 +12337,30 @@ MonoBehaviour:
       serializedVersion: 2
       m_Curve:
       - time: 0
-        value: .159999996
+        value: 0.16
         inSlope: 0
         outSlope: -0
         tangentMode: 21
-      - time: .800000012
-        value: .159999996
+      - time: 0.8
+        value: 0.16
         inSlope: 0
-        outSlope: -.300000042
+        outSlope: -0.30000004
         tangentMode: 21
       - time: 1
-        value: .099999994
-        inSlope: -.300000042
+        value: 0.099999994
+        inSlope: -0.30000004
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 1
   headroom: 0
   dynamicRange: 20
   lowerBound: -17
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1281089569
 GameObject:
   m_ObjectHideFlags: 0
@@ -11349,8 +12406,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  threshold: .899999976
-  interval: .100000001
+  threshold: 0.9
+  interval: 0.1
   target:
     m_PersistentCalls:
       m_Calls:
@@ -11398,6 +12455,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -11419,6 +12477,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -11440,13 +12499,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1309922100
 GameObject:
   m_ObjectHideFlags: 0
@@ -11497,17 +12557,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .0500000007
+      value: 0.05
       inSlope: 0
-      outSlope: .949999988
+      outSlope: 0.95
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: .949999988
+      inSlope: 0.95
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -11583,6 +12644,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 1
     _midiChannel: 16
@@ -11595,15 +12657,16 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: .5
+        outSlope: 0.5
         tangentMode: 21
       - time: 1
-        value: .5
-        inSlope: .5
+        value: 0.5
+        inSlope: 0.5
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -11616,22 +12679,23 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: .5
+        outSlope: 0.5
         tangentMode: 21
       - time: 1
-        value: .5
-        inSlope: .5
+        value: 0.5
+        inSlope: 0.5
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .400000006
+      m_RotationOrder: 4
+  sensitivity: 0.4
   decaySpeed: 1
   showAudioOptions: 1
   headroom: 0
   dynamicRange: 20
   lowerBound: -17
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1314805346
 GameObject:
   m_ObjectHideFlags: 0
@@ -11693,6 +12757,7 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -11757,6 +12822,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -11778,6 +12844,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -11792,25 +12859,26 @@ MonoBehaviour:
         inSlope: 0
         outSlope: -0
         tangentMode: 21
-      - time: .550000012
+      - time: 0.55
         value: 0
         inSlope: 0
-        outSlope: 2.22222233
+        outSlope: 2.2222223
         tangentMode: 21
       - time: 1
         value: 1
-        inSlope: 2.22222233
+        inSlope: 2.2222223
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .0799999982
+      m_RotationOrder: 4
+  sensitivity: 0.08
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1339759823
 GameObject:
   m_ObjectHideFlags: 0
@@ -11866,7 +12934,7 @@ MonoBehaviour:
       inSlope: Infinity
       outSlope: Infinity
       tangentMode: 31
-    - time: .00100000005
+    - time: 0.001
       value: 1
       inSlope: Infinity
       outSlope: Infinity
@@ -11878,6 +12946,7 @@ MonoBehaviour:
       tangentMode: 31
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -11938,8 +13007,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  color1: {r: .970588088, g: 2.67018318, b: 6, a: 0}
-  color2: {r: .970588088, g: 2.67018318, b: 6, a: 1}
+  color1: {r: 0.9705881, g: 2.6701832, b: 6, a: 0}
+  color2: {r: 0.9705881, g: 2.6701832, b: 6, a: 1}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -11955,6 +13024,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   target:
     m_PersistentCalls:
       m_Calls:
@@ -12002,6 +13072,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -12023,6 +13094,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -12044,13 +13116,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .5
+      m_RotationOrder: 4
+  sensitivity: 0.5
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1353863405
 GameObject:
   m_ObjectHideFlags: 0
@@ -12112,6 +13185,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -12176,6 +13250,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -12197,6 +13272,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -12218,13 +13294,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1356260070
 GameObject:
   m_ObjectHideFlags: 0
@@ -12254,29 +13331,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxParticles: 1
-  _emitterCenter: {x: 0, y: 1.20000005, z: -.5}
-  _emitterSize: {x: .100000001, y: .100000001, z: .100000001}
+  _emitterCenter: {x: 0, y: 1.2, z: -0.5}
+  _emitterSize: {x: 0.1, y: 0.1, z: 0.1}
   _throttle: 0
   _life: 4
-  _lifeRandomness: .600000024
+  _lifeRandomness: 0.6
   _initialVelocity: {x: 0, y: 0, z: -2}
   _directionSpread: 1
-  _speedRandomness: .5
+  _speedRandomness: 0.5
   _acceleration: {x: 0, y: 0, z: 0}
-  _drag: .939999998
+  _drag: 0.94
   _spin: 20
   _speedToSpin: 1000
-  _spinRandomness: .300000012
-  _noiseAmplitude: .800000012
+  _spinRandomness: 0.3
+  _noiseAmplitude: 0.8
   _noiseFrequency: 1
-  _noiseMotion: .689999998
+  _noiseMotion: 0.69
   _shapes:
   - {fileID: 4300006, guid: d156dcf56f86f404393203fbed35c031, type: 3}
   - {fileID: 4300004, guid: d156dcf56f86f404393203fbed35c031, type: 3}
   - {fileID: 4300002, guid: d156dcf56f86f404393203fbed35c031, type: 3}
   - {fileID: 4300000, guid: d156dcf56f86f404393203fbed35c031, type: 3}
-  _scale: .600000024
-  _scaleRandomness: .5
+  _scale: 0.6
+  _scaleRandomness: 0.5
   _material: {fileID: 2100000, guid: bca82785ec4e7074f83539b4aff92f17, type: 2}
   _castShadows: 0
   _receiveShadows: 0
@@ -12372,6 +13449,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -12447,6 +13525,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 1
     _midiChannel: 16
@@ -12461,7 +13540,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 2
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 1
         inSlope: 2
         outSlope: -0
@@ -12473,6 +13552,7 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -12487,7 +13567,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: -0
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 0
         inSlope: 0
         outSlope: 2
@@ -12499,13 +13579,14 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 0
   dynamicRange: 20
   lowerBound: -17
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &1364370838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12528,17 +13609,17 @@ MonoBehaviour:
     m_Curve:
     - time: 0
       value: 0
-      inSlope: .139277384
+      inSlope: 0.13927738
       outSlope: -0
       tangentMode: 21
-    - time: .600000024
+    - time: 0.6
       value: 0
       inSlope: 0
-      outSlope: 10.0000038
+      outSlope: 10.000004
       tangentMode: 21
-    - time: .699999988
+    - time: 0.7
       value: 1
-      inSlope: 10.0000038
+      inSlope: 10.000004
       outSlope: -0
       tangentMode: 21
     - time: 1
@@ -12548,6 +13629,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -12598,7 +13680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _particleSystem: {fileID: 596052684}
   _emissionRate: 0
-  _emissionRadius: .00999999978
+  _emissionRadius: 0.01
 --- !u!114 &1375615765
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12611,14 +13693,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _transition: 0
-  _noise1Frequency: .180000007
-  _noise2Frequency: .219999999
-  _noise3Frequency: .400000006
-  _noiseToBodyPosition1: .150000006
+  _noise1Frequency: 0.18
+  _noise2Frequency: 0.22
+  _noise3Frequency: 0.4
+  _noiseToBodyPosition1: 0.15
   _noiseToBodyRotation1: 8
-  _noiseToBodyPosition2: .300000012
+  _noiseToBodyPosition2: 0.3
   _noiseToBodyRotation2: 45
-  _noiseToBodyPosition3: .150000006
+  _noiseToBodyPosition3: 0.15
   _noiseToBodyRotation3: 10
   _spineBend1: 35
   _noiseToSpineRotation1: {x: 8, y: 8, z: 8}
@@ -12626,21 +13708,21 @@ MonoBehaviour:
   _noiseToSpineRotation2: {x: 50, y: 60, z: 15}
   _spineBend3: -20
   _noiseToSpineRotation3: {x: 10, y: 20, z: 10}
-  _handTarget1: {x: .200000003, y: .0399999991, z: .349999994}
-  _noiseToHandTarget1: .0799999982
-  _handTarget2: {x: .400000006, y: 0, z: .150000006}
-  _noiseToHandTarget2: {x: .300000012, y: .400000006, z: .150000006}
-  _leftHandTarget3: {x: -.349999994, y: .639999986, z: -.0599999987}
-  _rightHandTarget3: {x: .330000013, y: .560000002, z: -.0299999993}
-  _noiseToHandTarget3: .0500000007
+  _handTarget1: {x: 0.2, y: 0.04, z: 0.35}
+  _noiseToHandTarget1: 0.08
+  _handTarget2: {x: 0.4, y: 0, z: 0.15}
+  _noiseToHandTarget2: {x: 0.3, y: 0.4, z: 0.15}
+  _leftHandTarget3: {x: -0.35, y: 0.64, z: -0.06}
+  _rightHandTarget3: {x: 0.33, y: 0.56, z: -0.03}
+  _noiseToHandTarget3: 0.05
   _noiseToHandRotation: 40
-  _FootTarget1: {x: .119999997, y: -.439999998, z: .0500000007}
-  _noiseToFootTarget1: .100000001
-  _FootTarget2: {x: .200000003, y: -.550000012, z: 0}
-  _noiseToFootTarget2: {x: .200000003, y: .319999993, z: .400000006}
-  _leftFootTarget3: {x: -.209999993, y: -.730000019, z: -.170000002}
-  _rightFootTarget3: {x: .25, y: -.629999995, z: -.239999995}
-  _noiseToFootTarget3: .200000003
+  _FootTarget1: {x: 0.12, y: -0.44, z: 0.05}
+  _noiseToFootTarget1: 0.1
+  _FootTarget2: {x: 0.2, y: -0.55, z: 0}
+  _noiseToFootTarget2: {x: 0.2, y: 0.32, z: 0.4}
+  _leftFootTarget3: {x: -0.21, y: -0.73, z: -0.17}
+  _rightFootTarget3: {x: 0.25, y: -0.63, z: -0.24}
+  _noiseToFootTarget3: 0.2
   _noiseToFootRotation: 40
   _noiseToThumbRotation: 15
   _noiseToFingerRotation: 90
@@ -12655,11 +13737,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0c819c2b1564f429e1161f8fcca8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _emission: {r: 1.52205884, g: 1.65456355, b: 3, a: 1}
+  _emission: {r: 1.5220588, g: 1.6545635, b: 3, a: 1}
   _noiseFrequency: {x: 3, y: 64}
-  _noiseMotion: {x: 4, y: .800000012}
-  _cutoffOffset: .300000012
-  _gradient: .699999988
+  _noiseMotion: {x: 4, y: 0.8}
+  _cutoffOffset: 0.3
+  _gradient: 0.7
   _transition: 0
 --- !u!1 &1414053764
 GameObject:
@@ -12708,7 +13790,7 @@ MonoBehaviour:
     _name: 
     _forceUpdate: 0
   color1: {r: 0, g: 0, b: 0, a: 0}
-  color2: {r: 1.0147059, g: 2.26064944, b: 3, a: 1}
+  color2: {r: 1.0147059, g: 2.2606494, b: 3, a: 1}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -12717,7 +13799,7 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 2
       tangentMode: 21
-    - time: .5
+    - time: 0.5
       value: 1
       inSlope: 2
       outSlope: -0
@@ -12729,6 +13811,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   target:
     m_PersistentCalls:
       m_Calls:
@@ -12787,6 +13870,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -12808,6 +13892,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -12829,13 +13914,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &1414053768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12853,7 +13939,7 @@ MonoBehaviour:
     _name: 
     _forceUpdate: 0
   color1: {r: 0, g: 0, b: 0, a: 0}
-  color2: {r: .507352889, g: 0, b: 0, a: 1}
+  color2: {r: 0.5073529, g: 0, b: 0, a: 1}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -12862,7 +13948,7 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .5
+    - time: 0.5
       value: 0
       inSlope: 0
       outSlope: 2
@@ -12874,6 +13960,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   target:
     m_PersistentCalls:
       m_Calls:
@@ -13030,6 +14117,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -13051,6 +14139,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -13072,13 +14161,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1481443291
 GameObject:
   m_ObjectHideFlags: 0
@@ -13124,8 +14214,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  threshold: .899999976
-  interval: .100000001
+  threshold: 0.9
+  interval: 0.1
   target:
     m_PersistentCalls:
       m_Calls:
@@ -13173,6 +14263,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -13194,6 +14285,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -13215,13 +14307,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1516929891
 GameObject:
   m_ObjectHideFlags: 0
@@ -13282,6 +14375,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -13303,6 +14397,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -13315,11 +14410,11 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: 2.22222209
+        outSlope: 2.222222
         tangentMode: 21
-      - time: .450000018
+      - time: 0.45000002
         value: 1
-        inSlope: 2.22222209
+        inSlope: 2.222222
         outSlope: -0
         tangentMode: 21
       - time: 1
@@ -13329,13 +14424,14 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &1516929895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13368,6 +14464,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -13527,8 +14624,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  threshold: .899999976
-  interval: .100000001
+  threshold: 0.9
+  interval: 0.1
   target:
     m_PersistentCalls:
       m_Calls:
@@ -13576,6 +14673,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -13597,6 +14695,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -13618,13 +14717,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1565619108
 GameObject:
   m_ObjectHideFlags: 0
@@ -13684,6 +14784,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -13698,7 +14799,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 2
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 1
         inSlope: 2
         outSlope: -0
@@ -13710,6 +14811,7 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -13722,32 +14824,33 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: .13333334
+        outSlope: 0.13333334
         tangentMode: 21
-      - time: .449999988
-        value: .0599999987
-        inSlope: .13333334
+      - time: 0.45
+        value: 0.06
+        inSlope: 0.13333334
         outSlope: -0
         tangentMode: 21
-      - time: .800000012
-        value: .0599999987
+      - time: 0.8
+        value: 0.06
         inSlope: 0
-        outSlope: 4.70000029
+        outSlope: 4.7000003
         tangentMode: 21
       - time: 1
         value: 1
-        inSlope: 4.70000029
+        inSlope: 4.7000003
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1577621605
 GameObject:
   m_ObjectHideFlags: 0
@@ -13821,18 +14924,19 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .00999999978
+    - time: 0.01
       value: 0
       inSlope: 0
-      outSlope: 1.01010096
+      outSlope: 1.010101
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 1.01010096
-      outSlope: 1.01010096
+      inSlope: 1.010101
+      outSlope: 1.010101
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -13897,6 +15001,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -13918,6 +15023,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -13939,13 +15045,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1615373068
 GameObject:
   m_ObjectHideFlags: 0
@@ -14007,6 +15114,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -14071,6 +15179,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -14092,6 +15201,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -14113,13 +15223,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .600000024
+      m_RotationOrder: 4
+  sensitivity: 0.6
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1696759382
 GameObject:
   m_ObjectHideFlags: 0
@@ -14170,17 +15281,18 @@ MonoBehaviour:
     serializedVersion: 2
     m_Curve:
     - time: 0
-      value: .0799999982
+      value: 0.08
       inSlope: 0
-      outSlope: .0900000036
+      outSlope: 0.09
       tangentMode: 21
     - time: 1
-      value: .170000002
-      inSlope: .0900000036
+      value: 0.17
+      inSlope: 0.09
       outSlope: 0
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -14245,6 +15357,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 1
     _midiChannel: 16
@@ -14259,7 +15372,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: 2
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 1
         inSlope: 2
         outSlope: -0
@@ -14271,6 +15384,7 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 0
     _midiChannel: 16
@@ -14283,27 +15397,28 @@ MonoBehaviour:
       - time: 0
         value: 0
         inSlope: 0
-        outSlope: .333333313
+        outSlope: 0.3333333
         tangentMode: 21
-      - time: .450000018
-        value: .149999991
-        inSlope: .333333313
-        outSlope: 2.70930212e-08
+      - time: 0.45000002
+        value: 0.14999999
+        inSlope: 0.3333333
+        outSlope: 0.000000027093021
         tangentMode: 21
       - time: 1
-        value: .150000006
-        inSlope: 2.70930212e-08
+        value: 0.15
+        inSlope: 0.000000027093021
         outSlope: 0
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .949999988
+      m_RotationOrder: 4
+  sensitivity: 0.95
   decaySpeed: 1
   showAudioOptions: 1
   headroom: 0
   dynamicRange: 20
   lowerBound: -17
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1756845620
 GameObject:
   m_ObjectHideFlags: 0
@@ -14349,8 +15464,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  threshold: .899999976
-  interval: .100000001
+  threshold: 0.9
+  interval: 0.1
   target:
     m_PersistentCalls:
       m_Calls:
@@ -14398,6 +15513,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -14419,6 +15535,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -14440,13 +15557,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1780991040
 GameObject:
   m_ObjectHideFlags: 0
@@ -14508,6 +15626,7 @@ MonoBehaviour:
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -14583,6 +15702,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -14604,6 +15724,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -14625,13 +15746,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1823232111
 GameObject:
   m_ObjectHideFlags: 0
@@ -14654,7 +15776,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1823232111}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.20000005, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1100144268}
@@ -14688,26 +15810,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxParticles: 4000
-  _emitterCenter: {x: 0, y: 1.39999998, z: -2}
+  _emitterCenter: {x: 0, y: 1.4, z: -2}
   _emitterSize: {x: 8, y: 8, z: 8}
   _throttle: 0
   _life: 3
-  _lifeRandomness: .600000024
+  _lifeRandomness: 0.6
   _initialVelocity: {x: 0, y: 0, z: 0}
-  _directionSpread: .200000003
-  _speedRandomness: .5
+  _directionSpread: 0.2
+  _speedRandomness: 0.5
   _acceleration: {x: 0, y: 0, z: 0}
-  _drag: .200000003
+  _drag: 0.2
   _spin: 100
   _speedToSpin: 180
-  _spinRandomness: .5
-  _noiseAmplitude: .5
-  _noiseFrequency: .5
+  _spinRandomness: 0.5
+  _noiseAmplitude: 0.5
+  _noiseFrequency: 0.5
   _noiseMotion: 1
   _shapes:
   - {fileID: 4300006, guid: d156dcf56f86f404393203fbed35c031, type: 3}
   - {fileID: 4300004, guid: d156dcf56f86f404393203fbed35c031, type: 3}
-  _scale: .200000003
+  _scale: 0.2
   _scaleRandomness: 0
   _material: {fileID: 2100000, guid: 04b027f2a254b4050af9360ed03cd74a, type: 2}
   _castShadows: 0
@@ -14752,7 +15874,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1881300640}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.39999998, z: 0}
+  m_LocalPosition: {x: 0, y: 1.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 394955179}
@@ -14769,7 +15891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a14f7f9f161074f08b21a82945eb14ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distanceRandomness: .5
+  _distanceRandomness: 0.5
   _yawRange: 90
   _pitchRange: 25
   _bankRange: 20
@@ -14832,6 +15954,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -14853,6 +15976,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -14874,13 +15998,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1987232092
 GameObject:
   m_ObjectHideFlags: 0
@@ -14942,6 +16067,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -15006,6 +16132,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -15027,6 +16154,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -15048,13 +16176,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .600000024
+      m_RotationOrder: 4
+  sensitivity: 0.6
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &1993397530
 GameObject:
   m_ObjectHideFlags: 0
@@ -15115,6 +16244,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -15136,6 +16266,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -15157,13 +16288,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .5
+      m_RotationOrder: 4
+  sensitivity: 0.5
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!114 &1993397533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15188,18 +16320,19 @@ MonoBehaviour:
       inSlope: 0
       outSlope: 0
       tangentMode: 0
-    - time: .100000001
+    - time: 0.1
       value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
     - time: 1
-      value: .00999999978
-      inSlope: -2.77228403
-      outSlope: -2.77228403
+      value: 0.01
+      inSlope: -2.772284
+      outSlope: -2.772284
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &2008358583
 GameObject:
   m_ObjectHideFlags: 0
@@ -15227,8 +16360,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d637268abbbb5428e991dd9ec93136f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionFrequency: .0799999982
-  rotationFrequency: .200000003
+  positionFrequency: 0.08
+  rotationFrequency: 0.2
   positionAmount: 2
   rotationAmount: 0
   positionComponents: {x: 0, y: 0, z: 1}
@@ -15320,18 +16453,19 @@ MonoBehaviour:
       inSlope: 0
       outSlope: -0
       tangentMode: 21
-    - time: .00999999978
+    - time: 0.01
       value: 0
       inSlope: 0
-      outSlope: 1.01010096
+      outSlope: 1.010101
       tangentMode: 21
     - time: 1
       value: 1
-      inSlope: 1.01010096
-      outSlope: 1.01010096
+      inSlope: 1.010101
+      outSlope: 1.010101
       tangentMode: 21
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -15396,6 +16530,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -15417,6 +16552,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -15438,13 +16574,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   sensitivity: 1
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &2048995424
 GameObject:
   m_ObjectHideFlags: 0
@@ -15528,7 +16665,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 6
   m_Type: 2
-  m_Color: {r: .698529422, g: .750507116, b: 1, a: 1}
+  m_Color: {r: 0.6985294, g: 0.7505071, b: 1, a: 1}
   m_Intensity: 3
   m_Range: 10
   m_SpotAngle: 30
@@ -15537,8 +16674,9 @@ Light:
     m_Type: 0
     m_Resolution: -1
     m_Strength: 1
-    m_Bias: .0500000007
-    m_NormalBias: .400000006
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
@@ -15598,6 +16736,7 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   enableColor: 0
   colorGradient:
     key0:
@@ -15701,6 +16840,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -15722,6 +16862,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -15743,13 +16884,14 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .150000006
+      m_RotationOrder: 4
+  sensitivity: 0.15
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &2091387939
 GameObject:
   m_ObjectHideFlags: 0
@@ -15783,19 +16925,19 @@ MonoBehaviour:
   _stacks: 100
   _radius: 4.5
   _height: 80
-  _offset: 513.990967
+  _offset: 513.99097
   _noiseRepeat: 4
-  _noiseFrequency: .200000003
+  _noiseFrequency: 0.2
   _noiseDepth: 4
   _noiseClampMin: -1
   _noiseClampMax: 1
-  _noiseElevation: 1.97000003
-  _noiseWarp: .400000006
+  _noiseElevation: 1.97
+  _noiseWarp: 0.4
   _noiseOffset: {x: 0, y: 0}
   _material: {fileID: 2100000, guid: 9958cf6b658244756b2676fe151d872c, type: 2}
   _castShadows: 0
   _receiveShadows: 0
-  _lineColor: {r: .655999959, g: .0578823723, b: .0578823723, a: 1}
+  _lineColor: {r: 0.65599996, g: 0.057882372, b: 0.057882372, a: 1}
   _debug: 0
   _kernelShader: {fileID: 4800000, guid: e81d8e7c37a014393ada103e7c8f34f7, type: 3}
   _lineShader: {fileID: 4800000, guid: d2c9a9e5d1e6f4367912b7b3c5384aff, type: 3}
@@ -15807,7 +16949,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2091387939}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.20000005, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -15835,8 +16977,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa80439cb71649da975a867da129774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: .200000003
-  _rotation: .0500000007
+  _speed: 0.2
+  _rotation: 0.05
 --- !u!1 &2093001786
 GameObject:
   m_ObjectHideFlags: 0
@@ -15883,8 +17025,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  color1: {r: 1.79999995, g: .47647059, b: .47647059, a: 1}
-  color2: {r: 6, g: 1.58823538, b: 1.58823538, a: 1}
+  color1: {r: 1.8, g: 0.4764706, b: 0.4764706, a: 1}
+  color2: {r: 6, g: 1.5882354, b: 1.5882354, a: 1}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -15900,6 +17042,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   target:
     m_PersistentCalls:
       m_Calls:
@@ -15932,8 +17075,8 @@ MonoBehaviour:
     _reference: {fileID: 0}
     _name: 
     _forceUpdate: 0
-  color1: {r: .650735259, g: 1.04315424, b: 1.5, a: 1}
-  color2: {r: 1.7352941, g: 2.78174448, b: 4, a: 1}
+  color1: {r: 0.65073526, g: 1.0431542, b: 1.5, a: 1}
+  color2: {r: 1.7352941, g: 2.7817445, b: 4, a: 1}
   curve:
     serializedVersion: 2
     m_Curve:
@@ -15949,6 +17092,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   target:
     m_PersistentCalls:
       m_Calls:
@@ -15996,6 +17140,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -16017,6 +17162,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -16031,7 +17177,7 @@ MonoBehaviour:
         inSlope: 0
         outSlope: -0
         tangentMode: 21
-      - time: .5
+      - time: 0.5
         value: 0
         inSlope: 0
         outSlope: 2
@@ -16043,13 +17189,14 @@ MonoBehaviour:
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &2137395533
 GameObject:
   m_ObjectHideFlags: 0
@@ -16111,6 +17258,7 @@ MonoBehaviour:
       tangentMode: 10
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   origin: {x: 0, y: 0, z: 0}
   direction: {x: 1, y: 0, z: 0}
   boolTarget:
@@ -16186,6 +17334,7 @@ MonoBehaviour:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
+    m_RotationOrder: 4
   gain:
     _control: 0
     _midiChannel: 16
@@ -16207,6 +17356,7 @@ MonoBehaviour:
         tangentMode: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
+      m_RotationOrder: 4
   offset:
     _control: 1
     _midiChannel: 16
@@ -16221,25 +17371,26 @@ MonoBehaviour:
         inSlope: 0
         outSlope: -0
         tangentMode: 21
-      - time: .00999999978
+      - time: 0.01
         value: 0
         inSlope: 0
-        outSlope: 1.01010096
+        outSlope: 1.010101
         tangentMode: 21
       - time: 1
         value: 1
-        inSlope: 1.01010096
-        outSlope: 1.01010096
+        inSlope: 1.010101
+        outSlope: 1.010101
         tangentMode: 21
       m_PreInfinity: 2
       m_PostInfinity: 2
-  sensitivity: .200000003
+      m_RotationOrder: 4
+  sensitivity: 0.2
   decaySpeed: 1
   showAudioOptions: 0
   headroom: 1
   dynamicRange: 17
   lowerBound: -60
-  falldown: .5
+  falldown: 0.5
 --- !u!1 &2138539467
 GameObject:
   m_ObjectHideFlags: 0
@@ -16272,24 +17423,24 @@ MonoBehaviour:
   _throttle: 1
   _flow: {x: 0, y: 0, z: 0}
   _attractor: {fileID: 0}
-  _attractorPosition: {x: 0, y: 1.20000005, z: 0}
-  _attractorRadius: .100000001
+  _attractorPosition: {x: 0, y: 1.2, z: 0}
+  _attractorRadius: 0.1
   _forcePerDistance: 2.5
-  _forceRandomness: .300000012
-  _drag: 1.60000002
+  _forceRandomness: 0.3
+  _drag: 1.6
   _noiseAmplitude: 1.5
-  _noiseFrequency: .150000006
-  _noiseSpread: .100000001
-  _noiseMotion: .5
-  _swirlAmplitude: .100000001
-  _swirlFrequency: .150000006
-  _lineWidth: .0199999996
-  _lineWidthRandomness: .75
+  _noiseFrequency: 0.15
+  _noiseSpread: 0.1
+  _noiseMotion: 0.5
+  _swirlAmplitude: 0.1
+  _swirlFrequency: 0.15
+  _lineWidth: 0.02
+  _lineWidthRandomness: 0.75
   _colorMode: 0
-  _color1: {r: 1, g: .102941155, b: .102941155, a: 1}
-  _color2: {r: .713235259, g: .713235259, b: .713235259, a: 1}
-  _metallic: .5
-  _smoothness: .600000024
+  _color1: {r: 1, g: 0.102941155, b: 0.102941155, a: 1}
+  _color2: {r: 0.71323526, g: 0.71323526, b: 0.71323526, a: 1}
+  _metallic: 0.5
+  _smoothness: 0.6
   _castShadows: 0
   _receiveShadows: 0
   _fixTimeStep: 0
@@ -16304,7 +17455,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2138539467}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.20000005, z: 0}
+  m_LocalPosition: {x: 0, y: 1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
