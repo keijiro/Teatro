@@ -132,6 +132,9 @@ namespace Teatro
         [Space]
         [SerializeField] float _noiseToHandRotation;
 
+        Vector3 _leftHandPosition;
+        Vector3 _rightHandPosition;
+
         Vector3 CalculateHandPosition(bool right)
         {
             var hip = _animator.GetBoneTransform(HumanBodyBones.Hips);
@@ -179,6 +182,9 @@ namespace Teatro
         [SerializeField] float _noiseToFootTarget3;
         [Space]
         [SerializeField] float _noiseToFootRotation;
+
+        Vector3 _leftFootPosition;
+        Vector3 _rightFootPosition;
 
         Vector3 CalculateFootPosition(bool right)
         {
@@ -304,6 +310,11 @@ namespace Teatro
             _noise1.Step();
             _noise2.Step();
             _noise3.Step();
+
+            _leftHandPosition = CalculateHandPosition(false);
+            _rightHandPosition = CalculateHandPosition(true);
+            _leftFootPosition = CalculateFootPosition(false);
+            _rightFootPosition = CalculateFootPosition(true);
         }
 
         void OnAnimatorMove()
@@ -319,19 +330,19 @@ namespace Teatro
             _animator.SetBoneLocalRotation(HumanBodyBones.Chest, spine);
 
             _animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
-            _animator.SetIKPosition(AvatarIKGoal.LeftHand, CalculateHandPosition(false));
+            _animator.SetIKPosition(AvatarIKGoal.LeftHand, _leftHandPosition);
             _animator.SetBoneLocalRotation(HumanBodyBones.LeftHand, CalculateHandRotation(false));
 
             _animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
-            _animator.SetIKPosition(AvatarIKGoal.RightHand, CalculateHandPosition(true));
+            _animator.SetIKPosition(AvatarIKGoal.RightHand, _rightHandPosition);
             _animator.SetBoneLocalRotation(HumanBodyBones.RightHand, CalculateHandRotation(true));
 
             _animator.SetIKPositionWeight(AvatarIKGoal.LeftFoot, 1);
-            _animator.SetIKPosition(AvatarIKGoal.LeftFoot, CalculateFootPosition(false));
+            _animator.SetIKPosition(AvatarIKGoal.LeftFoot, _leftFootPosition);
             _animator.SetBoneLocalRotation(HumanBodyBones.LeftFoot, CalculateFootRotation(false));
 
             _animator.SetIKPositionWeight(AvatarIKGoal.RightFoot, 1);
-            _animator.SetIKPosition(AvatarIKGoal.RightFoot, CalculateFootPosition(true));
+            _animator.SetIKPosition(AvatarIKGoal.RightFoot, _rightFootPosition);
             _animator.SetBoneLocalRotation(HumanBodyBones.RightFoot, CalculateFootRotation(true));
 
             UpdateAllFingers();
